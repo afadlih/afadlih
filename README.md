@@ -4,7 +4,7 @@
 - 💞️ I’m looking to collaborate on this page
 - 📫 How to reach me instagram ach.fadlih
 - 😄 Pronouns: he/him
-- ⚡ Fun fact: Everything you search for is on the internetKik untuk menerapkan
+- ⚡ Fun fact: Everything you search for is on the internet
 
 <!---
 afadlih/afadlih is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
