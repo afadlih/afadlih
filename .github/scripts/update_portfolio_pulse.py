@@ -1,7 +1,10 @@
+import html
+import json
 import os
 import re
 import urllib.request
 from datetime import datetime, timezone, timedelta
+from email.utils import parsedate_to_datetime
 
 README_PATH = "README.md"
 START = "<!-- PORTFOLIO-PULSE:START -->"
@@ -10,17 +13,32 @@ GITHUB_USERNAME = os.getenv("GITHUB_REPOSITORY_OWNER", "afadlih")
 
 WIB = timezone(timedelta(hours=7))
 
-FEATURED_REPOS = [
+CURRENT_BUILD_FOCUS = (
+    "FormAI automation flow, validation, execution diagnostics, and operator-facing UX."
+)
+ACTIVE_ENGINEERING_THEME = (
+    "AI workflow reliability: clear contracts, fallback paths, traceable results, and useful errors."
+)
+
+# Keep this curated so the profile README stays portfolio-ready.
+# The script may reorder these by recent activity, but it will not surface random public repos.
+PORTFOLIO_REPOS = [
     {
         "name": "AI Content Strategy",
+        "owner": "afadlih",
+        "repo": "AI-Content-Strategy---SEO-Assistant--Web-App-",
         "url": "https://github.com/afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-",
     },
     {
         "name": "Smart Clothesline IoT",
+        "owner": "afadlih",
+        "repo": "smart-clothesline-iot-system",
         "url": "https://github.com/afadlih/smart-clothesline-iot-system",
     },
     {
         "name": "Profile README",
+        "owner": "afadlih",
+        "repo": "afadlih",
         "url": "https://github.com/afadlih/afadlih",
     },
 ]
@@ -38,36 +56,43 @@ def github_api_json(url: str):
     request.add_header("User-Agent", "portfolio-pulse-updater")
     if token:
         request.add_header("Authorization", f"Bearer {token}")
+
     with urllib.request.urlopen(request, timeout=20) as response:
-        import json
         return json.loads(response.read().decode("utf-8"))
 
 
-def get_recent_public_repos() -> list[dict[str, str]]:
-    url = f"https://api.github.com/users/{GITHUB_USERNAME}/repos?sort=pushed&direction=desc&per_page=30"
-    try:
-        repos = github_api_json(url)
-    except Exception:
-        return FEATURED_REPOS
+def parse_github_date(value: str) -> datetime:
+    return parsedate_to_datetime(value or "Thu, 01 Jan 1970 00:00:00 GMT")
 
-    ignored = {"afadlih"}
-    picked = []
 
-    for repo in repos:
-        if repo.get("private") or repo.get("fork"):
-            continue
-        name = repo.get("name", "")
-        if name in ignored:
-            continue
-        picked.append({"name": name, "url": repo.get("html_url", "")})
-        if len(picked) == 3:
-            break
+def get_highlighted_portfolio_repos() -> list[dict[str, str]]:
+    highlighted = []
 
-    return picked or FEATURED_REPOS
+    for item in PORTFOLIO_REPOS:
+        api_url = f"https://api.github.com/repos/{item['owner']}/{item['repo']}"
+        try:
+            repo = github_api_json(api_url)
+            pushed_at = parse_github_date(repo.get("pushed_at", ""))
+        except Exception:
+            pushed_at = parse_github_date("")
+
+        highlighted.append(
+            {
+                "name": item["name"],
+                "url": item["url"],
+                "pushed_at": pushed_at,
+            }
+        )
+
+    highlighted.sort(key=lambda repo: repo["pushed_at"], reverse=True)
+    return highlighted
 
 
 def repo_links(repos: list[dict[str, str]]) -> str:
-    return " · ".join(f'<a href="{repo["url"]}">{repo["name"]}</a>' for repo in repos)
+    return " · ".join(
+        f'<a href="{html.escape(repo["url"], quote=True)}">{html.escape(repo["name"])}</a>'
+        for repo in repos
+    )
 
 
 def build_pulse_block() -> str:
@@ -79,15 +104,15 @@ def build_pulse_block() -> str:
   </tr>
   <tr>
     <td><b>Current build focus</b></td>
-    <td>FormAI automation flow, validation, execution diagnostics, and operator-facing UX.</td>
+    <td>{html.escape(CURRENT_BUILD_FOCUS)}</td>
   </tr>
   <tr>
     <td><b>Active engineering theme</b></td>
-    <td>AI workflow reliability: clear contracts, fallback paths, traceable results, and useful errors.</td>
+    <td>{html.escape(ACTIVE_ENGINEERING_THEME)}</td>
   </tr>
   <tr>
-    <td><b>Recently active public repos</b></td>
-    <td>{repo_links(get_recent_public_repos())}</td>
+    <td><b>Highlighted portfolio repos</b></td>
+    <td>{repo_links(get_highlighted_portfolio_repos())}</td>
   </tr>
 </table>
 {END}"""
