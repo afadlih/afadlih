@@ -51,7 +51,7 @@
 <table>
   <tr>
     <td><b>Last refresh</b></td>
-    <td>Friday, 22 May 2026, 05:37 WIB</td>
+    <td>Friday, 22 May 2026, 06:04 WIB</td>
   </tr>
   <tr>
     <td><b>Current build focus</b></td>
@@ -62,7 +62,7 @@
     <td>AI workflow reliability: clear contracts, fallback paths, traceable results, and useful errors.</td>
   </tr>
   <tr>
-    <td><b>Recently active public repos</b></td>
+    <td><b>Highlighted portfolio repos</b></td>
     <td><a href="https://github.com/afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-">AI Content Strategy</a> · <a href="https://github.com/afadlih/smart-clothesline-iot-system">Smart Clothesline IoT</a> · <a href="https://github.com/afadlih/afadlih">Profile README</a></td>
   </tr>
 </table>
