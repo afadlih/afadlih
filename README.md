@@ -266,14 +266,9 @@ I try to build with these principles:
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=afadlih&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=8B8BFF&icon_color=8B8BFF&text_color=FFFFFF&border_radius=8" height="155" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=afadlih&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=8B8BFF&text_color=FFFFFF&border_radius=8" height="155" />
-
-<br/>
-
 <img src="https://github-readme-streak-stats.herokuapp.com/?user=afadlih&theme=tokyonight&hide_border=true&background=0D1117&ring=8B8BFF&fire=F97316&currStreakLabel=FFFFFF" width="49%" />
 
-<br/>
+<br/><br/>
 
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=afadlih&bg_color=0D1117&color=8B8BFF&line=8B8BFF&point=F97316&area=true&area_color=8B8BFF20&hide_border=true" width="100%" />
 
