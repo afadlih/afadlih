@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,45:1E1B4B,100:4F46E5&height=190&section=header&text=Ahmad%20Fadlih%20Wahyu%20Sardana&fontSize=38&fontColor=FFFFFF&fontAlignY=38&desc=Fullstack%20Developer%20%7C%20AI%20Product%20Engineering%20%7C%20Automation%20Systems&descSize=14&descAlignY=61&descColor=C7D2FE&animation=fadeIn" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,45:1E1B4B,100:4F46E5&height=190&section=header&text=Ahmad%20Fadlih%20Wahyu%20Sardana&fontSize=38&fontColor=FFFFFF&fontAlignY=38&desc=Fullstack%20Developer%20building%20AI%20automation%20products&descSize=15&descAlignY=61&descColor=C7D2FE&animation=fadeIn" width="100%" />
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=16&duration=2800&pause=900&color=8B8BFF&center=true&vCenter=true&width=900&lines=I+build+AI-powered+product+workflows%2C+not+just+AI+wrappers.;Form+automation+%E2%80%A2+Decision+systems+%E2%80%A2+Realtime+dashboards;Generate+%E2%86%92+Validate+%E2%86%92+Execute+%E2%86%92+Diagnose+%E2%86%92+Improve;Next.js+%E2%80%A2+TypeScript+%E2%80%A2+Python+%E2%80%A2+FastAPI+%E2%80%A2+Gemini+API" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=16&duration=2800&pause=850&color=8B8BFF&center=true&vCenter=true&width=920&lines=I+turn+AI+features+into+usable+product+workflows.;Form+automation+%E2%80%A2+Decision+systems+%E2%80%A2+Realtime+IoT+dashboards;Input+%E2%86%92+Mapping+%E2%86%92+Validation+%E2%86%92+Execution+%E2%86%92+Diagnostics;Next.js+%E2%80%A2+TypeScript+%E2%80%A2+Python+%E2%80%A2+FastAPI+%E2%80%A2+Gemini+API" />
 
 <br/><br/>
 
@@ -22,134 +22,165 @@
 
 ---
 
-## About
-
-I am a D4 Informatics Engineering student focused on **fullstack development**, **AI integration**, and **automation systems**.
-
-My work is centered on turning AI into usable product workflows: structured inputs, rule-based logic, model-assisted generation, validation, execution modes, diagnostics, and clear operator-facing interfaces.
-
-```txt
-Input → Mapping → Rules → AI Fallback → Validation → Execution → Diagnostics
-```
-
-I care about systems that keep working when input is messy, output is uncertain, or users need a clear next step.
-
----
-
-## Core Strengths
+## Portfolio Snapshot
 
 <table>
   <tr>
-    <td><b>AI Product Engineering</b></td>
-    <td>Gemini API integration, prompt design, structured JSON output, fallback handling, scoring logic, and decision workflows.</td>
+    <td><b>Role direction</b></td>
+    <td>Fullstack developer with a strong focus on AI product workflows and automation systems.</td>
   </tr>
   <tr>
-    <td><b>Fullstack Development</b></td>
-    <td>Next.js, TypeScript, Tailwind CSS, FastAPI, API routes, dashboards, forms, and product-oriented UI flows.</td>
+    <td><b>Main strength</b></td>
+    <td>Turning messy input into structured workflows: mapping, rules, AI fallback, validation, execution, and diagnostics.</td>
   </tr>
   <tr>
-    <td><b>Automation Systems</b></td>
-    <td>Rule engines, Google Form automation, CSV contracts, HTTP execution, browser automation, duplicate guards, and diagnostics.</td>
+    <td><b>Best proof</b></td>
+    <td>FormAI, AI Content Strategy Decision System, and Smart Clothesline IoT Dashboard.</td>
   </tr>
   <tr>
-    <td><b>Realtime & IoT Dashboards</b></td>
-    <td>MQTT telemetry, Firebase-backed state, device monitoring, operational alerts, history, analytics, and Telegram commands.</td>
+    <td><b>Preferred stack</b></td>
+    <td>Next.js, TypeScript, Tailwind CSS, Python, FastAPI, Gemini API, Firebase, MQTT.</td>
   </tr>
 </table>
 
 ---
 
-## Featured Work
+## About
 
-### FormAI — AI Form Automation Platform
+I am an Applied Bachelor / D4 Informatics Engineering student who builds **AI-powered web applications, automation tools, and realtime dashboards**.
 
-An end-to-end Google Form automation system designed for operators, not just developers.
+I am not interested in AI features that only generate text and stop there. I focus on product flows where AI has a job inside a bigger system: analyze input, map fields, generate or decide, validate the result, execute safely, and explain what happened.
 
 ```txt
-Analyze Form → Download CSV Template → Fill Data / Rules → Quick Check → Run → Results
+Raw input → Structured data → Rules → AI fallback → Validation → Execution → Diagnostics
 ```
 
-**Why it matters:** FormAI reduces repetitive form-filling work while keeping control visible through validation, execution modes, and row-level diagnostics.
+That is the engineering pattern behind my strongest projects.
 
-**Built around:**
+---
 
-- Google Form analyzer for fields, required inputs, options, and submission structure
-- CSV template workflow with manual overrides and rule-based value generation
-- Gemini-assisted fallback for undefined or ambiguous answers
-- Fast HTTP submission for speed and Smart Browser/Selenium mode for complex forms
-- Duplicate prevention, contract validation, execution logs, and actionable result diagnosis
-- Next.js operator dashboard connected to a Python/FastAPI automation backend
+## What I Can Build
 
-**Stack:** `Python` `FastAPI` `Next.js` `TypeScript` `Gemini API` `Selenium` `CSV Workflow`
+<table>
+  <tr>
+    <td><b>AI Workflow Apps</b></td>
+    <td>Prompt pipelines, Gemini API integration, structured JSON responses, output normalization, scoring, comparison, and recommendation flows.</td>
+  </tr>
+  <tr>
+    <td><b>Automation Platforms</b></td>
+    <td>CSV-based workflows, rule engines, form analyzers, submission engines, duplicate prevention, run history, and row-level diagnostics.</td>
+  </tr>
+  <tr>
+    <td><b>Operator Dashboards</b></td>
+    <td>Clear UI states, quick checks, progress tracking, result summaries, warnings, blockers, and action-oriented error messages.</td>
+  </tr>
+  <tr>
+    <td><b>Realtime Systems</b></td>
+    <td>MQTT telemetry, Firebase-backed state, IoT device monitoring, alerting, history, analytics, and remote-control workflows.</td>
+  </tr>
+</table>
+
+---
+
+## Featured Case Studies
+
+### 1. FormAI — AI Form Automation Platform
+
+**Problem:** Filling repeated Google Forms manually is slow, inconsistent, and hard to audit when many respondents or rules are involved.
+
+**Solution:** An AI-assisted automation platform that analyzes a form, prepares structured input, validates data, runs submission engines, and reports row-level results.
+
+```txt
+Analyze Form → CSV Template → Manual / Rules / AI Values → Quick Check → Run → Diagnostics
+```
+
+**Product highlights:**
+
+- Google Form analyzer for questions, required fields, options, and submission structure
+- CSV template workflow for bulk respondent input
+- Manual override and rule-based answer generation
+- Gemini fallback for ambiguous or undefined text answers
+- Fast HTTP submit mode for speed
+- Smart Browser/Selenium mode for forms that need browser execution
+- Duplicate guard, validation contract, row-level trace, and actionable diagnosis
+- Next.js operator dashboard connected to a Python/FastAPI backend
+
+**Technical focus:** `Python` `FastAPI` `Next.js` `TypeScript` `Gemini API` `Selenium` `CSV Contracts` `Validation`
 
 > Private development repository / portfolio case-study project.
 
 ---
 
-### AI Content Strategy & Decision System
+### 2. AI Content Strategy & Decision System
 
-A decision-first content planning app that generates multiple strategies, scores them, compares alternatives, and recommends the strongest output.
+**Problem:** AI content tools often generate one answer without explaining why it is the best option.
+
+**Solution:** A decision-first content planning app that generates several strategies, scores them, compares tradeoffs, and recommends the strongest strategy with reasoning.
 
 ```txt
-Topic → Emotional / Educational / Viral Strategies → Scoring → Recommendation → 7-Day Plan
+Topic → 3 Strategy Variations → Scoring Matrix → Best Strategy → Caption + Hashtags + 7-Day Plan
 ```
 
-**Built around:**
+**Product highlights:**
 
-- Multi-strategy content generation for Instagram, TikTok, X/Twitter, and LinkedIn
-- Engagement, hook, CTA, relevance, and weakness evaluation
-- Best-strategy recommendation with reasoning instead of raw AI output only
-- Optimized captions, hashtags, execution guidance, and compact future content plan
-- Normalized Gemini response so the UI can render stable decision data
-- History, copy actions, restore flow, and lightweight feedback endpoint
+- Generates `emotional`, `educational`, and `viral` strategy variations
+- Supports Instagram, TikTok, X/Twitter, and LinkedIn
+- Scores engagement potential, hook quality, CTA strength, relevance, and weaknesses
+- Selects the best strategy with reasoning instead of returning raw AI text only
+- Produces optimized captions, hashtags, execution guidance, and future content plan
+- Normalizes Gemini output into a stable shape for the frontend
+- Includes local history, restore flow, copy actions, and lightweight feedback logging
 
-**Stack:** `Next.js 14` `TypeScript` `Tailwind CSS` `Gemini API` `Structured Output`
+**Technical focus:** `Next.js 14` `TypeScript` `Tailwind CSS` `Gemini API` `Structured Output` `Decision Logic`
 
 Repository: [AI Content Strategy & SEO Assistant Web App](https://github.com/afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-)
 
 ---
 
-### Smart Clothesline IoT System
+### 3. Smart Clothesline IoT System
 
-A realtime IoT operations dashboard for monitoring, controlling, and analyzing an automated clothesline system.
+**Problem:** Weather-sensitive clothesline control needs realtime visibility, automation rules, alerts, and remote operations.
+
+**Solution:** A realtime IoT dashboard for monitoring sensor telemetry, controlling clothesline state, managing automation rules, and reviewing history/analytics.
 
 ```txt
-Sensor Telemetry → Live State → Automation Rules → Alerts → History → Analytics
+Sensor Data → MQTT Stream → Live Dashboard → Automation Rules → Alerts → History & Analytics
 ```
 
-**Built around:**
+**Product highlights:**
 
 - Realtime dashboard for clothesline state, alerts, and operational summary
-- MQTT telemetry, heartbeat tracking, and sensor stream health monitoring
-- Automation rules for schedules, thresholds, and safety behavior
+- MQTT telemetry and heartbeat tracking
+- Sensor stream health monitoring
+- Automation center for schedules, thresholds, and safety behavior
 - Firebase Firestore for schedules, audit data, and application state
-- Telegram command integration for status checks and remote control
-- History, analytics, IoT hub, diagnostics, and CI checks
+- Telegram commands for status checks and remote control
+- History, analytics, IoT hub, diagnostics, and CI workflow
 
-**Stack:** `Next.js 14` `TypeScript` `Tailwind CSS` `Firebase` `MQTT` `Telegram Bot API` `Recharts` `Zod` `Zustand`
+**Technical focus:** `Next.js 14` `TypeScript` `Tailwind CSS` `Firebase Firestore` `MQTT` `Telegram Bot API` `Recharts` `Zod` `Zustand`
 
 Repository: [Smart Clothesline IoT System](https://github.com/afadlih/smart-clothesline-iot-system)
 
 ---
 
-## Other Projects & Collaboration
+## Collaboration Projects
 
 <table>
   <tr>
     <td><b>SIMAPRES</b></td>
-    <td>Student achievement information system for managing, monitoring, and reporting academic/non-academic achievements.</td>
+    <td>Student achievement information system for managing academic and non-academic achievements, reporting workflows, and searchable data.</td>
     <td><code>Laravel</code> <code>PHP</code> <code>MySQL</code></td>
     <td><a href="https://github.com/anugerahhrama/simapres-app">Repo</a></td>
   </tr>
   <tr>
     <td><b>Techno Rules</b></td>
-    <td>Student discipline management system with role-based modules, violation forms, dashboard pages, and evaluation workflow.</td>
+    <td>Student discipline system with role-based modules, violation forms, dashboard pages, and evaluation workflows.</td>
     <td><code>PHP</code> <code>MySQL</code> <code>JavaScript</code></td>
     <td><a href="https://github.com/a6iyyu/tatib">Repo</a></td>
   </tr>
   <tr>
     <td><b>Jawara Mobile</b></td>
-    <td>Flutter mobile app for RT/RW community administration, navigation flow, mobile UI, and feature integration.</td>
+    <td>Flutter mobile app for RT/RW community administration, mobile UI structure, navigation flow, and feature integration.</td>
     <td><code>Flutter</code> <code>Dart</code></td>
     <td><a href="https://github.com/uhamhz/jawara-mobile">Repo</a></td>
   </tr>
@@ -160,18 +191,19 @@ Repository: [Smart Clothesline IoT System](https://github.com/afadlih/smart-clot
 ## Engineering Principles
 
 ```txt
-Good demo:    works when the input is perfect
-Good product: handles edge cases, explains failures, and guides the next action
+A demo can stop at "it works".
+A product must show what happened, what failed, and what the user should do next.
 ```
 
-I try to build with these habits:
+I try to build with these principles:
 
-- Treat AI output as uncertain until validated
-- Design frontend states clearly: idle, checking, running, warning, blocked, failed, success
-- Prefer typed contracts and normalized response shapes
-- Add fallback paths when automation can fail
-- Make diagnostics readable for operators, not only developers
-- Keep improving the product after the first working version
+- Validate AI output before trusting it
+- Normalize data so the UI receives predictable contracts
+- Separate blockers from warnings
+- Make errors readable for operators, not only developers
+- Keep execution flows observable through progress, traces, and summaries
+- Design fallback paths when automation cannot complete perfectly
+- Prefer useful systems over impressive but fragile demos
 
 ---
 
@@ -197,11 +229,11 @@ I try to build with these habits:
 
 ## Current Focus
 
-- Improving **FormAI** as an end-to-end AI automation platform
-- Building AI workflows with stronger validation, fallback, and diagnostics
-- Refactoring frontend orchestration into clearer state and component boundaries
-- Strengthening testing, linting, deployment, and documentation habits
-- Turning academic, team, and experimental projects into polished portfolio systems
+- Polishing **FormAI** into a stronger end-to-end automation platform
+- Improving frontend orchestration, runtime states, and operator diagnostics
+- Building AI workflows with clearer validation, fallback, and result contracts
+- Strengthening testing, linting, build checks, and documentation habits
+- Turning academic, team, and experimental projects into portfolio-ready products
 
 ---
 
@@ -241,7 +273,7 @@ I try to build with these habits:
 <div align="center">
 
 ```txt
-Build real systems. Make them reliable. Keep improving.
+Build real systems. Make them useful. Keep improving.
 ```
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,45:1E1B4B,100:4F46E5&height=90&section=footer" width="100%" />
