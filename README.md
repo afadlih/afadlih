@@ -45,6 +45,31 @@
 
 ---
 
+## Live Portfolio Pulse
+
+<!-- PORTFOLIO-PULSE:START -->
+<table>
+  <tr>
+    <td><b>Last refresh</b></td>
+    <td>Friday, 22 May 2026, 05:37 WIB</td>
+  </tr>
+  <tr>
+    <td><b>Current build focus</b></td>
+    <td>FormAI automation flow, validation, execution diagnostics, and operator-facing UX.</td>
+  </tr>
+  <tr>
+    <td><b>Active engineering theme</b></td>
+    <td>AI workflow reliability: clear contracts, fallback paths, traceable results, and useful errors.</td>
+  </tr>
+  <tr>
+    <td><b>Recently active public repos</b></td>
+    <td><a href="https://github.com/afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-">AI Content Strategy</a> · <a href="https://github.com/afadlih/smart-clothesline-iot-system">Smart Clothesline IoT</a> · <a href="https://github.com/afadlih/afadlih">Profile README</a></td>
+  </tr>
+</table>
+<!-- PORTFOLIO-PULSE:END -->
+
+---
+
 ## About
 
 I am an Applied Bachelor / D4 Informatics Engineering student who builds **AI-powered web applications, automation tools, and realtime dashboards**.
