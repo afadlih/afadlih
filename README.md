@@ -1,16 +1,22 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d0d0d,50:1a1a2e,100:16213e&height=180&section=header&text=Ahmad%20Fadlih%20Wahyu%20Sardana&fontSize=40&fontColor=ffffff&fontAlignY=40&desc=Fullstack%20Developer%20focused%20on%20AI-powered%20Products&descSize=14&descAlignY=62&descColor=8b8bff&animation=fadeIn" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,45:1E1B4B,100:4F46E5&height=190&section=header&text=Ahmad%20Fadlih%20Wahyu%20Sardana&fontSize=38&fontColor=FFFFFF&fontAlignY=38&desc=Fullstack%20Developer%20%7C%20AI%20Product%20Engineering%20%7C%20Automation%20Systems&descSize=14&descAlignY=61&descColor=C7D2FE&animation=fadeIn" width="100%" />
 
-<br/>
-
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=16&duration=3000&pause=900&color=7C7CFF&center=true&vCenter=true&width=780&lines=Building+AI-powered+systems+with+product-oriented+engineering;Generate+%E2%86%92+Evaluate+%E2%86%92+Compare+%E2%86%92+Decide+%E2%86%92+Execute;Next.js+%2B+TypeScript+%2B+Gemini+API;Build+consistently.+Ship+real+systems.+Refine+continuously." />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=16&duration=2800&pause=900&color=8B8BFF&center=true&vCenter=true&width=900&lines=I+build+AI-powered+product+workflows%2C+not+just+AI+wrappers.;Form+automation+%E2%80%A2+Decision+systems+%E2%80%A2+Realtime+dashboards;Generate+%E2%86%92+Validate+%E2%86%92+Execute+%E2%86%92+Diagnose+%E2%86%92+Improve;Next.js+%E2%80%A2+TypeScript+%E2%80%A2+Python+%E2%80%A2+FastAPI+%E2%80%A2+Gemini+API" />
 
 <br/><br/>
 
-<img src="https://komarev.com/ghpvc/?username=afadlih&style=flat-square&color=5c5cf1&label=profile+views" />
+<a href="https://github.com/afadlih">
+  <img src="https://img.shields.io/badge/GitHub-afadlih-181717?style=flat-square&logo=github&logoColor=white" />
+</a>
 &nbsp;
-<img src="https://img.shields.io/github/followers/afadlih?style=flat-square&color=5c5cf1&label=followers" />
+<a href="https://id.linkedin.com/in/ahmad-fadlih-wahyu-sardana-706933283">
+  <img src="https://img.shields.io/badge/LinkedIn-Ahmad%20Fadlih-0A66C2?style=flat-square&logo=linkedin&logoColor=white" />
+</a>
+&nbsp;
+<img src="https://komarev.com/ghpvc/?username=afadlih&style=flat-square&color=6366F1&label=profile+views" />
+&nbsp;
+<img src="https://img.shields.io/github/followers/afadlih?style=flat-square&color=6366F1&label=followers" />
 
 </div>
 
@@ -18,163 +24,154 @@
 
 ## About
 
-I am a D4 Informatics Engineering student focused on **Fullstack Development**, **AI Integration**, and **AI-assisted decision systems**.
+I am a D4 Informatics Engineering student focused on **fullstack development**, **AI integration**, and **automation systems**.
 
-I build AI-powered web applications that go beyond simple AI wrappers. My work focuses on designing product-oriented workflows that can generate outputs, evaluate alternatives, compare results, and support structured decision-making.
-
-**Core areas:**
-
-- Fullstack web development with `Next.js`, `TypeScript`, and `Tailwind CSS`
-- AI integration using `Gemini API`
-- AI-assisted decision systems and automation workflows
-- Product-oriented engineering for real-world use cases
-
----
-
-## What I Build
+My work is centered on turning AI into usable product workflows: structured inputs, rule-based logic, model-assisted generation, validation, execution modes, diagnostics, and clear operator-facing interfaces.
 
 ```txt
-Input
-  └── AI Generation      multiple strategies or outputs
-        └── Evaluation   scoring per dimension
-              └── Comparison   compare alternatives
-                    └── Decision     select the best option with reasoning
-                          └── Optimization   refine for execution
-                                └── Output   structured, reliable, actionable
+Input → Mapping → Rules → AI Fallback → Validation → Execution → Diagnostics
 ```
 
-I focus on building systems that are structured, reliable, and usable.
-
-Every system should handle real input, normalize responses, support fallback logic, and produce actionable output — not just work on the happy path.
+I care about systems that keep working when input is messy, output is uncertain, or users need a clear next step.
 
 ---
 
-## Featured Projects
+## Core Strengths
+
+<table>
+  <tr>
+    <td><b>AI Product Engineering</b></td>
+    <td>Gemini API integration, prompt design, structured JSON output, fallback handling, scoring logic, and decision workflows.</td>
+  </tr>
+  <tr>
+    <td><b>Fullstack Development</b></td>
+    <td>Next.js, TypeScript, Tailwind CSS, FastAPI, API routes, dashboards, forms, and product-oriented UI flows.</td>
+  </tr>
+  <tr>
+    <td><b>Automation Systems</b></td>
+    <td>Rule engines, Google Form automation, CSV contracts, HTTP execution, browser automation, duplicate guards, and diagnostics.</td>
+  </tr>
+  <tr>
+    <td><b>Realtime & IoT Dashboards</b></td>
+    <td>MQTT telemetry, Firebase-backed state, device monitoring, operational alerts, history, analytics, and Telegram commands.</td>
+  </tr>
+</table>
+
+---
+
+## Featured Work
+
+### FormAI — AI Form Automation Platform
+
+An end-to-end Google Form automation system designed for operators, not just developers.
+
+```txt
+Analyze Form → Download CSV Template → Fill Data / Rules → Quick Check → Run → Results
+```
+
+**Why it matters:** FormAI reduces repetitive form-filling work while keeping control visible through validation, execution modes, and row-level diagnostics.
+
+**Built around:**
+
+- Google Form analyzer for fields, required inputs, options, and submission structure
+- CSV template workflow with manual overrides and rule-based value generation
+- Gemini-assisted fallback for undefined or ambiguous answers
+- Fast HTTP submission for speed and Smart Browser/Selenium mode for complex forms
+- Duplicate prevention, contract validation, execution logs, and actionable result diagnosis
+- Next.js operator dashboard connected to a Python/FastAPI automation backend
+
+**Stack:** `Python` `FastAPI` `Next.js` `TypeScript` `Gemini API` `Selenium` `CSV Workflow`
+
+> Private development repository / portfolio case-study project.
+
+---
 
 ### AI Content Strategy & Decision System
 
-An AI-powered system that generates multiple content strategies, evaluates them with scoring logic, compares the results, and selects the best strategy automatically.
+A decision-first content planning app that generates multiple strategies, scores them, compares alternatives, and recommends the strongest output.
 
 ```txt
-Strategies   emotional / educational / viral
-Evaluation   engagement score · hook quality · CTA strength
-Decision     weighted matrix → best strategy with reasoning
-Reliability  response normalization + fallback handling
+Topic → Emotional / Educational / Viral Strategies → Scoring → Recommendation → 7-Day Plan
 ```
 
-**Key features:**
+**Built around:**
 
-- Multi-strategy content generation
-- Scoring system for engagement potential, hook quality, CTA clarity, and relevance
-- Decision engine to compare strategies and select the best output
-- Gemini API integration for generation, evaluation, and optimization
-- Structured output for content planning and campaign use cases
+- Multi-strategy content generation for Instagram, TikTok, X/Twitter, and LinkedIn
+- Engagement, hook, CTA, relevance, and weakness evaluation
+- Best-strategy recommendation with reasoning instead of raw AI output only
+- Optimized captions, hashtags, execution guidance, and compact future content plan
+- Normalized Gemini response so the UI can render stable decision data
+- History, copy actions, restore flow, and lightweight feedback endpoint
 
-**Stack:** `Next.js` `TypeScript` `Tailwind CSS` `Gemini API`
+**Stack:** `Next.js 14` `TypeScript` `Tailwind CSS` `Gemini API` `Structured Output`
 
 Repository: [AI Content Strategy & SEO Assistant Web App](https://github.com/afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-)
 
 ---
 
-### FormAI — AI Form Automation System
-
-An AI-assisted automation system for filling Google Forms using a structured decision pipeline.
-
-```txt
-Analyze → Field Mapping → Rule Engine → AI Fallback → Execution
-```
-
-**Key features:**
-
-- Form structure detection
-- Field mapping system
-- Rule engine with dominant, range-based, weighted, and text-based logic
-- Gemini API fallback for undefined or ambiguous fields
-- Fast execution mode using HTTP request
-- Smart execution mode using browser automation
-- Designed for decision-based automation, not static autofill
-
-**Stack:** `Python` `FastAPI` `Next.js` `TypeScript` `Gemini API` `Selenium`
-
----
-
 ### Smart Clothesline IoT System
 
-An IoT-based automation system that controls a clothesline based on real-time environmental conditions.
+A realtime IoT operations dashboard for monitoring, controlling, and analyzing an automated clothesline system.
 
 ```txt
-Monitoring   real-time sensor dashboard
-Integration  sensor data → web system
-Automation   environment-condition-based logic
-Decision     weather/environment-based action flow
+Sensor Telemetry → Live State → Automation Rules → Alerts → History → Analytics
 ```
 
-**Key features:**
+**Built around:**
 
-- Real-time monitoring dashboard
-- Sensor data integration
-- Environment-based automation logic
-- Web interface for monitoring system status
-- Decision flow based on changing weather or environmental data
+- Realtime dashboard for clothesline state, alerts, and operational summary
+- MQTT telemetry, heartbeat tracking, and sensor stream health monitoring
+- Automation rules for schedules, thresholds, and safety behavior
+- Firebase Firestore for schedules, audit data, and application state
+- Telegram command integration for status checks and remote control
+- History, analytics, IoT hub, diagnostics, and CI checks
 
-**Stack:** `Next.js` `TypeScript` `IoT Sensors`
+**Stack:** `Next.js 14` `TypeScript` `Tailwind CSS` `Firebase` `MQTT` `Telegram Bot API` `Recharts` `Zod` `Zustand`
 
 Repository: [Smart Clothesline IoT System](https://github.com/afadlih/smart-clothesline-iot-system)
 
 ---
 
-## Collaborative Projects
+## Other Projects & Collaboration
 
-These are project-based learning and team-based development projects where I contributed to frontend implementation, system flow, UI development, and feature delivery.
-
-### SIMAPRES — Student Achievement Information System
-
-A web-based information system for managing, monitoring, and reporting student academic and non-academic achievements.
-
-**Contribution areas:**
-
-- Contributed to student achievement data management and reporting workflows
-- Developed web interface components and application flow
-- Supported search, filter, and data management features
-- Collaborated in a Laravel-based team project with frontend, backend, and database integration
-
-**Stack:** `Laravel` `PHP` `JavaScript` `Blade` `CSS` `MySQL`
-
-Repository: [SIMAPRES App](https://github.com/anugerahhrama/simapres-app)
-
----
-
-### Techno Rules — Student Discipline Information System
-
-A web-based system for recording and managing student discipline data within the Informatics Engineering environment.
-
-**Contribution areas:**
-
-- Developed role-based modules for admin, lecturer, student, and discipline committee users
-- Contributed to violation form, dashboard, and student data management features
-- Implemented system flow for recording, managing, and evaluating discipline data
-- Supported web interface development and feature integration
-
-**Stack:** `PHP` `MySQL` `JavaScript` `CSS`
-
-Repository: [Techno Rules](https://github.com/a6iyyu/tatib)
+<table>
+  <tr>
+    <td><b>SIMAPRES</b></td>
+    <td>Student achievement information system for managing, monitoring, and reporting academic/non-academic achievements.</td>
+    <td><code>Laravel</code> <code>PHP</code> <code>MySQL</code></td>
+    <td><a href="https://github.com/anugerahhrama/simapres-app">Repo</a></td>
+  </tr>
+  <tr>
+    <td><b>Techno Rules</b></td>
+    <td>Student discipline management system with role-based modules, violation forms, dashboard pages, and evaluation workflow.</td>
+    <td><code>PHP</code> <code>MySQL</code> <code>JavaScript</code></td>
+    <td><a href="https://github.com/a6iyyu/tatib">Repo</a></td>
+  </tr>
+  <tr>
+    <td><b>Jawara Mobile</b></td>
+    <td>Flutter mobile app for RT/RW community administration, navigation flow, mobile UI, and feature integration.</td>
+    <td><code>Flutter</code> <code>Dart</code></td>
+    <td><a href="https://github.com/uhamhz/jawara-mobile">Repo</a></td>
+  </tr>
+</table>
 
 ---
 
-### Jawara Mobile — RT/RW Management Mobile App
+## Engineering Principles
 
-A mobile application designed to support administration and communication workflows in RT/RW communities.
+```txt
+Good demo:    works when the input is perfect
+Good product: handles edge cases, explains failures, and guides the next action
+```
 
-**Contribution areas:**
+I try to build with these habits:
 
-- Contributed as a front-end developer in a Flutter-based mobile application
-- Developed mobile UI components, page structure, and navigation flow
-- Supported features for community administration, activities, and communication
-- Collaborated in a cross-platform mobile development workflow
-
-**Stack:** `Flutter` `Dart`
-
-Repository: [Jawara Mobile](https://github.com/uhamhz/jawara-mobile)
+- Treat AI output as uncertain until validated
+- Design frontend states clearly: idle, checking, running, warning, blocked, failed, success
+- Prefer typed contracts and normalized response shapes
+- Add fallback paths when automation can fail
+- Make diagnostics readable for operators, not only developers
+- Keep improving the product after the first working version
 
 ---
 
@@ -182,40 +179,29 @@ Repository: [Jawara Mobile](https://github.com/uhamhz/jawara-mobile)
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,nodejs,python,php,laravel,flutter,dart,mysql,git,github,figma&perline=7" />
+<img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,nodejs,python,fastapi,php,laravel,flutter,dart,mysql,firebase,git,github,figma&perline=8" />
 
 <br/><br/>
 
 <img src="https://img.shields.io/badge/Gemini_API-AI_Integration-4285F4?style=flat-square&logo=google&logoColor=white" />
 &nbsp;
-<img src="https://img.shields.io/badge/Prompt_Engineering-Structured-5c5cf1?style=flat-square" />
+<img src="https://img.shields.io/badge/Decision_Systems-Scoring_%26_Comparison-6366F1?style=flat-square" />
 &nbsp;
-<img src="https://img.shields.io/badge/Decision_System-Learning_&_Building-1a1a2e?style=flat-square" />
+<img src="https://img.shields.io/badge/Automation-Execution_%26_Diagnostics-1E1B4B?style=flat-square" />
 &nbsp;
-<img src="https://img.shields.io/badge/Automation-Workflow-16213e?style=flat-square" />
+<img src="https://img.shields.io/badge/IoT-Realtime_Dashboard-0F766E?style=flat-square" />
 
 </div>
 
 ---
 
-## Engineering Interests
-
-- AI-powered product workflows
-- Decision systems and automation
-- Fullstack web applications
-- Application-layer AI integration
-- Product engineering with real user scenarios
-- Reliable systems with validation, fallback, and error handling
-
----
-
 ## Current Focus
 
-- Building AI-assisted decision pipelines grounded in real use cases
-- Integrating AI into actual product surfaces, not just demos
-- Improving system reliability through normalization, fallback, and error handling
-- Developing with a product mindset: ship, measure, refine
-- Growing toward AI product engineering through real fullstack projects
+- Improving **FormAI** as an end-to-end AI automation platform
+- Building AI workflows with stronger validation, fallback, and diagnostics
+- Refactoring frontend orchestration into clearer state and component boundaries
+- Strengthening testing, linting, deployment, and documentation habits
+- Turning academic, team, and experimental projects into polished portfolio systems
 
 ---
 
@@ -223,16 +209,16 @@ Repository: [Jawara Mobile](https://github.com/uhamhz/jawara-mobile)
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=afadlih&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=7c7cff&icon_color=7c7cff&text_color=ffffff&border_radius=8" height="155" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=afadlih&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=7c7cff&text_color=ffffff&border_radius=8" height="155" />
+<img src="https://github-readme-stats.vercel.app/api?username=afadlih&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=8B8BFF&icon_color=8B8BFF&text_color=FFFFFF&border_radius=8" height="155" />
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=afadlih&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=8B8BFF&text_color=FFFFFF&border_radius=8" height="155" />
 
 <br/>
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=afadlih&theme=tokyonight&hide_border=true&background=0d1117&ring=7c7cff&fire=f97316&currStreakLabel=ffffff" width="49%" />
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=afadlih&theme=tokyonight&hide_border=true&background=0D1117&ring=8B8BFF&fire=F97316&currStreakLabel=FFFFFF" width="49%" />
 
 <br/>
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=afadlih&bg_color=0d1117&color=7c7cff&line=7c7cff&point=f97316&area=true&area_color=7c7cff20&hide_border=true" width="100%" />
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=afadlih&bg_color=0D1117&color=8B8BFF&line=8B8BFF&point=F97316&area=true&area_color=8B8BFF20&hide_border=true" width="100%" />
 
 </div>
 
@@ -255,11 +241,9 @@ Repository: [Jawara Mobile](https://github.com/uhamhz/jawara-mobile)
 <div align="center">
 
 ```txt
-Build consistently.
-Ship real systems.
-Refine continuously.
+Build real systems. Make them reliable. Keep improving.
 ```
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d0d0d,50:1a1a2e,100:16213e&height=90&section=footer" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,45:1E1B4B,100:4F46E5&height=90&section=footer" width="100%" />
 
 </div>
