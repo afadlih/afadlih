@@ -51,7 +51,7 @@
 <table>
   <tr>
     <td><b>Last refresh</b></td>
-    <td>Monday, 15 June 2026, 06:57 WIB</td>
+    <td>Monday, 22 June 2026, 07:01 WIB</td>
   </tr>
   <tr>
     <td><b>Current build focus</b></td>
