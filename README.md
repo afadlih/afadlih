@@ -1,12 +1,31 @@
 <!-- PROFILE-README:GENERATED -->
 <!-- Edit portfolio/*.json, then run: python scripts/portfolio_ci.py update -->
 
+<p align="center">
+  <img src="assets/profile-banner.svg" width="100%" alt="Animated engineering profile banner for Ahmad Fadlih Wahyu Sardana" />
+</p>
+
 <h1 align="center">Ahmad Fadlih Wahyu Sardana</h1>
 <p align="center"><strong>Full-Stack Developer building reliable AI workflows, automation systems, and on-premise IoT products</strong></p>
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&amp;weight=600&amp;size=18&amp;duration=2600&amp;pause=900&amp;color=38BDF8&amp;center=true&amp;vCenter=true&amp;width=900&amp;height=42&amp;lines=Building+reliable+AI+product+workflows;Engineering+on-premise+IoT+systems;Turning+complex+operations+into+usable+products" alt="Animated description of current engineering focus" />
+</p>
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=afadlih&amp;label=Profile%20views&amp;color=0ea5e9&amp;style=for-the-badge" alt="Profile views" />
+  <img src="https://img.shields.io/github/followers/afadlih?label=Followers&amp;style=for-the-badge&amp;logo=github&amp;color=0f766e" alt="GitHub followers" />
+  <img src="https://img.shields.io/badge/Focus-Full--Stack%20%2B%20AI-4f46e5?style=for-the-badge" alt="Full-Stack and AI focus" />
+  <img src="https://img.shields.io/badge/Systems-IoT%20%2B%20Automation-0369a1?style=for-the-badge" alt="IoT and automation systems" />
+</p>
 <p align="center">
   <a href="https://ahmad-fadlih-portfolio.vercel.app">Portfolio</a> ·
   <a href="https://id.linkedin.com/in/ahmad-fadlih-wahyu-sardana-706933283">LinkedIn</a> ·
   <a href="https://github.com/afadlih">GitHub</a>
+</p>
+<p align="center">
+  <a href="#current-engineering-focus">Current focus</a> ·
+  <a href="#selected-work">Selected work</a> ·
+  <a href="#github-activity">GitHub activity</a> ·
+  <a href="#contact">Contact</a>
 </p>
 
 > I turn complex operational flows into products with explicit states, validated outputs, observable failures, and practical documentation.
@@ -21,6 +40,19 @@ Clear domain states, role-aware interfaces, reliable data flows, testing, and ma
 
 **On-premise and realtime integration**  
 MQTT boundaries, device state, acknowledged commands, deployment constraints, and operator visibility.
+
+## Current engineering focus
+
+| Active project | Version / stage | Latest update | Current engineering focus |
+| --- | --- | --- | --- |
+| [AquaSense](case-studies/aquasense/README.md) | `2.3.0-rc15` | 2026-08-05 | Raspberry Pi 3B+ edge baseline, seven-container on-premise topology, provisioning safety, release hardening, and operator documentation. |
+| **AquaSense Hardware Simulator** | `2.3.0-rc5` | 2026-07-31 | Standalone Wokwi and ESP32 MicroPython simulation, MQTT bridge, firmware workflow, telemetry readiness, and Core reconciliation. |
+| [OrthoBreath](case-studies/orthobreath/README.md) | `1.7.2` | 2026-07-31 | MQTT device topics, session policies, dental and breathing examination flows, Firebase mapping, demo boundaries, and regression coverage. |
+| [InternLog AI](case-studies/internlog-ai/README.md) | `2.8.1` | 2026-07-29 | Adaptive mentor language for IT and non-IT internships, logbook reliability, document auditing, multi-user foundations, and AI regression tests. |
+| **SkripsiOps AI** | `Foundation` | 2026-07-30 | Evidence-first thesis workspace bootstrap with Docker environments, initial architecture, documentation, contribution rules, and automated tests. |
+| [Polinema Adaptive TOEIC](case-studies/polinema-adaptive-toeic/README.md) | `Release candidate` | 2026-07-23 | Institutional authentication, password-reset approval, registration rosters, research freeze controls, media validation, RBAC, and audit logging. |
+
+The table above is a curated snapshot of repositories currently under active development. Dates reflect the latest accessible commits reviewed for this profile, not fabricated deployment claims.
 
 ## Selected work
 
@@ -199,6 +231,18 @@ Designed an operator-facing workflow where users can analyze a form, prepare str
 | **Polinema Adaptive TOEIC** | Responsive TOEIC micro-learning platform with institutional roles, research cohorts, content workflows, assessments, deterministic mastery updates, and research exports. | [Case study](case-studies/polinema-adaptive-toeic/README.md) |
 | **OrthoBreath** | Prototype dashboard for child profiles, dental capture, breathing-session monitoring, scan history, notifications, and combined reporting. | [Case study](case-studies/orthobreath/README.md) |
 
+## GitHub activity
+
+<p align="center">
+  <img height="175" src="https://github-readme-stats.vercel.app/api?username=afadlih&amp;show_icons=true&amp;include_all_commits=true&amp;hide_border=true&amp;theme=transparent&amp;rank_icon=github" alt="GitHub public activity statistics" />
+  <img height="175" src="https://github-readme-stats.vercel.app/api/top-langs/?username=afadlih&amp;layout=compact&amp;langs_count=8&amp;hide_border=true&amp;theme=transparent&amp;exclude_repo=Lectures,studying" alt="Most used languages in public repositories" />
+</p>
+<p align="center">
+  <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=afadlih&amp;theme=github-compact&amp;hide_border=true&amp;area=true&amp;custom_title=Public%20Contribution%20Activity" alt="Public GitHub contribution activity graph" />
+</p>
+
+<sub>Dynamic cards summarize GitHub-visible public activity. Private repository work is represented only through the curated, NDA-safe current-focus snapshot above.</sub>
+
 ## Public work, recently updated
 
 <!-- PROFILE-ACTIVITY:START -->
@@ -227,4 +271,4 @@ Open to full-stack, AI product engineering, workflow automation, and system-inte
 
 [Portfolio](https://ahmad-fadlih-portfolio.vercel.app) · [LinkedIn](https://id.linkedin.com/in/ahmad-fadlih-wahyu-sardana-706933283)
 
-<sub>Private projects are shown through sanitized case studies, not fabricated public demos.<br>Public projects include source-level evidence pinned to inspectable commits.<br>A professional public email is intentionally omitted until a durable address is configured.</sub>
+<sub>Private projects are shown through sanitized case studies, not fabricated public demos.<br>Public projects include source-level evidence pinned to inspectable commits.<br>The current-focus snapshot was reviewed against accessible repository activity on 2026-08-05.<br>A professional public email is intentionally omitted until a durable address is configured.</sub>
