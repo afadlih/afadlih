@@ -9,6 +9,7 @@ import json
 import re
 from pathlib import Path
 from typing import Any
+from urllib.parse import quote_plus
 
 ROOT = Path(__file__).resolve().parents[1]
 README_PATH = ROOT / "README.md"
@@ -20,6 +21,7 @@ VALID_STATUSES = {"draft", "active", "featured", "stable", "archived"}
 VALID_SECTIONS = {"featured", "major", "supporting", "archive"}
 VALID_VISIBILITY = {"public", "private"}
 SLUG = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+DATE = re.compile(r"^[0-9]{4}-[0-9]{2}-[0-9]{2}$")
 
 
 def load_json(path: Path) -> Any:
@@ -39,24 +41,60 @@ def md_link(label: str, url: str | None) -> str:
     return f"[{label}]({url})" if isinstance(url, str) and url.strip() else ""
 
 
+def local_link_exists(value: str, root: Path) -> bool:
+    if value.startswith(("https://", "http://", "mailto:")):
+        return True
+    path = (root / value).resolve()
+    try:
+        path.relative_to(root.resolve())
+    except ValueError:
+        return False
+    return path.is_file()
+
+
 def validate_profile(profile: dict[str, Any], root: Path = ROOT) -> list[str]:
     errors: list[str] = []
     required = {
         "name", "short_name", "username", "role", "headline", "location",
         "portfolio_url", "github_url", "linkedin_url", "availability",
-        "focus_areas", "experience", "recognition", "engineering_principles",
-        "profile_notes",
+        "focus_areas", "current_focus", "experience", "recognition",
+        "engineering_principles", "profile_notes",
     }
     missing = sorted(required - profile.keys())
     if missing:
         errors.append(f"profile.json missing fields: {', '.join(missing)}")
 
-    for field in ("focus_areas", "experience", "recognition", "engineering_principles", "profile_notes"):
+    for field in (
+        "focus_areas", "current_focus", "experience", "recognition",
+        "engineering_principles", "profile_notes",
+    ):
         if field in profile and not isinstance(profile[field], list):
             errors.append(f"profile.{field} must be a list")
 
     if isinstance(profile.get("focus_areas"), list) and len(profile["focus_areas"]) != 3:
         errors.append("profile.focus_areas must contain exactly 3 focused areas")
+    if isinstance(profile.get("current_focus"), list):
+        if not 3 <= len(profile["current_focus"]) <= 8:
+            errors.append("profile.current_focus must contain between 3 and 8 projects")
+        seen_projects: set[str] = set()
+        for index, item in enumerate(profile["current_focus"], start=1):
+            if not isinstance(item, dict):
+                errors.append(f"profile.current_focus[{index}] must be an object")
+                continue
+            for field in ("project", "version", "updated", "focus", "link"):
+                if field not in item:
+                    errors.append(f"profile.current_focus[{index}] missing field: {field}")
+            project = item.get("project")
+            if isinstance(project, str):
+                if project in seen_projects:
+                    errors.append(f"duplicate current focus project: {project}")
+                seen_projects.add(project)
+            updated = item.get("updated")
+            if not isinstance(updated, str) or not DATE.fullmatch(updated):
+                errors.append(f"profile.current_focus[{index}].updated must use YYYY-MM-DD")
+            link = item.get("link")
+            if link is not None and (not isinstance(link, str) or not local_link_exists(link, root)):
+                errors.append(f"profile.current_focus[{index}].link is invalid or missing: {link}")
     if isinstance(profile.get("engineering_principles"), list) and len(profile["engineering_principles"]) < 4:
         errors.append("profile.engineering_principles must contain at least 4 items")
     return errors
@@ -195,11 +233,65 @@ def project_links(project: dict[str, Any]) -> str:
     return " · ".join(item for item in rendered if item)
 
 
+def render_visual_header(profile: dict[str, Any]) -> str:
+    username = profile["username"]
+    typing_lines = [
+        "Building reliable AI product workflows",
+        "Engineering on-premise IoT systems",
+        "Turning complex operations into usable products",
+    ]
+    typing_url = (
+        "https://readme-typing-svg.demolab.com"
+        "?font=JetBrains+Mono&weight=600&size=18&duration=2600&pause=900"
+        "&color=38BDF8&center=true&vCenter=true&width=900&height=42&lines="
+        + ";".join(quote_plus(line) for line in typing_lines)
+    )
+    return f'''<p align="center">
+  <img src="assets/profile-banner.svg" width="100%" alt="Animated engineering profile banner for {esc(profile['name'])}" />
+</p>
+
+<h1 align="center">{esc(profile['name'])}</h1>
+<p align="center"><strong>{esc(profile['role'])}</strong></p>
+<p align="center">
+  <img src="{esc(typing_url)}" alt="Animated description of current engineering focus" />
+</p>
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username={esc(username)}&label=Profile%20views&color=0ea5e9&style=for-the-badge" alt="Profile views" />
+  <img src="https://img.shields.io/github/followers/{esc(username)}?label=Followers&style=for-the-badge&logo=github&color=0f766e" alt="GitHub followers" />
+  <img src="https://img.shields.io/badge/Focus-Full--Stack%20%2B%20AI-4f46e5?style=for-the-badge" alt="Full-Stack and AI focus" />
+  <img src="https://img.shields.io/badge/Systems-IoT%20%2B%20Automation-0369a1?style=for-the-badge" alt="IoT and automation systems" />
+</p>
+<p align="center">
+  <a href="{esc(profile['portfolio_url'])}">Portfolio</a> ·
+  <a href="{esc(profile['linkedin_url'])}">LinkedIn</a> ·
+  <a href="{esc(profile['github_url'])}">GitHub</a>
+</p>
+<p align="center">
+  <a href="#current-engineering-focus">Current focus</a> ·
+  <a href="#selected-work">Selected work</a> ·
+  <a href="#github-activity">GitHub activity</a> ·
+  <a href="#contact">Contact</a>
+</p>'''
+
+
 def render_focus(profile: dict[str, Any]) -> str:
     chunks = []
     for item in profile["focus_areas"]:
         chunks.append(f"**{esc(item['title'])}**  \n{esc(item['description'])}")
     return "\n\n".join(chunks)
+
+
+def render_current_focus(profile: dict[str, Any]) -> str:
+    rows = [
+        "| Active project | Version / stage | Latest update | Current engineering focus |",
+        "| --- | --- | --- | --- |",
+    ]
+    for item in profile["current_focus"]:
+        project = md_link(esc(item["project"]), item.get("link")) or f"**{esc(item['project'])}**"
+        rows.append(
+            f"| {project} | `{esc(item['version'])}` | {esc(item['updated'])} | {esc(item['focus'])} |"
+        )
+    return "\n".join(rows)
 
 
 def render_featured(project: dict[str, Any], number: int) -> str:
@@ -250,6 +342,35 @@ def render_supporting(projects: list[dict[str, Any]]) -> str:
     return "\n".join(rows)
 
 
+def render_github_activity(profile: dict[str, Any]) -> str:
+    username = esc(profile["username"])
+    stats_url = (
+        "https://github-readme-stats.vercel.app/api"
+        f"?username={username}&show_icons=true&include_all_commits=true"
+        "&hide_border=true&theme=transparent&rank_icon=github"
+    )
+    language_url = (
+        "https://github-readme-stats.vercel.app/api/top-langs/"
+        f"?username={username}&layout=compact&langs_count=8"
+        "&hide_border=true&theme=transparent"
+        "&exclude_repo=Lectures,studying"
+    )
+    graph_url = (
+        "https://github-readme-activity-graph.vercel.app/graph"
+        f"?username={username}&theme=github-compact&hide_border=true"
+        "&area=true&custom_title=Public%20Contribution%20Activity"
+    )
+    return f'''<p align="center">
+  <img height="175" src="{esc(stats_url)}" alt="GitHub public activity statistics" />
+  <img height="175" src="{esc(language_url)}" alt="Most used languages in public repositories" />
+</p>
+<p align="center">
+  <img width="100%" src="{esc(graph_url)}" alt="Public GitHub contribution activity graph" />
+</p>
+
+<sub>Dynamic cards summarize GitHub-visible public activity. Private repository work is represented only through the curated, NDA-safe current-focus snapshot above.</sub>'''
+
+
 def render_activity(payload: dict[str, Any]) -> str:
     items = payload.get("items", [])
     if not items:
@@ -283,27 +404,31 @@ def render_readme(profile: dict[str, Any], projects_payload: dict[str, Any], act
     featured = [project for project in projects if project["profile_section"] == "featured"]
     major = [project for project in projects if project["profile_section"] == "major"]
     supporting = [project for project in projects if project["profile_section"] == "supporting"]
-    featured_text = "\n\n---\n\n".join(render_featured(project, index) for index, project in enumerate(featured, start=1))
-    major_text = "\n\n".join(render_featured(project, index + len(featured)) for index, project in enumerate(major, start=1))
+    featured_text = "\n\n---\n\n".join(
+        render_featured(project, index) for index, project in enumerate(featured, start=1)
+    )
+    major_text = "\n\n".join(
+        render_featured(project, index + len(featured)) for index, project in enumerate(major, start=1)
+    )
     principles = "\n".join(f"- {esc(item)}" for item in profile["engineering_principles"])
     notes = "<br>".join(esc(item) for item in profile["profile_notes"])
 
     return f'''<!-- PROFILE-README:GENERATED -->
 <!-- Edit portfolio/*.json, then run: python scripts/portfolio_ci.py update -->
 
-<h1 align="center">{esc(profile['name'])}</h1>
-<p align="center"><strong>{esc(profile['role'])}</strong></p>
-<p align="center">
-  <a href="{esc(profile['portfolio_url'])}">Portfolio</a> ·
-  <a href="{esc(profile['linkedin_url'])}">LinkedIn</a> ·
-  <a href="{esc(profile['github_url'])}">GitHub</a>
-</p>
+{render_visual_header(profile)}
 
 > {esc(profile['headline'])}
 
 ## What I build
 
 {render_focus(profile)}
+
+## Current engineering focus
+
+{render_current_focus(profile)}
+
+The table above is a curated snapshot of repositories currently under active development. Dates reflect the latest accessible commits reviewed for this profile, not fabricated deployment claims.
 
 ## Selected work
 
@@ -320,6 +445,10 @@ def render_readme(profile: dict[str, Any], projects_payload: dict[str, Any], act
 ## More projects
 
 {render_supporting(supporting)}
+
+## GitHub activity
+
+{render_github_activity(profile)}
 
 ## Public work, recently updated
 
@@ -366,7 +495,16 @@ def main(argv: list[str] | None = None) -> int:
             print("README.md is up to date.")
             return 0
         print("README.md is stale. Diff:")
-        print("".join(difflib.unified_diff(current.splitlines(True), rendered.splitlines(True), fromfile="README.md", tofile="generated")))
+        print(
+            "".join(
+                difflib.unified_diff(
+                    current.splitlines(True),
+                    rendered.splitlines(True),
+                    fromfile="README.md",
+                    tofile="generated",
+                )
+            )
+        )
         return 1
     print(rendered)
     return 0
