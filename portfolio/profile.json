@@ -1,6 +1,6 @@
 {
   "$schema": "../schemas/profile.schema.json",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "name": "Ahmad Fadlih Wahyu Sardana",
   "short_name": "Ahmad Fadlih",
   "username": "afadlih",
@@ -23,6 +23,50 @@
     {
       "title": "On-premise and realtime integration",
       "description": "MQTT boundaries, device state, acknowledged commands, deployment constraints, and operator visibility."
+    }
+  ],
+  "current_focus": [
+    {
+      "project": "AquaSense",
+      "version": "2.3.0-rc15",
+      "updated": "2026-08-05",
+      "focus": "Raspberry Pi 3B+ edge baseline, seven-container on-premise topology, provisioning safety, release hardening, and operator documentation.",
+      "link": "case-studies/aquasense/README.md"
+    },
+    {
+      "project": "AquaSense Hardware Simulator",
+      "version": "2.3.0-rc5",
+      "updated": "2026-07-31",
+      "focus": "Standalone Wokwi and ESP32 MicroPython simulation, MQTT bridge, firmware workflow, telemetry readiness, and Core reconciliation.",
+      "link": null
+    },
+    {
+      "project": "OrthoBreath",
+      "version": "1.7.2",
+      "updated": "2026-07-31",
+      "focus": "MQTT device topics, session policies, dental and breathing examination flows, Firebase mapping, demo boundaries, and regression coverage.",
+      "link": "case-studies/orthobreath/README.md"
+    },
+    {
+      "project": "InternLog AI",
+      "version": "2.8.1",
+      "updated": "2026-07-29",
+      "focus": "Adaptive mentor language for IT and non-IT internships, logbook reliability, document auditing, multi-user foundations, and AI regression tests.",
+      "link": "case-studies/internlog-ai/README.md"
+    },
+    {
+      "project": "SkripsiOps AI",
+      "version": "Foundation",
+      "updated": "2026-07-30",
+      "focus": "Evidence-first thesis workspace bootstrap with Docker environments, initial architecture, documentation, contribution rules, and automated tests.",
+      "link": null
+    },
+    {
+      "project": "Polinema Adaptive TOEIC",
+      "version": "Release candidate",
+      "updated": "2026-07-23",
+      "focus": "Institutional authentication, password-reset approval, registration rosters, research freeze controls, media validation, RBAC, and audit logging.",
+      "link": "case-studies/polinema-adaptive-toeic/README.md"
     }
   ],
   "experience": [
@@ -50,6 +94,7 @@
   "profile_notes": [
     "Private projects are shown through sanitized case studies, not fabricated public demos.",
     "Public projects include source-level evidence pinned to inspectable commits.",
+    "The current-focus snapshot was reviewed against accessible repository activity on 2026-08-05.",
     "A professional public email is intentionally omitted until a durable address is configured."
   ]
 }
