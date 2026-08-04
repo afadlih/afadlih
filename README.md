@@ -11,8 +11,8 @@
   <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&amp;weight=600&amp;size=18&amp;duration=2600&amp;pause=900&amp;color=38BDF8&amp;center=true&amp;vCenter=true&amp;width=900&amp;height=42&amp;lines=Building+reliable+AI+product+workflows;Engineering+on-premise+IoT+systems;Turning+complex+operations+into+usable+products" alt="Animated description of current engineering focus" />
 </p>
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=afadlih&amp;label=Profile%20views&amp;color=0ea5e9&amp;style=for-the-badge" alt="Profile views" />
-  <img src="https://img.shields.io/github/followers/afadlih?label=Followers&amp;style=for-the-badge&amp;logo=github&amp;color=0f766e" alt="GitHub followers" />
+  <img src="https://komarev.com/ghpvc/?username=afadlih&label=Profile%20views&color=0ea5e9&style=for-the-badge" alt="Profile views" />
+  <img src="https://img.shields.io/github/followers/afadlih?label=Followers&style=for-the-badge&logo=github&color=0f766e" alt="GitHub followers" />
   <img src="https://img.shields.io/badge/Focus-Full--Stack%20%2B%20AI-4f46e5?style=for-the-badge" alt="Full-Stack and AI focus" />
   <img src="https://img.shields.io/badge/Systems-IoT%20%2B%20Automation-0369a1?style=for-the-badge" alt="IoT and automation systems" />
 </p>
