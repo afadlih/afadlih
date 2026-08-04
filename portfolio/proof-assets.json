@@ -1,0 +1,144 @@
+{
+  "$schema": "../schemas/proof-assets.schema.json",
+  "version": "3.0.0",
+  "status_definitions": {
+    "documented": "Reviewed case-study material that accurately states its public verification boundary.",
+    "source-verified": "Claim checked against an inspectable public repository at a pinned commit.",
+    "test-verified": "Claim backed by reproducible test output tied to a source revision.",
+    "planned": "Useful proof is planned but is not required for the current public claim.",
+    "missing": "A required evidence file is absent. Strict validation rejects this status."
+  },
+  "projects": [
+    {
+      "slug": "aquasense",
+      "visibility": "private",
+      "proof_level": "documented-private",
+      "items": [
+        {
+          "id": "aquasense-case-study",
+          "type": "case-study",
+          "path": "case-studies/aquasense/README.md",
+          "status": "documented",
+          "description": "Sanitized project summary, architecture decisions, operational flow, limitations, and commissioning boundaries.",
+          "reviewed": true,
+          "privacy_reviewed": true
+        },
+        {
+          "id": "aquasense-architecture",
+          "type": "architecture",
+          "path": "case-studies/aquasense/assets/architecture.svg",
+          "status": "documented",
+          "description": "Case-study architecture diagram for the device, MQTT, service, and operator boundaries.",
+          "reviewed": true,
+          "privacy_reviewed": true
+        },
+        {
+          "id": "aquasense-workflow",
+          "type": "workflow",
+          "path": "case-studies/aquasense/assets/workflow.svg",
+          "status": "documented",
+          "description": "Documented command and telemetry workflow with acknowledgement and timeout states.",
+          "reviewed": true,
+          "privacy_reviewed": true
+        },
+        {
+          "id": "aquasense-verification-boundary",
+          "type": "evidence",
+          "path": "case-studies/aquasense/evidence/verification-boundary.md",
+          "status": "documented",
+          "description": "Explicit separation between supported public claims and unverified production or hardware claims.",
+          "reviewed": true,
+          "privacy_reviewed": true
+        }
+      ]
+    },
+    {
+      "slug": "internlog-ai",
+      "visibility": "private",
+      "proof_level": "documented-private",
+      "items": [
+        {
+          "id": "internlog-ai-case-study",
+          "type": "case-study",
+          "path": "case-studies/internlog-ai/README.md",
+          "status": "documented",
+          "description": "Sanitized workflow case study covering factual records, AI review, documents, and limitations.",
+          "reviewed": true,
+          "privacy_reviewed": true
+        },
+        {
+          "id": "internlog-ai-architecture",
+          "type": "architecture",
+          "path": "case-studies/internlog-ai/assets/architecture.svg",
+          "status": "documented",
+          "description": "Case-study architecture diagram for the application, data, AI, and document boundaries.",
+          "reviewed": true,
+          "privacy_reviewed": true
+        },
+        {
+          "id": "internlog-ai-workflow",
+          "type": "workflow",
+          "path": "case-studies/internlog-ai/assets/workflow.svg",
+          "status": "documented",
+          "description": "Documented progression from daily factual records through weekly review and readiness checks.",
+          "reviewed": true,
+          "privacy_reviewed": true
+        },
+        {
+          "id": "internlog-ai-verification-boundary",
+          "type": "evidence",
+          "path": "case-studies/internlog-ai/evidence/verification-boundary.md",
+          "status": "documented",
+          "description": "Public claim boundary that excludes private data, adoption metrics, and unsupported production claims.",
+          "reviewed": true,
+          "privacy_reviewed": true
+        }
+      ]
+    },
+    {
+      "slug": "ai-content-strategy",
+      "visibility": "public",
+      "proof_level": "source-verifiable",
+      "items": [
+        {
+          "id": "ai-content-case-study",
+          "type": "case-study",
+          "path": "case-studies/ai-content-strategy/README.md",
+          "status": "documented",
+          "description": "Public project case study describing the decision workflow, trade-offs, and limitations.",
+          "reviewed": true,
+          "privacy_reviewed": true
+        },
+        {
+          "id": "ai-content-architecture",
+          "type": "architecture",
+          "path": "case-studies/ai-content-strategy/assets/architecture.svg",
+          "status": "documented",
+          "description": "Case-study architecture diagram for input, API generation, normalization, and result rendering.",
+          "reviewed": true,
+          "privacy_reviewed": true
+        },
+        {
+          "id": "ai-content-workflow",
+          "type": "workflow",
+          "path": "case-studies/ai-content-strategy/assets/workflow.svg",
+          "status": "documented",
+          "description": "Documented multi-strategy generation, validation, comparison, recommendation, and execution flow.",
+          "reviewed": true,
+          "privacy_reviewed": true
+        },
+        {
+          "id": "ai-content-source-verification",
+          "type": "evidence",
+          "path": "case-studies/ai-content-strategy/evidence/source-verification.md",
+          "status": "source-verified",
+          "description": "Source-level verification record with pinned implementation paths and an immutable project commit.",
+          "reviewed": true,
+          "privacy_reviewed": true,
+          "source_url": "https://github.com/afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-",
+          "source_commit": "d3aedfd1dc8e76a29bf51a14fc12da4a77219de0"
+        }
+      ]
+    }
+  ]
+}

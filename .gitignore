@@ -1,0 +1,35 @@
+# Compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages
+node_modules/
+.npm/
+jspm_packages/
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+
+# Local Configs
+.env
+.env.local
+.env.*.local
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Test and tool caches
+.coverage
+.pytest_cache/
+.ruff_cache/
+*.log
+
+# Local release archives
+*.zip

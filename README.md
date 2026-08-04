@@ -1,265 +1,230 @@
-<div align="center">
+<!-- PROFILE-README:GENERATED -->
+<!-- Edit portfolio/*.json, then run: python scripts/portfolio_ci.py update -->
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d0d0d,50:1a1a2e,100:16213e&height=180&section=header&text=Ahmad%20Fadlih%20Wahyu%20Sardana&fontSize=40&fontColor=ffffff&fontAlignY=40&desc=Fullstack%20Developer%20focused%20on%20AI-powered%20Products&descSize=14&descAlignY=62&descColor=8b8bff&animation=fadeIn" width="100%" />
+<h1 align="center">Ahmad Fadlih Wahyu Sardana</h1>
+<p align="center"><strong>Full-Stack Developer building reliable AI workflows, automation systems, and on-premise IoT products</strong></p>
+<p align="center">
+  <a href="https://ahmad-fadlih-portfolio.vercel.app">Portfolio</a> ·
+  <a href="https://id.linkedin.com/in/ahmad-fadlih-wahyu-sardana-706933283">LinkedIn</a> ·
+  <a href="https://github.com/afadlih">GitHub</a>
+</p>
 
-<br/>
+> I turn complex operational flows into products with explicit states, validated outputs, observable failures, and practical documentation.
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=16&duration=3000&pause=900&color=7C7CFF&center=true&vCenter=true&width=780&lines=Building+AI-powered+systems+with+product-oriented+engineering;Generate+%E2%86%92+Evaluate+%E2%86%92+Compare+%E2%86%92+Decide+%E2%86%92+Execute;Next.js+%2B+TypeScript+%2B+Gemini+API;Build+consistently.+Ship+real+systems.+Refine+continuously." />
+## What I build
 
-<br/><br/>
+**AI product workflows**  
+Structured model output, validation, human review, deterministic fallback, and useful diagnostics.
 
-<img src="https://komarev.com/ghpvc/?username=afadlih&style=flat-square&color=5c5cf1&label=profile+views" />
-&nbsp;
-<img src="https://img.shields.io/github/followers/afadlih?style=flat-square&color=5c5cf1&label=followers" />
+**Operational full-stack systems**  
+Clear domain states, role-aware interfaces, reliable data flows, testing, and maintainable delivery.
 
-</div>
+**On-premise and realtime integration**  
+MQTT boundaries, device state, acknowledged commands, deployment constraints, and operator visibility.
 
----
+## Selected work
 
-## About
+### 1. AquaSense
 
-I am a D4 Informatics Engineering student focused on **Fullstack Development**, **AI Integration**, and **AI-assisted decision systems**.
+**On-Premise IoT Operations · Private source · Sanitized case study**
 
-I build AI-powered web applications that go beyond simple AI wrappers. My work focuses on designing product-oriented workflows that can generate outputs, evaluate alternatives, compare results, and support structured decision-making.
+On-premise IoT operations platform for telemetry, alarms, device provisioning, acknowledged commands, audit records, and role-based control.
 
-**Core areas:**
+`Next.js` `React` `TypeScript` `MUI` `Go` `EMQX` `MQTTS` `Docker Compose`
 
-- Fullstack web development with `Next.js`, `TypeScript`, and `Tailwind CSS`
-- AI integration using `Gemini API`
-- AI-assisted decision systems and automation workflows
-- Product-oriented engineering for real-world use cases
+**Inspectable evidence**
 
----
+- Sanitized architecture and device-to-dashboard flow documented as a public case study
+- Command lifecycle distinguishes request, delivery, acknowledgement, resulting state, and timeout
+- Deployment and commissioning boundaries are stated instead of presented as completed production work
 
-## What I Build
+<details>
+<summary><strong>Architecture, decisions, and current boundaries</strong></summary>
 
-```txt
-Input
-  └── AI Generation      multiple strategies or outputs
-        └── Evaluation   scoring per dimension
-              └── Comparison   compare alternatives
-                    └── Decision     select the best option with reasoning
-                          └── Optimization   refine for execution
-                                └── Output   structured, reliable, actionable
-```
+**Problem**  
+Water monitoring and relay control need a trusted local workflow where telemetry, device identity, commands, acknowledgements, and operator actions remain visible.
 
-I focus on building systems that are structured, reliable, and usable.
+**What I built**  
+Designed a coarse-grained on-premise architecture that keeps device identity, telemetry, command acknowledgement, privileged access, and operational state explicit.
 
-Every system should handle real input, normalize responses, support fallback logic, and produce actionable output — not just work on the happy path.
+**Deep-dive topics**
 
----
+- Telemetry Ingestion and Device Identity Boundary
+- Acknowledged Command and Configuration Workflow
+- Coarse-Grained On-Premise Deployment
 
-## Featured Projects
+**Current boundaries**
 
-### AI Content Strategy & Decision System
+- Release-candidate software still requires target-server validation, company PKI, firewall review, backup testing, and device commissioning.
+- Relay coil voltage, socket, driver circuit, load behavior, and fail-safe wiring must be verified before hardware commissioning.
 
-An AI-powered system that generates multiple content strategies, evaluates them with scoring logic, compares the results, and selects the best strategy automatically.
+</details>
 
-```txt
-Strategies   emotional / educational / viral
-Evaluation   engagement score · hook quality · CTA strength
-Decision     weighted matrix → best strategy with reasoning
-Reliability  response normalization + fallback handling
-```
-
-**Key features:**
-
-- Multi-strategy content generation
-- Scoring system for engagement potential, hook quality, CTA clarity, and relevance
-- Decision engine to compare strategies and select the best output
-- Gemini API integration for generation, evaluation, and optimization
-- Structured output for content planning and campaign use cases
-
-**Stack:** `Next.js` `TypeScript` `Tailwind CSS` `Gemini API`
-
-Repository: [AI Content Strategy & SEO Assistant Web App](https://github.com/afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-)
+[Case study](case-studies/aquasense/README.md)
 
 ---
 
-### FormAI — AI Form Automation System
+### 2. InternLog AI
 
-An AI-assisted automation system for filling Google Forms using a structured decision pipeline.
+**AI Workflow Product · Private source · Sanitized case study**
 
-```txt
-Analyze → Field Mapping → Rule Engine → AI Fallback → Execution
-```
+Internship workflow product connecting daily logs, weekly logbooks, controlled AI review, document readiness, and export preparation.
 
-**Key features:**
+`Next.js` `React` `TypeScript` `Firebase Auth` `Firestore` `Firebase Admin SDK` `Vitest`
 
-- Form structure detection
-- Field mapping system
-- Rule engine with dominant, range-based, weighted, and text-based logic
-- Gemini API fallback for undefined or ambiguous fields
-- Fast execution mode using HTTP request
-- Smart execution mode using browser automation
-- Designed for decision-based automation, not static autofill
+**Inspectable evidence**
 
-**Stack:** `Python` `FastAPI` `Next.js` `TypeScript` `Gemini API` `Selenium`
+- Daily records remain the source of truth for downstream documents
+- AI-assisted review is separated from factual records and requires user approval
+- Document readiness exposes incomplete, stale, and blocked areas before export
 
----
+<details>
+<summary><strong>Architecture, decisions, and current boundaries</strong></summary>
 
-### Smart Clothesline IoT System
+**Problem**  
+Internship records are often scattered across daily notes, weekly reports, evidence files, and final-document requirements.
 
-An IoT-based automation system that controls a clothesline based on real-time environmental conditions.
+**What I built**  
+Built a traceable workflow where daily records become reviewed weekly outputs and AI suggestions remain optional, bounded, and user-approved.
 
-```txt
-Monitoring   real-time sensor dashboard
-Integration  sensor data → web system
-Automation   environment-condition-based logic
-Decision     weather/environment-based action flow
-```
+**Deep-dive topics**
 
-**Key features:**
+- Daily Log to Weekly Logbook Lifecycle
+- Controlled AI Mentor and Recommendation Flow
+- Document Studio Readiness Audit
 
-- Real-time monitoring dashboard
-- Sensor data integration
-- Environment-based automation logic
-- Web interface for monitoring system status
-- Decision flow based on changing weather or environmental data
+**Current boundaries**
 
-**Stack:** `Next.js` `TypeScript` `IoT Sensors`
+- Multi-user support remains a limited beta rather than a commercial SaaS release.
+- File evidence and larger document assets are still handled outside Firestore to stay within the intended free-tier architecture.
 
-Repository: [Smart Clothesline IoT System](https://github.com/afadlih/smart-clothesline-iot-system)
+</details>
+
+[Case study](case-studies/internlog-ai/README.md)
 
 ---
 
-## Collaborative Projects
+### 3. AI Content Strategy
 
-These are project-based learning and team-based development projects where I contributed to frontend implementation, system flow, UI development, and feature delivery.
+**AI Decision System · Public source · Source-verifiable**
 
-### SIMAPRES — Student Achievement Information System
+Public decision-support application that generates multiple content strategies, validates structured model output, compares trade-offs, and recommends an execution path.
 
-A web-based information system for managing, monitoring, and reporting student academic and non-academic achievements.
+`Next.js 14` `TypeScript` `Tailwind CSS` `Gemini API` `Structured Output`
 
-**Contribution areas:**
+**Inspectable evidence**
 
-- Contributed to student achievement data management and reporting workflows
-- Developed web interface components and application flow
-- Supported search, filter, and data management features
-- Collaborated in a Laravel-based team project with frontend, backend, and database integration
+- Public source is pinned to commit d3aedfd1dc8e76a29bf51a14fc12da4a77219de0 in the case-study evidence record
+- Runtime type guards validate decision, previous-strategy, and legacy response shapes before rendering
+- The API normalizes model output and exposes comparison, recommendation, execution, validation, and risk fields
 
-**Stack:** `Laravel` `PHP` `JavaScript` `Blade` `CSS` `MySQL`
+<details>
+<summary><strong>Architecture, decisions, and current boundaries</strong></summary>
 
-Repository: [SIMAPRES App](https://github.com/anugerahhrama/simapres-app)
+**Problem**  
+Many AI content tools return one answer without making trade-offs or selection logic visible.
 
----
+**What I built**  
+Implemented a typed Next.js and Gemini workflow with runtime guards, normalized result states, three strategy variants, scoring, recommendation, fallback behavior, and risk notes.
 
-### Techno Rules — Student Discipline Information System
+**Deep-dive topics**
 
-A web-based system for recording and managing student discipline data within the Informatics Engineering environment.
+- Structured Gemini Output Normalization
+- Multi-Strategy Scoring Matrix
+- Decision Recommendation and Trade-Off Reasoning
 
-**Contribution areas:**
+**Current boundaries**
 
-- Developed role-based modules for admin, lecturer, student, and discipline committee users
-- Contributed to violation form, dashboard, and student data management features
-- Implemented system flow for recording, managing, and evaluating discipline data
-- Supported web interface development and feature integration
+- Model output still requires human judgment.
+- Heuristic scoring is not a substitute for real campaign measurement.
 
-**Stack:** `PHP` `MySQL` `JavaScript` `CSS`
+</details>
 
-Repository: [Techno Rules](https://github.com/a6iyyu/tatib)
+[Repository](https://github.com/afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-) · [Case study](case-studies/ai-content-strategy/README.md)
 
----
+## Additional case study
 
-### Jawara Mobile — RT/RW Management Mobile App
+### 4. FormAI
 
-A mobile application designed to support administration and communication workflows in RT/RW communities.
+**AI Automation · Private source · Sanitized case study**
 
-**Contribution areas:**
+AI-assisted Google Form automation platform with form analysis, deterministic CSV mapping, AI fallback, validation, execution modes, and row-level diagnostics.
 
-- Contributed as a front-end developer in a Flutter-based mobile application
-- Developed mobile UI components, page structure, and navigation flow
-- Supported features for community administration, activities, and communication
-- Collaborated in a cross-platform mobile development workflow
+`Python` `FastAPI` `Next.js` `TypeScript` `Gemini API` `Selenium` `CSV Contracts`
 
-**Stack:** `Flutter` `Dart`
+**Inspectable evidence**
 
-Repository: [Jawara Mobile](https://github.com/uhamhz/jawara-mobile)
+- Analyze-first workflow before execution
+- Deterministic CSV mapping before AI fallback
+- Dry-run preview before mutating submission
+- Duplicate guard and row-level diagnostics
+- Fast HTTP mode plus browser execution mode
 
----
+<details>
+<summary><strong>Architecture, decisions, and current boundaries</strong></summary>
 
-## Tech Stack
+**Problem**  
+Repeated Google Form submission is slow, inconsistent, and risky when many respondents, rules, or answer sources are involved.
 
-<div align="center">
+**What I built**  
+Designed an operator-facing workflow where users can analyze a form, prepare structured data, preview mapping, execute safely, and inspect what happened per row.
 
-<img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,nodejs,python,php,laravel,flutter,dart,mysql,git,github,figma&perline=7" />
+**Deep-dive topics**
 
-<br/><br/>
+- Form Analyzer
+- Deterministic CSV Mapping and AI Fallback
+- Dry-Run Preview, Validation, and Diagnostics
 
-<img src="https://img.shields.io/badge/Gemini_API-AI_Integration-4285F4?style=flat-square&logo=google&logoColor=white" />
-&nbsp;
-<img src="https://img.shields.io/badge/Prompt_Engineering-Structured-5c5cf1?style=flat-square" />
-&nbsp;
-<img src="https://img.shields.io/badge/Decision_System-Learning_&_Building-1a1a2e?style=flat-square" />
-&nbsp;
-<img src="https://img.shields.io/badge/Automation-Workflow-16213e?style=flat-square" />
+**Current boundaries**
 
-</div>
+- The form must be analyzed again when its structure changes.
+- Some forms still require browser execution instead of the faster HTTP submission path.
 
----
+</details>
 
-## Engineering Interests
+[Case study](case-studies/formai/README.md)
 
-- AI-powered product workflows
-- Decision systems and automation
-- Fullstack web applications
-- Application-layer AI integration
-- Product engineering with real user scenarios
-- Reliable systems with validation, fallback, and error handling
+## Experience & recognition
 
----
+- **PT Pindad (Persero) — Intern** (Current)  
+  Working on software and system-integration tasks. Public descriptions remain NDA-safe and exclude internal infrastructure, credentials, and operational data.
+- **PKM-KC 2026 Funding Recipient — OrthoBreath**  
+  Full-stack contributor to a five-student health-tech prototype covering application flow, device-related work, testing support, and project communication. No clinical-readiness claim is made.
 
-## Current Focus
+## More projects
 
-- Building AI-assisted decision pipelines grounded in real use cases
-- Integrating AI into actual product surfaces, not just demos
-- Improving system reliability through normalization, fallback, and error handling
-- Developing with a product mindset: ship, measure, refine
-- Growing toward AI product engineering through real fullstack projects
+| Project | What it demonstrates | Access |
+| --- | --- | --- |
+| **Smart Clothesline IoT** | Realtime dashboard for sensor telemetry, clothesline state, automation rules, alerts, history, and operational diagnostics. | [Repository](https://github.com/afadlih/smart-clothesline-iot-system) · [Case study](case-studies/smart-clothesline/README.md) |
+| **Polinema Adaptive TOEIC** | Responsive TOEIC micro-learning platform with institutional roles, research cohorts, content workflows, assessments, deterministic mastery updates, and research exports. | [Case study](case-studies/polinema-adaptive-toeic/README.md) |
+| **OrthoBreath** | Prototype dashboard for child profiles, dental capture, breathing-session monitoring, scan history, notifications, and combined reporting. | [Case study](case-studies/orthobreath/README.md) |
 
----
+## Public work, recently updated
 
-## GitHub Activity
+<!-- PROFILE-ACTIVITY:START -->
+| Repository | Last public update | Language |
+| --- | --- | --- |
+| [Smart Clothesline IoT](https://github.com/afadlih/smart-clothesline-iot-system) | 2026-06-10 | TypeScript |
+| [AI Content Strategy](https://github.com/afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-) | 2026-04-27 | TypeScript |
+| [E2E MagangIn](https://github.com/afadlih/E2E-MagangIn) | 2026-04-01 | HTML |
+| [Budget Planner](https://github.com/afadlih/budget-planner) | 2026-04-01 | CSS |
+| [E2E JTI Intern](https://github.com/afadlih/E2E-JTIintern-PMPL) | 2025-12-27 | HTML |
+<!-- PROFILE-ACTIVITY:END -->
 
-<div align="center">
+This snapshot is generated from an allowlisted set of public repositories. Private repository metadata is never published by the updater.
 
-<img src="https://github-readme-stats.vercel.app/api?username=afadlih&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=7c7cff&icon_color=7c7cff&text_color=ffffff&border_radius=8" height="155" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=afadlih&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=7c7cff&text_color=ffffff&border_radius=8" height="155" />
+## How I work
 
-<br/>
+- Keep deterministic rules separate from AI fallback.
+- Validate external and generated data before it reaches the UI or execution path.
+- Represent pending, failed, blocked, and completed states explicitly.
+- Document limitations and deployment boundaries as carefully as features.
+- Prefer evidence that can be inspected over decorative claims.
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=afadlih&theme=tokyonight&hide_border=true&background=0d1117&ring=7c7cff&fire=f97316&currStreakLabel=ffffff" width="49%" />
+## Contact
 
-<br/>
+Open to full-stack, AI product engineering, workflow automation, and system-integration opportunities.
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=afadlih&bg_color=0d1117&color=7c7cff&line=7c7cff&point=f97316&area=true&area_color=7c7cff20&hide_border=true" width="100%" />
+[Portfolio](https://ahmad-fadlih-portfolio.vercel.app) · [LinkedIn](https://id.linkedin.com/in/ahmad-fadlih-wahyu-sardana-706933283)
 
-</div>
-
----
-
-## Connect
-
-<div align="center">
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Ahmad_Fadlih-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://id.linkedin.com/in/ahmad-fadlih-wahyu-sardana-706933283)
-&nbsp;
-[![GitHub](https://img.shields.io/badge/GitHub-afadlih-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/afadlih)
-&nbsp;
-[![Instagram](https://img.shields.io/badge/Instagram-ach.fadlih-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://instagram.com/ach.fadlih)
-
-</div>
-
----
-
-<div align="center">
-
-```txt
-Build consistently.
-Ship real systems.
-Refine continuously.
-```
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d0d0d,50:1a1a2e,100:16213e&height=90&section=footer" width="100%" />
-
-</div>
+<sub>Private projects are shown through sanitized case studies, not fabricated public demos.<br>Public projects include source-level evidence pinned to inspectable commits.<br>A professional public email is intentionally omitted until a durable address is configured.</sub>

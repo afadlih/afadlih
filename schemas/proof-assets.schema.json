@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/afadlih/afadlih/blob/main/schemas/proof-assets.schema.json",
+  "title": "Featured project proof manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "version", "status_definitions", "projects"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "version": {"type": "string"},
+    "status_definitions": {"type": "object"},
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["slug", "visibility", "proof_level", "items"],
+        "properties": {
+          "slug": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+          "visibility": {"enum": ["public", "private"]},
+          "proof_level": {"enum": ["documented-private", "source-verifiable"]},
+          "items": {
+            "type": "array", "minItems": 3,
+            "items": {
+              "type": "object", "additionalProperties": false,
+              "required": ["id", "type", "path", "status", "description", "reviewed", "privacy_reviewed"],
+              "properties": {
+                "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+                "type": {"enum": ["case-study", "architecture", "workflow", "evidence"]},
+                "path": {"type": "string", "minLength": 5},
+                "status": {"enum": ["documented", "source-verified", "test-verified", "planned", "missing"]},
+                "description": {"type": "string", "minLength": 20},
+                "reviewed": {"type": "boolean"},
+                "privacy_reviewed": {"type": "boolean"},
+                "source_url": {"type": "string"},
+                "source_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

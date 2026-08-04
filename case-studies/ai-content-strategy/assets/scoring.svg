@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">AI Content Strategy / Scoring</title>
+  <desc id="desc">Monochrome proof asset for the portfolio case study.</desc>
+  <style>
+    .bg { fill: #0b0b0b; }
+    .panel { fill: none; stroke: #bfbfbf; stroke-width: 2; }
+    .grid { stroke: #303030; stroke-width: 1; }
+    .title { fill: #ffffff; font: 700 52px 'Courier New', monospace; }
+    .subtitle { fill: #d0d0d0; font: 400 24px 'Courier New', monospace; }
+    .body { fill: #cfcfcf; font: 400 22px 'Courier New', monospace; }
+    .tiny { fill: #8c8c8c; font: 400 18px 'Courier New', monospace; }
+  </style>
+  <rect class="bg" width="100%" height="100%"/>
+  <g opacity="0.5">
+    <path class="grid" d="M0 80H1200M0 160H1200M0 240H1200M0 320H1200M0 400H1200M0 480H1200M0 560H1200"/>
+    <path class="grid" d="M120 0V640M240 0V640M360 0V640M480 0V640M600 0V640M720 0V640M840 0V640M960 0V640M1080 0V640"/>
+  </g>
+  <rect x="30" y="30" width="1140" height="580" rx="18" class="panel"/>
+  <text x="60" y="95" class="tiny">&gt; project-proof.asset</text>
+  <text x="60" y="150" class="title">AI Content Strategy / Scoring</text>
+  <text x="60" y="185" class="subtitle">What the system evaluates</text>
+  <text x="60" y="190" class="body">dimensions: engagement, hook strength, cta strength, relevance</text><text x="60" y="228" class="body">decision basis: trade-off analysis + best variation index</text><text x="60" y="266" class="body">goal: recommendation with reasoning, not raw generation only</text>
+  <text x="60" y="590" class="tiny">Documented case-study diagram — interpret together with the published verification boundary.</text>
+</svg>

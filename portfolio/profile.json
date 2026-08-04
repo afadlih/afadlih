@@ -1,0 +1,55 @@
+{
+  "$schema": "../schemas/profile.schema.json",
+  "version": "3.0.0",
+  "name": "Ahmad Fadlih Wahyu Sardana",
+  "short_name": "Ahmad Fadlih",
+  "username": "afadlih",
+  "role": "Full-Stack Developer building reliable AI workflows, automation systems, and on-premise IoT products",
+  "headline": "I turn complex operational flows into products with explicit states, validated outputs, observable failures, and practical documentation.",
+  "location": "Indonesia",
+  "portfolio_url": "https://ahmad-fadlih-portfolio.vercel.app",
+  "github_url": "https://github.com/afadlih",
+  "linkedin_url": "https://id.linkedin.com/in/ahmad-fadlih-wahyu-sardana-706933283",
+  "availability": "Open to full-stack, AI product engineering, workflow automation, and system-integration opportunities.",
+  "focus_areas": [
+    {
+      "title": "AI product workflows",
+      "description": "Structured model output, validation, human review, deterministic fallback, and useful diagnostics."
+    },
+    {
+      "title": "Operational full-stack systems",
+      "description": "Clear domain states, role-aware interfaces, reliable data flows, testing, and maintainable delivery."
+    },
+    {
+      "title": "On-premise and realtime integration",
+      "description": "MQTT boundaries, device state, acknowledged commands, deployment constraints, and operator visibility."
+    }
+  ],
+  "experience": [
+    {
+      "organization": "PT Pindad (Persero)",
+      "title": "Intern",
+      "period": "Current",
+      "summary": "Working on software and system-integration tasks. Public descriptions remain NDA-safe and exclude internal infrastructure, credentials, and operational data."
+    }
+  ],
+  "recognition": [
+    {
+      "title": "PKM-KC 2026 Funding Recipient",
+      "project": "OrthoBreath",
+      "summary": "Full-stack contributor to a five-student health-tech prototype covering application flow, device-related work, testing support, and project communication. No clinical-readiness claim is made."
+    }
+  ],
+  "engineering_principles": [
+    "Keep deterministic rules separate from AI fallback.",
+    "Validate external and generated data before it reaches the UI or execution path.",
+    "Represent pending, failed, blocked, and completed states explicitly.",
+    "Document limitations and deployment boundaries as carefully as features.",
+    "Prefer evidence that can be inspected over decorative claims."
+  ],
+  "profile_notes": [
+    "Private projects are shown through sanitized case studies, not fabricated public demos.",
+    "Public projects include source-level evidence pinned to inspectable commits.",
+    "A professional public email is intentionally omitted until a durable address is configured."
+  ]
+}

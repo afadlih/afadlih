@@ -1,0 +1,37 @@
+{
+  "$schema": "../schemas/activity-sources.schema.json",
+  "version": "2.0.0",
+  "maximum_items": 5,
+  "repositories": [
+    {
+      "name": "AI Content Strategy",
+      "repository": "afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-",
+      "url": "https://github.com/afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-",
+      "enabled": true
+    },
+    {
+      "name": "Smart Clothesline IoT",
+      "repository": "afadlih/smart-clothesline-iot-system",
+      "url": "https://github.com/afadlih/smart-clothesline-iot-system",
+      "enabled": true
+    },
+    {
+      "name": "E2E JTI Intern",
+      "repository": "afadlih/E2E-JTIintern-PMPL",
+      "url": "https://github.com/afadlih/E2E-JTIintern-PMPL",
+      "enabled": true
+    },
+    {
+      "name": "E2E MagangIn",
+      "repository": "afadlih/E2E-MagangIn",
+      "url": "https://github.com/afadlih/E2E-MagangIn",
+      "enabled": true
+    },
+    {
+      "name": "Budget Planner",
+      "repository": "afadlih/budget-planner",
+      "url": "https://github.com/afadlih/budget-planner",
+      "enabled": true
+    }
+  ]
+}

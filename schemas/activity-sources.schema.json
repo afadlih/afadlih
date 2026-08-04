@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/afadlih/afadlih/blob/main/schemas/activity-sources.schema.json",
+  "title": "Allowlisted public repository activity sources",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "version", "maximum_items", "repositories"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "maximum_items": {"type": "integer", "minimum": 1, "maximum": 10},
+    "repositories": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "repository", "url", "enabled"],
+        "properties": {
+          "name": {"type": "string", "minLength": 2},
+          "repository": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"},
+          "url": {"type": "string", "format": "uri", "pattern": "^https://github\\.com/"},
+          "enabled": {"type": "boolean"}
+        }
+      }
+    }
+  }
+}

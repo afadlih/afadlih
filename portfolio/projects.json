@@ -1,0 +1,352 @@
+{
+  "$schema": "../schemas/projects.schema.json",
+  "version": "3.0.0",
+  "projects": [
+    {
+      "slug": "aquasense",
+      "name": "AquaSense",
+      "title": "AquaSense — On-Premise Water Monitoring and Control",
+      "status": "featured",
+      "profile_section": "featured",
+      "visibility": "private",
+      "category": "On-Premise IoT Operations",
+      "priority": 1,
+      "role": "Fullstack and System Integration Developer",
+      "summary": "On-premise IoT operations platform for telemetry, alarms, device provisioning, acknowledged commands, audit records, and role-based control.",
+      "problem": "Water monitoring and relay control need a trusted local workflow where telemetry, device identity, commands, acknowledgements, and operator actions remain visible.",
+      "outcome": "Designed a coarse-grained on-premise architecture that keeps device identity, telemetry, command acknowledgement, privileged access, and operational state explicit.",
+      "technologies": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "MUI",
+        "Go",
+        "EMQX",
+        "MQTTS",
+        "Docker Compose"
+      ],
+      "proof_points": [
+        "Sanitized architecture and device-to-dashboard flow documented as a public case study",
+        "Command lifecycle distinguishes request, delivery, acknowledgement, resulting state, and timeout",
+        "Deployment and commissioning boundaries are stated instead of presented as completed production work"
+      ],
+      "feature_deep_dives": [
+        "Telemetry Ingestion and Device Identity Boundary",
+        "Acknowledged Command and Configuration Workflow",
+        "Coarse-Grained On-Premise Deployment"
+      ],
+      "links": {
+        "repository": null,
+        "case_study": "case-studies/aquasense/README.md",
+        "demo": null,
+        "video": null
+      },
+      "assets": {
+        "cover": "case-studies/aquasense/assets/cover.svg",
+        "architecture": "case-studies/aquasense/assets/architecture.svg",
+        "workflow": "case-studies/aquasense/assets/workflow.svg",
+        "extra": []
+      },
+      "limitations": [
+        "Release-candidate software still requires target-server validation, company PKI, firewall review, backup testing, and device commissioning.",
+        "Relay coil voltage, socket, driver circuit, load behavior, and fail-safe wiring must be verified before hardware commissioning."
+      ],
+      "proof_level": "documented-private"
+    },
+    {
+      "slug": "internlog-ai",
+      "name": "InternLog AI",
+      "title": "InternLog AI — Internship Documentation Workspace",
+      "status": "featured",
+      "profile_section": "featured",
+      "visibility": "private",
+      "category": "AI Workflow Product",
+      "priority": 2,
+      "role": "Fullstack Developer",
+      "summary": "Internship workflow product connecting daily logs, weekly logbooks, controlled AI review, document readiness, and export preparation.",
+      "problem": "Internship records are often scattered across daily notes, weekly reports, evidence files, and final-document requirements.",
+      "outcome": "Built a traceable workflow where daily records become reviewed weekly outputs and AI suggestions remain optional, bounded, and user-approved.",
+      "technologies": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Firebase Auth",
+        "Firestore",
+        "Firebase Admin SDK",
+        "Vitest"
+      ],
+      "proof_points": [
+        "Daily records remain the source of truth for downstream documents",
+        "AI-assisted review is separated from factual records and requires user approval",
+        "Document readiness exposes incomplete, stale, and blocked areas before export"
+      ],
+      "feature_deep_dives": [
+        "Daily Log to Weekly Logbook Lifecycle",
+        "Controlled AI Mentor and Recommendation Flow",
+        "Document Studio Readiness Audit"
+      ],
+      "links": {
+        "repository": null,
+        "case_study": "case-studies/internlog-ai/README.md",
+        "demo": null,
+        "video": null
+      },
+      "assets": {
+        "cover": "case-studies/internlog-ai/assets/cover.svg",
+        "architecture": "case-studies/internlog-ai/assets/architecture.svg",
+        "workflow": "case-studies/internlog-ai/assets/workflow.svg",
+        "extra": []
+      },
+      "limitations": [
+        "Multi-user support remains a limited beta rather than a commercial SaaS release.",
+        "File evidence and larger document assets are still handled outside Firestore to stay within the intended free-tier architecture."
+      ],
+      "proof_level": "documented-private"
+    },
+    {
+      "slug": "ai-content-strategy",
+      "name": "AI Content Strategy",
+      "title": "AI Content Strategy and Decision System",
+      "status": "featured",
+      "profile_section": "featured",
+      "visibility": "public",
+      "category": "AI Decision System",
+      "priority": 3,
+      "role": "Fullstack Developer",
+      "summary": "Public decision-support application that generates multiple content strategies, validates structured model output, compares trade-offs, and recommends an execution path.",
+      "problem": "Many AI content tools return one answer without making trade-offs or selection logic visible.",
+      "outcome": "Implemented a typed Next.js and Gemini workflow with runtime guards, normalized result states, three strategy variants, scoring, recommendation, fallback behavior, and risk notes.",
+      "technologies": [
+        "Next.js 14",
+        "TypeScript",
+        "Tailwind CSS",
+        "Gemini API",
+        "Structured Output"
+      ],
+      "proof_points": [
+        "Public source is pinned to commit d3aedfd1dc8e76a29bf51a14fc12da4a77219de0 in the case-study evidence record",
+        "Runtime type guards validate decision, previous-strategy, and legacy response shapes before rendering",
+        "The API normalizes model output and exposes comparison, recommendation, execution, validation, and risk fields"
+      ],
+      "feature_deep_dives": [
+        "Structured Gemini Output Normalization",
+        "Multi-Strategy Scoring Matrix",
+        "Decision Recommendation and Trade-Off Reasoning"
+      ],
+      "links": {
+        "repository": "https://github.com/afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-",
+        "case_study": "case-studies/ai-content-strategy/README.md",
+        "demo": null,
+        "video": null
+      },
+      "assets": {
+        "cover": "case-studies/ai-content-strategy/assets/cover.svg",
+        "architecture": "case-studies/ai-content-strategy/assets/architecture.svg",
+        "workflow": "case-studies/ai-content-strategy/assets/workflow.svg",
+        "extra": [
+          "case-studies/ai-content-strategy/assets/scoring.svg"
+        ]
+      },
+      "limitations": [
+        "Model output still requires human judgment.",
+        "Heuristic scoring is not a substitute for real campaign measurement."
+      ],
+      "proof_level": "source-verifiable"
+    },
+    {
+      "slug": "formai",
+      "name": "FormAI",
+      "title": "FormAI — AI Form Automation Platform",
+      "status": "active",
+      "profile_section": "major",
+      "visibility": "private",
+      "category": "AI Automation",
+      "priority": 4,
+      "role": "Fullstack Developer",
+      "summary": "AI-assisted Google Form automation platform with form analysis, deterministic CSV mapping, AI fallback, validation, execution modes, and row-level diagnostics.",
+      "problem": "Repeated Google Form submission is slow, inconsistent, and risky when many respondents, rules, or answer sources are involved.",
+      "outcome": "Designed an operator-facing workflow where users can analyze a form, prepare structured data, preview mapping, execute safely, and inspect what happened per row.",
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "Next.js",
+        "TypeScript",
+        "Gemini API",
+        "Selenium",
+        "CSV Contracts"
+      ],
+      "proof_points": [
+        "Analyze-first workflow before execution",
+        "Deterministic CSV mapping before AI fallback",
+        "Dry-run preview before mutating submission",
+        "Duplicate guard and row-level diagnostics",
+        "Fast HTTP mode plus browser execution mode"
+      ],
+      "feature_deep_dives": [
+        "Form Analyzer",
+        "Deterministic CSV Mapping and AI Fallback",
+        "Dry-Run Preview, Validation, and Diagnostics"
+      ],
+      "links": {
+        "repository": null,
+        "case_study": "case-studies/formai/README.md",
+        "demo": null,
+        "video": null
+      },
+      "assets": {
+        "cover": "case-studies/formai/assets/cover.svg",
+        "architecture": "case-studies/formai/assets/architecture.svg",
+        "workflow": "case-studies/formai/assets/workflow.svg",
+        "extra": [
+          "case-studies/formai/assets/diagnostics.svg"
+        ]
+      },
+      "limitations": [
+        "The form must be analyzed again when its structure changes.",
+        "Some forms still require browser execution instead of the faster HTTP submission path."
+      ],
+      "proof_level": "documented-private"
+    },
+    {
+      "slug": "smart-clothesline",
+      "name": "Smart Clothesline IoT",
+      "title": "Smart Clothesline IoT System",
+      "status": "stable",
+      "profile_section": "supporting",
+      "visibility": "public",
+      "category": "Realtime IoT Dashboard",
+      "priority": 5,
+      "role": "Fullstack Developer",
+      "summary": "Realtime dashboard for sensor telemetry, clothesline state, automation rules, alerts, history, and operational diagnostics.",
+      "problem": "Weather-sensitive device control needs visible telemetry, automation state, alerts, and safe fallback behavior.",
+      "outcome": "Built a web dashboard around MQTT telemetry, Firebase state, notifications, automation rules, and operating documentation.",
+      "technologies": [
+        "Next.js 14",
+        "TypeScript",
+        "Firebase Firestore",
+        "MQTT",
+        "Telegram Bot API",
+        "Tailwind CSS"
+      ],
+      "proof_points": [
+        "Realtime telemetry summary",
+        "Heartbeat and stale-state monitoring",
+        "Automation thresholds and schedules"
+      ],
+      "feature_deep_dives": [
+        "MQTT Realtime Telemetry",
+        "Device Health and Heartbeat Monitoring",
+        "Automation Rules and Safety Fallback"
+      ],
+      "links": {
+        "repository": "https://github.com/afadlih/smart-clothesline-iot-system",
+        "case_study": "case-studies/smart-clothesline/README.md",
+        "demo": null,
+        "video": null
+      },
+      "assets": {
+        "cover": "case-studies/smart-clothesline/assets/cover.svg",
+        "architecture": "case-studies/smart-clothesline/assets/architecture.svg",
+        "workflow": "case-studies/smart-clothesline/assets/telemetry.svg",
+        "extra": [
+          "case-studies/smart-clothesline/assets/automation.svg"
+        ]
+      },
+      "limitations": [
+        "Realtime reliability depends on network and device health.",
+        "Safety state must remain clear when sensor input is uncertain."
+      ],
+      "proof_level": "public-repository"
+    },
+    {
+      "slug": "polinema-adaptive-toeic",
+      "name": "Polinema Adaptive TOEIC",
+      "title": "Polinema Adaptive TOEIC — Adaptive Micro-Learning Platform",
+      "status": "stable",
+      "profile_section": "supporting",
+      "visibility": "private",
+      "category": "Adaptive Learning Platform",
+      "priority": 6,
+      "role": "Fullstack Developer",
+      "summary": "Responsive TOEIC micro-learning platform with institutional roles, research cohorts, content workflows, assessments, deterministic mastery updates, and research exports.",
+      "problem": "A campus learning pilot needs more than exercises: it also needs identity, consent, cohorts, controlled content, assessment evidence, and research-ready exports.",
+      "outcome": "Built a release-candidate platform covering student, lecturer, administrator, and validator workflows with PostgreSQL-backed learning and assessment data.",
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "PostgreSQL",
+        "Drizzle ORM",
+        "Gemini",
+        "Docker",
+        "Vitest"
+      ],
+      "proof_points": [
+        "Server-side RBAC and NIM/NIP authentication",
+        "Assessment autosave, scoring, mastery, and deterministic recommendations",
+        "Research cohort, consent, freeze, and anonymous CSV export",
+        "Versioned content and expert validation workflow",
+        "Local verification, backup, restore, and production runbooks"
+      ],
+      "feature_deep_dives": [
+        "Adaptive Assessment and Mastery Evidence",
+        "Research Cohort and Consent Operations",
+        "Versioned Content and Expert Validation"
+      ],
+      "links": {
+        "repository": null,
+        "case_study": "case-studies/polinema-adaptive-toeic/README.md",
+        "demo": null,
+        "video": null
+      },
+      "assets": {
+        "cover": "case-studies/polinema-adaptive-toeic/assets/cover.svg",
+        "architecture": "case-studies/polinema-adaptive-toeic/assets/architecture.svg",
+        "workflow": "case-studies/polinema-adaptive-toeic/assets/workflow.svg",
+        "extra": []
+      },
+      "limitations": [
+        "Production SMTP, institutional SSO or SIAKAD integration, and centralized object storage are not yet integrated.",
+        "The current status is a pilot-operations release candidate, not an institution-wide production rollout."
+      ],
+      "proof_level": "documented-private"
+    },
+    {
+      "slug": "orthobreath",
+      "name": "OrthoBreath",
+      "title": "OrthoBreath — PKM-KC 2026 Health-tech Prototype",
+      "status": "active",
+      "profile_section": "supporting",
+      "visibility": "private",
+      "category": "PKM-KC Health-tech Prototype",
+      "priority": 7,
+      "role": "Fullstack Developer",
+      "summary": "Prototype dashboard for child profiles, dental capture, breathing-session monitoring, scan history, notifications, and combined reporting.",
+      "problem": "Screening-related records can become fragmented when profile data, dental observations, breathing sessions, and reports are handled separately.",
+      "outcome": "Prepared a Next.js frontend with Firebase-backed user and patient records and an API-ready service boundary for future model integration.",
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "Firebase Auth",
+        "Firestore",
+        "FastAPI-ready Service Layer"
+      ],
+      "proof_points": [
+        "Parent and child profile flow",
+        "Dental and breathing history structure",
+        "Combined report service contract"
+      ],
+      "feature_deep_dives": [],
+      "links": {
+        "repository": null,
+        "case_study": "case-studies/orthobreath/README.md",
+        "demo": null,
+        "video": null
+      },
+      "limitations": [
+        "Prediction behavior remains mock-first until model integration and validation are completed.",
+        "The prototype does not make a clinical accuracy or medical-device readiness claim."
+      ],
+      "proof_level": "funded-prototype"
+    }
+  ]
+}
