@@ -1,0 +1,48 @@
+{
+  "$schema": "../schemas/repository-activity.schema.json",
+  "version": "2.0.0",
+  "as_of": "2026-06-10T01:44:07Z",
+  "source": "GitHub repository metadata",
+  "items": [
+    {
+      "name": "Smart Clothesline IoT",
+      "repository": "afadlih/smart-clothesline-iot-system",
+      "url": "https://github.com/afadlih/smart-clothesline-iot-system",
+      "description": null,
+      "language": "TypeScript",
+      "pushed_at": "2026-06-10T01:44:07Z"
+    },
+    {
+      "name": "AI Content Strategy",
+      "repository": "afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-",
+      "url": "https://github.com/afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-",
+      "description": null,
+      "language": "TypeScript",
+      "pushed_at": "2026-04-27T15:01:42Z"
+    },
+    {
+      "name": "E2E MagangIn",
+      "repository": "afadlih/E2E-MagangIn",
+      "url": "https://github.com/afadlih/E2E-MagangIn",
+      "description": null,
+      "language": "HTML",
+      "pushed_at": "2026-04-01T06:03:42Z"
+    },
+    {
+      "name": "Budget Planner",
+      "repository": "afadlih/budget-planner",
+      "url": "https://github.com/afadlih/budget-planner",
+      "description": null,
+      "language": "CSS",
+      "pushed_at": "2026-04-01T06:01:35Z"
+    },
+    {
+      "name": "E2E JTI Intern",
+      "repository": "afadlih/E2E-JTIintern-PMPL",
+      "url": "https://github.com/afadlih/E2E-JTIintern-PMPL",
+      "description": null,
+      "language": "HTML",
+      "pushed_at": "2025-12-27T14:36:14Z"
+    }
+  ]
+}

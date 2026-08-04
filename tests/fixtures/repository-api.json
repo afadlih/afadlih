@@ -1,0 +1,64 @@
+{
+  "repositories": {
+    "afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-": {
+      "full_name": "afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-",
+      "html_url": "https://github.com/afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-",
+      "description": "Decision-first content planning application.",
+      "language": "TypeScript",
+      "pushed_at": "2026-08-04T10:00:00Z",
+      "private": false,
+      "archived": false,
+      "disabled": false
+    },
+    "afadlih/smart-clothesline-iot-system": {
+      "full_name": "afadlih/smart-clothesline-iot-system",
+      "html_url": "https://github.com/afadlih/smart-clothesline-iot-system",
+      "description": "Realtime IoT dashboard.",
+      "language": "TypeScript",
+      "pushed_at": "2026-08-03T09:00:00Z",
+      "private": false,
+      "archived": false,
+      "disabled": false
+    },
+    "afadlih/E2E-JTIintern-PMPL": {
+      "full_name": "afadlih/E2E-JTIintern-PMPL",
+      "html_url": "https://github.com/afadlih/E2E-JTIintern-PMPL",
+      "description": "End-to-end test project.",
+      "language": "TypeScript",
+      "pushed_at": "2026-07-30T08:00:00Z",
+      "private": false,
+      "archived": false,
+      "disabled": false
+    },
+    "afadlih/E2E-MagangIn": {
+      "full_name": "afadlih/E2E-MagangIn",
+      "html_url": "https://github.com/afadlih/E2E-MagangIn",
+      "description": "End-to-end test repository.",
+      "language": "JavaScript",
+      "pushed_at": "2026-07-28T07:00:00Z",
+      "private": false,
+      "archived": false,
+      "disabled": false
+    },
+    "afadlih/technorules": {
+      "full_name": "afadlih/technorules",
+      "html_url": "https://github.com/afadlih/technorules",
+      "description": "Student discipline system project.",
+      "language": "PHP",
+      "pushed_at": "2026-07-20T06:00:00Z",
+      "private": false,
+      "archived": false,
+      "disabled": false
+    },
+    "afadlih/budget-planner": {
+      "full_name": "afadlih/budget-planner",
+      "html_url": "https://github.com/afadlih/budget-planner",
+      "description": "Budget planning learning project.",
+      "language": "PHP",
+      "pushed_at": "2026-06-10T05:00:00Z",
+      "private": false,
+      "archived": false,
+      "disabled": false
+    }
+  }
+}
