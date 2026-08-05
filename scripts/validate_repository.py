@@ -25,6 +25,9 @@ FORBIDDEN_README_TERMS = [
     "placeholder asset",
     "missing-real",
     "SIMAK",
+    "readme-typing-svg.demolab.com",
+    "github-readme-stats.vercel.app",
+    "github-readme-activity-graph.vercel.app",
 ]
 ACTION_REF = re.compile(r"^\s*uses:\s*([^\s]+)@([^\s#]+)", re.MULTILINE)
 SHA40 = re.compile(r"^[0-9a-f]{40}$")
@@ -46,9 +49,24 @@ def main() -> int:
         if readme.count(marker) != 1:
             errors.append(f"README must contain exactly one marker: {marker}")
 
-    for section in ("## What I build", "## Selected work", "## Experience & recognition", "## More projects", "## How I work", "## Contact"):
+    for section in (
+        "## What I build",
+        "## Current engineering focus",
+        "## Selected work",
+        "## Experience & recognition",
+        "## More projects",
+        "## GitHub activity",
+        "## How I work",
+        "## Contact",
+    ):
         if section not in readme:
             errors.append(f"README missing required section: {section}")
+
+    for local_asset in ("assets/profile-banner.svg", "assets/public-activity.svg"):
+        if local_asset not in readme:
+            errors.append(f"README must reference repository-owned asset: {local_asset}")
+        if not (ROOT / local_asset).is_file():
+            errors.append(f"missing repository-owned asset: {local_asset}")
 
     featured = [project for project in projects if project.get("profile_section") == "featured"]
     if len(featured) != 3:
@@ -59,7 +77,14 @@ def main() -> int:
         errors.append("SIMAK must not be present in project data")
 
     sources = json.loads((ROOT / "portfolio/activity-sources.json").read_text(encoding="utf-8")).get("repositories", [])
-    private_names = {"afadlih/Internlog-ai", "afadlih/AquaSense", "afadlih/Polinema_Adaptive_TOEIC", "afadlih/OrthoBreath"}
+    private_names = {
+        "afadlih/Internlog-ai",
+        "afadlih/AquaSense",
+        "afadlih/Polinema_Adaptive_TOEIC",
+        "afadlih/OrthoBreath",
+        "afadlih/AquaSense-Hardware-Simulator",
+        "afadlih/skripsiops-ai",
+    }
     if any(item.get("repository") in private_names for item in sources):
         errors.append("private repositories must not be listed in public activity sources")
 
@@ -70,7 +95,9 @@ def main() -> int:
     workflow_dir = ROOT / ".github/workflows"
     actual_workflows = {path.name for path in workflow_dir.glob("*.yml")}
     if actual_workflows != required_workflows:
-        errors.append(f"workflow set must be focused: expected {sorted(required_workflows)}, found {sorted(actual_workflows)}")
+        errors.append(
+            f"workflow set must be focused: expected {sorted(required_workflows)}, found {sorted(actual_workflows)}"
+        )
 
     for workflow in sorted(workflow_dir.glob("*.yml")):
         text = workflow.read_text(encoding="utf-8")
@@ -78,9 +105,24 @@ def main() -> int:
             errors.append(f"workflow lacks security/operational guardrails: {workflow.relative_to(ROOT)}")
         for action, ref in ACTION_REF.findall(text):
             if not SHA40.fullmatch(ref):
-                errors.append(f"workflow action is not pinned to a full SHA: {workflow.relative_to(ROOT)} uses {action}@{ref}")
+                errors.append(
+                    f"workflow action is not pinned to a full SHA: {workflow.relative_to(ROOT)} uses {action}@{ref}"
+                )
 
-    for required_path in (".github/dependabot.yml", "docs/REPOSITORY_SETTINGS.md", "schemas/profile.schema.json", "schemas/projects.schema.json", "schemas/proof-assets.schema.json", "schemas/activity-sources.schema.json", "schemas/repository-activity.schema.json"):
+    for required_path in (
+        ".github/dependabot.yml",
+        "docs/REPOSITORY_SETTINGS.md",
+        "schemas/profile.schema.json",
+        "schemas/projects.schema.json",
+        "schemas/proof-assets.schema.json",
+        "schemas/activity-sources.schema.json",
+        "schemas/repository-activity.schema.json",
+        "schemas/public-commit-activity.schema.json",
+        "portfolio/public-commit-activity.json",
+        "scripts/update_public_commit_activity.py",
+        "scripts/render_public_activity.py",
+        "scripts/render_profile_readme.py",
+    ):
         if not (ROOT / required_path).is_file():
             errors.append(f"missing required repository hardening file: {required_path}")
 

@@ -5,16 +5,12 @@
   <img src="assets/profile-banner.svg" width="100%" alt="Animated engineering profile banner for Ahmad Fadlih Wahyu Sardana" />
 </p>
 
-<h1 align="center">Ahmad Fadlih Wahyu Sardana</h1>
 <p align="center"><strong>Full-Stack Developer building reliable AI workflows, automation systems, and on-premise IoT products</strong></p>
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&amp;weight=600&amp;size=18&amp;duration=2600&amp;pause=900&amp;color=38BDF8&amp;center=true&amp;vCenter=true&amp;width=900&amp;height=42&amp;lines=Building+reliable+AI+product+workflows;Engineering+on-premise+IoT+systems;Turning+complex+operations+into+usable+products" alt="Animated description of current engineering focus" />
-</p>
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=afadlih&label=Profile%20views&color=0ea5e9&style=for-the-badge" alt="Profile views" />
-  <img src="https://img.shields.io/github/followers/afadlih?label=Followers&style=for-the-badge&logo=github&color=0f766e" alt="GitHub followers" />
-  <img src="https://img.shields.io/badge/Focus-Full--Stack%20%2B%20AI-4f46e5?style=for-the-badge" alt="Full-Stack and AI focus" />
-  <img src="https://img.shields.io/badge/Systems-IoT%20%2B%20Automation-0369a1?style=for-the-badge" alt="IoT and automation systems" />
+  <code>AI WORKFLOWS</code> ·
+  <code>FULL-STACK SYSTEMS</code> ·
+  <code>ON-PREMISE IOT</code> ·
+  <code>SYSTEM INTEGRATION</code>
 </p>
 <p align="center">
   <a href="https://ahmad-fadlih-portfolio.vercel.app">Portfolio</a> ·
@@ -234,25 +230,21 @@ Designed an operator-facing workflow where users can analyze a form, prepare str
 ## GitHub activity
 
 <p align="center">
-  <img height="175" src="https://github-readme-stats.vercel.app/api?username=afadlih&amp;show_icons=true&amp;include_all_commits=true&amp;hide_border=true&amp;theme=transparent&amp;rank_icon=github" alt="GitHub public activity statistics" />
-  <img height="175" src="https://github-readme-stats.vercel.app/api/top-langs/?username=afadlih&amp;layout=compact&amp;langs_count=8&amp;hide_border=true&amp;theme=transparent&amp;exclude_repo=Lectures,studying" alt="Most used languages in public repositories" />
-</p>
-<p align="center">
-  <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=afadlih&amp;theme=github-compact&amp;hide_border=true&amp;area=true&amp;custom_title=Public%20Contribution%20Activity" alt="Public GitHub contribution activity graph" />
+  <img src="assets/public-activity.svg" width="100%" alt="Generated public commit activity from allowlisted repositories" />
 </p>
 
-<sub>Dynamic cards summarize GitHub-visible public activity. Private repository work is represented only through the curated, NDA-safe current-focus snapshot above.</sub>
+<sub>The chart is generated inside this repository from a bounded GitHub public commit API sample. Private repositories are excluded, and the values are not presented as lifetime totals.</sub>
 
 ## Public work, recently updated
 
 <!-- PROFILE-ACTIVITY:START -->
 | Repository | Last public update | Language |
 | --- | --- | --- |
+| [GitHub Profile System](https://github.com/afadlih/afadlih) | 2026-08-04 | Python |
 | [Smart Clothesline IoT](https://github.com/afadlih/smart-clothesline-iot-system) | 2026-06-10 | TypeScript |
+| [Ahmad Fadlih Portfolio](https://github.com/afadlih/Ahmad-Fadlih-Portfolio) | 2026-05-22 | TypeScript |
 | [AI Content Strategy](https://github.com/afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-) | 2026-04-27 | TypeScript |
-| [E2E MagangIn](https://github.com/afadlih/E2E-MagangIn) | 2026-04-01 | HTML |
-| [Budget Planner](https://github.com/afadlih/budget-planner) | 2026-04-01 | CSS |
-| [E2E JTI Intern](https://github.com/afadlih/E2E-JTIintern-PMPL) | 2025-12-27 | HTML |
+| [Next.js Framework Practice](https://github.com/afadlih/Pemrograman_Berbasis_Framework_Semester_6) | 2026-04-15 | TypeScript |
 <!-- PROFILE-ACTIVITY:END -->
 
 This snapshot is generated from an allowlisted set of public repositories. Private repository metadata is never published by the updater.

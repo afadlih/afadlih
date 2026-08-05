@@ -12,7 +12,9 @@ PAIRS = [
     (ROOT / "portfolio/proof-assets.json", ROOT / "schemas/proof-assets.schema.json"),
     (ROOT / "portfolio/activity-sources.json", ROOT / "schemas/activity-sources.schema.json"),
     (ROOT / "portfolio/repository-activity.json", ROOT / "schemas/repository-activity.schema.json"),
+    (ROOT / "portfolio/public-commit-activity.json", ROOT / "schemas/public-commit-activity.schema.json"),
 ]
+
 
 def main() -> int:
     errors: list[str] = []
@@ -31,6 +33,7 @@ def main() -> int:
         return 1
     print("JSON Schema validation passed.")
     return 0
+
 
 if __name__ == "__main__":
     raise SystemExit(main())
