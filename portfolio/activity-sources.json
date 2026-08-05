@@ -4,9 +4,9 @@
   "maximum_items": 5,
   "repositories": [
     {
-      "name": "AI Content Strategy",
-      "repository": "afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-",
-      "url": "https://github.com/afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-",
+      "name": "GitHub Profile System",
+      "repository": "afadlih/afadlih",
+      "url": "https://github.com/afadlih/afadlih",
       "enabled": true
     },
     {
@@ -16,21 +16,27 @@
       "enabled": true
     },
     {
-      "name": "E2E JTI Intern",
-      "repository": "afadlih/E2E-JTIintern-PMPL",
-      "url": "https://github.com/afadlih/E2E-JTIintern-PMPL",
+      "name": "Ahmad Fadlih Portfolio",
+      "repository": "afadlih/Ahmad-Fadlih-Portfolio",
+      "url": "https://github.com/afadlih/Ahmad-Fadlih-Portfolio",
       "enabled": true
     },
     {
-      "name": "E2E MagangIn",
-      "repository": "afadlih/E2E-MagangIn",
-      "url": "https://github.com/afadlih/E2E-MagangIn",
+      "name": "AI Content Strategy",
+      "repository": "afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-",
+      "url": "https://github.com/afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-",
       "enabled": true
     },
     {
-      "name": "Budget Planner",
-      "repository": "afadlih/budget-planner",
-      "url": "https://github.com/afadlih/budget-planner",
+      "name": "Next.js Framework Practice",
+      "repository": "afadlih/Pemrograman_Berbasis_Framework_Semester_6",
+      "url": "https://github.com/afadlih/Pemrograman_Berbasis_Framework_Semester_6",
+      "enabled": true
+    },
+    {
+      "name": "Machine Learning 2025",
+      "repository": "afadlih/2341720069_ML_2025",
+      "url": "https://github.com/afadlih/2341720069_ML_2025",
       "enabled": true
     }
   ]

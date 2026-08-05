@@ -1,15 +1,19 @@
-name: Refresh public repository activity
+name: Refresh public profile activity
 
 on:
   workflow_dispatch:
   schedule:
-    # Monday 06:17 WIB / Sunday 23:17 UTC.
-    - cron: "17 23 * * 0"
+    # Daily at 06:17 WIB / 23:17 UTC.
+    - cron: "17 23 * * *"
   push:
     branches: [main]
     paths:
       - "portfolio/activity-sources.json"
+      - "portfolio/profile.json"
       - "scripts/update_repository_activity.py"
+      - "scripts/update_public_commit_activity.py"
+      - "scripts/render_public_activity.py"
+      - "scripts/render_profile_readme.py"
       - ".github/workflows/update-profile-activity.yml"
 
 permissions:
@@ -18,17 +22,18 @@ permissions:
 
 concurrency:
   group: update-profile-activity
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
-      - name: Checkout default branch
+      - name: Checkout latest main
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
+          ref: main
           fetch-depth: 0
 
       - name: Set up Python
@@ -41,12 +46,13 @@ jobs:
       - name: Install validation dependencies
         run: python -m pip install --disable-pip-version-check -r requirements-dev.txt
 
-      - name: Configure update branch
+      - name: Start automation branch from current main
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin main
           BRANCH="automation/profile-activity"
-          git checkout -B "$BRANCH"
+          git checkout -B "$BRANCH" origin/main
           echo "BRANCH=$BRANCH" >> "$GITHUB_ENV"
 
       - name: Refresh allowlisted public repository metadata
@@ -54,43 +60,73 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/update_repository_activity.py --write
 
-      - name: Regenerate and validate profile
-        run: |
-          python scripts/portfolio_ci.py update
-          python scripts/portfolio_ci.py final-check
+      - name: Refresh bounded public commit sample
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/update_public_commit_activity.py --write
+
+      - name: Regenerate repository-owned visuals and README
+        run: python scripts/portfolio_ci.py update
+
+      - name: Run final profile quality gate
+        run: python scripts/portfolio_ci.py final-check
 
       - name: Detect meaningful changes
         id: diff
         run: |
-          if [ -z "$(git status --porcelain -- README.md portfolio/repository-activity.json docs/PROOF_ASSET_REPORT.md docs/GENERATED_UPDATE_SUMMARY.md)" ]; then
+          TRACKED_PATHS=(
+            README.md
+            portfolio/repository-activity.json
+            portfolio/public-commit-activity.json
+            assets/public-activity.svg
+            docs/PROOF_ASSET_REPORT.md
+            docs/GENERATED_UPDATE_SUMMARY.md
+          )
+          if [ -z "$(git status --porcelain -- "${TRACKED_PATHS[@]}")" ]; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No public activity changes."
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
-            git status --short
+            git status --short -- "${TRACKED_PATHS[@]}"
           fi
 
-      - name: Commit and push update branch
+      - name: Commit and push automation branch
         if: steps.diff.outputs.changed == 'true'
         run: |
-          git add README.md portfolio/repository-activity.json docs/PROOF_ASSET_REPORT.md docs/GENERATED_UPDATE_SUMMARY.md
-          git commit -m "chore(profile): refresh public repository activity"
-          git push --force-with-lease origin "$BRANCH"
+          git add \
+            README.md \
+            portfolio/repository-activity.json \
+            portfolio/public-commit-activity.json \
+            assets/public-activity.svg \
+            docs/PROOF_ASSET_REPORT.md \
+            docs/GENERATED_UPDATE_SUMMARY.md
+          git commit -m "chore(profile): refresh public activity assets"
+          git push --force-with-lease origin "HEAD:$BRANCH"
 
       - name: Create or update pull request
         if: steps.diff.outputs.changed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          PR_NUMBER="$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')"
+          PR_NUMBER="$(
+            gh pr list \
+              --repo "$GITHUB_REPOSITORY" \
+              --base main \
+              --head "$BRANCH" \
+              --state open \
+              --json number \
+              --jq '.[0].number // empty'
+          )"
           if [ -n "$PR_NUMBER" ]; then
             gh pr edit "$PR_NUMBER" \
-              --title "chore(profile): refresh public repository activity" \
+              --repo "$GITHUB_REPOSITORY" \
+              --title "chore(profile): refresh public activity assets" \
               --body-file docs/GENERATED_UPDATE_SUMMARY.md
           else
             gh pr create \
+              --repo "$GITHUB_REPOSITORY" \
               --base main \
               --head "$BRANCH" \
-              --title "chore(profile): refresh public repository activity" \
+              --title "chore(profile): refresh public activity assets" \
               --body-file docs/GENERATED_UPDATE_SUMMARY.md
           fi

@@ -1,0 +1,302 @@
+{
+  "commits": {
+    "afadlih/smart-clothesline-iot-system": [
+      {
+        "sha": "8d61b3e1b1b94e27434ef5d02b2ecba91adbdd82",
+        "commit": {
+          "author": {
+            "date": "2026-06-10T01:44:07Z"
+          },
+          "committer": {
+            "date": "2026-06-10T01:44:07Z"
+          }
+        }
+      },
+      {
+        "sha": "71e8e1f4031ef8fa590094939ec47dd5f149c8c3",
+        "commit": {
+          "author": {
+            "date": "2026-06-09T16:44:23Z"
+          },
+          "committer": {
+            "date": "2026-06-09T16:44:23Z"
+          }
+        }
+      },
+      {
+        "sha": "bac526f83488e160ad6f41946437dcca493250ac",
+        "commit": {
+          "author": {
+            "date": "2026-06-09T16:41:32Z"
+          },
+          "committer": {
+            "date": "2026-06-09T16:41:32Z"
+          }
+        }
+      },
+      {
+        "sha": "077d8e1efe6793d07b28c70ceae3179005a25bf6",
+        "commit": {
+          "author": {
+            "date": "2026-06-08T05:13:01Z"
+          },
+          "committer": {
+            "date": "2026-06-08T05:13:01Z"
+          }
+        }
+      },
+      {
+        "sha": "4111b15603b3a46be3b70400c710573726e8c25b",
+        "commit": {
+          "author": {
+            "date": "2026-05-28T15:29:39Z"
+          },
+          "committer": {
+            "date": "2026-05-28T15:29:39Z"
+          }
+        }
+      },
+      {
+        "sha": "b7b5835e8fccc559d84c7c01816ecc944c5c6234",
+        "commit": {
+          "author": {
+            "date": "2026-05-21T13:56:24Z"
+          },
+          "committer": {
+            "date": "2026-05-21T13:56:24Z"
+          }
+        }
+      }
+    ],
+    "afadlih/Ahmad-Fadlih-Portfolio": [
+      {
+        "sha": "552ff71510b45cc841a1c2ad496a0d5061e7e1ed",
+        "commit": {
+          "author": {
+            "date": "2026-05-22T00:02:04Z"
+          },
+          "committer": {
+            "date": "2026-05-22T00:02:04Z"
+          }
+        }
+      },
+      {
+        "sha": "66eea64a68032dabaf6e4d4794065081ef4e063a",
+        "commit": {
+          "author": {
+            "date": "2026-05-21T23:58:31Z"
+          },
+          "committer": {
+            "date": "2026-05-21T23:58:31Z"
+          }
+        }
+      },
+      {
+        "sha": "755bcd1d2d114055a7e0c216c6d29b5c408a6bfe",
+        "commit": {
+          "author": {
+            "date": "2026-05-21T23:53:18Z"
+          },
+          "committer": {
+            "date": "2026-05-21T23:53:18Z"
+          }
+        }
+      }
+    ],
+    "afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-": [
+      {
+        "sha": "d3aedfd1dc8e76a29bf51a14fc12da4a77219de0",
+        "commit": {
+          "author": {
+            "date": "2026-04-27T15:01:09Z"
+          },
+          "committer": {
+            "date": "2026-04-27T15:01:09Z"
+          }
+        }
+      }
+    ],
+    "afadlih/Pemrograman_Berbasis_Framework_Semester_6": [
+      {
+        "sha": "c8f9bea6114bebd066cfc23a4645a87b9ce329a5",
+        "commit": {
+          "author": {
+            "date": "2026-04-15T18:43:00Z"
+          },
+          "committer": {
+            "date": "2026-04-15T18:43:00Z"
+          }
+        }
+      },
+      {
+        "sha": "1cc5d9fdb139587064b5edf1dc6c44f35db0dcf8",
+        "commit": {
+          "author": {
+            "date": "2026-04-15T12:45:55Z"
+          },
+          "committer": {
+            "date": "2026-04-15T12:45:55Z"
+          }
+        }
+      },
+      {
+        "sha": "177492c54a6324ccf693f38dd9d9ea547742e885",
+        "commit": {
+          "author": {
+            "date": "2026-04-15T09:36:15Z"
+          },
+          "committer": {
+            "date": "2026-04-15T09:36:15Z"
+          }
+        }
+      },
+      {
+        "sha": "d4d77801000146db0d1b91f2d92e6de4fcd914c1",
+        "commit": {
+          "author": {
+            "date": "2026-04-15T05:41:34Z"
+          },
+          "committer": {
+            "date": "2026-04-15T05:41:34Z"
+          }
+        }
+      },
+      {
+        "sha": "f8f7bc8692c5230fc2f5ef36fd84da50fc31fa5c",
+        "commit": {
+          "author": {
+            "date": "2026-04-09T04:53:40Z"
+          },
+          "committer": {
+            "date": "2026-04-09T04:53:40Z"
+          }
+        }
+      }
+    ],
+    "afadlih/2341720069_ML_2025": [
+      {
+        "sha": "8ae65e79588d6c363c7249cd204cbd3c0d297331",
+        "commit": {
+          "author": {
+            "date": "2025-12-19T06:36:34Z"
+          },
+          "committer": {
+            "date": "2025-12-19T06:36:34Z"
+          }
+        }
+      },
+      {
+        "sha": "869968b0a93e282d9fee403d7e5a5d24b6dc3cd4",
+        "commit": {
+          "author": {
+            "date": "2025-12-19T06:16:00Z"
+          },
+          "committer": {
+            "date": "2025-12-19T06:16:00Z"
+          }
+        }
+      },
+      {
+        "sha": "377a29cbcaff3dcd528d37ea3fc264cf1c80ba3b",
+        "commit": {
+          "author": {
+            "date": "2025-12-19T06:08:13Z"
+          },
+          "committer": {
+            "date": "2025-12-19T06:08:13Z"
+          }
+        }
+      },
+      {
+        "sha": "dfefacea5499ef5388dcdb648009dfb00553112f",
+        "commit": {
+          "author": {
+            "date": "2025-12-19T05:48:55Z"
+          },
+          "committer": {
+            "date": "2025-12-19T05:48:55Z"
+          }
+        }
+      }
+    ],
+    "afadlih/afadlih": [
+      {
+        "sha": "42d4ee5b0e555005d3e34d35497789c12deb483a",
+        "commit": {
+          "author": {
+            "date": "2026-08-04T23:42:15Z"
+          },
+          "committer": {
+            "date": "2026-08-04T23:42:15Z"
+          }
+        }
+      },
+      {
+        "sha": "aa74539341d87eb63b514dbc84c981011ce26f48",
+        "commit": {
+          "author": {
+            "date": "2026-08-04T23:26:58Z"
+          },
+          "committer": {
+            "date": "2026-08-04T23:26:58Z"
+          }
+        }
+      },
+      {
+        "sha": "230b47723b5d53e8bc0de223cfa0f3c1784a401b",
+        "commit": {
+          "author": {
+            "date": "2026-08-04T23:26:20Z"
+          },
+          "committer": {
+            "date": "2026-08-04T23:26:20Z"
+          }
+        }
+      },
+      {
+        "sha": "0b88526dfdf67ae663bdec3e6cdabbb0f37007f0",
+        "commit": {
+          "author": {
+            "date": "2026-08-04T23:24:46Z"
+          },
+          "committer": {
+            "date": "2026-08-04T23:24:46Z"
+          }
+        }
+      },
+      {
+        "sha": "d81d2c62cf37fd0013a82385b66dd5d7b89a0fad",
+        "commit": {
+          "author": {
+            "date": "2026-08-04T23:24:26Z"
+          },
+          "committer": {
+            "date": "2026-08-04T23:24:26Z"
+          }
+        }
+      },
+      {
+        "sha": "0d23aaa772de6ee59d990533374b26cc70a54f71",
+        "commit": {
+          "author": {
+            "date": "2026-08-04T23:23:29Z"
+          },
+          "committer": {
+            "date": "2026-08-04T23:23:29Z"
+          }
+        }
+      },
+      {
+        "sha": "3ec2d89d33eac417af45654b6b3b3dbaf5e1d20f",
+        "commit": {
+          "author": {
+            "date": "2026-08-04T23:12:38Z"
+          },
+          "committer": {
+            "date": "2026-08-04T23:12:38Z"
+          }
+        }
+      }
+    ]
+  }
+}

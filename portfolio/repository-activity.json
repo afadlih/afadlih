@@ -1,48 +1,48 @@
 {
   "$schema": "../schemas/repository-activity.schema.json",
   "version": "2.0.0",
-  "as_of": "2026-06-10T01:44:07Z",
+  "as_of": "2026-08-04T23:42:15Z",
   "source": "GitHub repository metadata",
   "items": [
+    {
+      "name": "GitHub Profile System",
+      "repository": "afadlih/afadlih",
+      "url": "https://github.com/afadlih/afadlih",
+      "description": "Generated GitHub profile with deterministic validation and repository-owned activity assets.",
+      "language": "Python",
+      "pushed_at": "2026-08-04T23:42:15Z"
+    },
     {
       "name": "Smart Clothesline IoT",
       "repository": "afadlih/smart-clothesline-iot-system",
       "url": "https://github.com/afadlih/smart-clothesline-iot-system",
-      "description": null,
+      "description": "Realtime IoT dashboard.",
       "language": "TypeScript",
       "pushed_at": "2026-06-10T01:44:07Z"
+    },
+    {
+      "name": "Ahmad Fadlih Portfolio",
+      "repository": "afadlih/Ahmad-Fadlih-Portfolio",
+      "url": "https://github.com/afadlih/Ahmad-Fadlih-Portfolio",
+      "description": "Personal engineering portfolio website.",
+      "language": "TypeScript",
+      "pushed_at": "2026-05-22T00:02:04Z"
     },
     {
       "name": "AI Content Strategy",
       "repository": "afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-",
       "url": "https://github.com/afadlih/AI-Content-Strategy---SEO-Assistant--Web-App-",
-      "description": null,
+      "description": "Decision-first content planning application.",
       "language": "TypeScript",
-      "pushed_at": "2026-04-27T15:01:42Z"
+      "pushed_at": "2026-04-27T15:01:09Z"
     },
     {
-      "name": "E2E MagangIn",
-      "repository": "afadlih/E2E-MagangIn",
-      "url": "https://github.com/afadlih/E2E-MagangIn",
-      "description": null,
-      "language": "HTML",
-      "pushed_at": "2026-04-01T06:03:42Z"
-    },
-    {
-      "name": "Budget Planner",
-      "repository": "afadlih/budget-planner",
-      "url": "https://github.com/afadlih/budget-planner",
-      "description": null,
-      "language": "CSS",
-      "pushed_at": "2026-04-01T06:01:35Z"
-    },
-    {
-      "name": "E2E JTI Intern",
-      "repository": "afadlih/E2E-JTIintern-PMPL",
-      "url": "https://github.com/afadlih/E2E-JTIintern-PMPL",
-      "description": null,
-      "language": "HTML",
-      "pushed_at": "2025-12-27T14:36:14Z"
+      "name": "Next.js Framework Practice",
+      "repository": "afadlih/Pemrograman_Berbasis_Framework_Semester_6",
+      "url": "https://github.com/afadlih/Pemrograman_Berbasis_Framework_Semester_6",
+      "description": "Next.js framework, rendering, authentication, and Firebase practice.",
+      "language": "TypeScript",
+      "pushed_at": "2026-04-15T18:43:00Z"
     }
   ]
 }

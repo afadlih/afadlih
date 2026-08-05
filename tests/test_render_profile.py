@@ -4,8 +4,8 @@ import importlib.util
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-MODULE_PATH = ROOT / "scripts" / "render_profile.py"
-spec = importlib.util.spec_from_file_location("render_profile", MODULE_PATH)
+MODULE_PATH = ROOT / "scripts" / "render_profile_readme.py"
+spec = importlib.util.spec_from_file_location("render_profile_readme", MODULE_PATH)
 render_profile = importlib.util.module_from_spec(spec)
 assert spec.loader is not None
 spec.loader.exec_module(render_profile)
@@ -33,9 +33,11 @@ class ProfileRenderTests(unittest.TestCase):
         readme = render_profile.render_readme(profile, projects, activity)
         for expected in [
             "## What I build",
+            "## Current engineering focus",
             "## Selected work",
             "## Experience & recognition",
             "## More projects",
+            "## GitHub activity",
             "## How I work",
             "AquaSense",
             "InternLog AI",
@@ -45,11 +47,19 @@ class ProfileRenderTests(unittest.TestCase):
             "Public source · Source-verifiable",
             "Private source · Sanitized case study",
             "<!-- PROFILE-ACTIVITY:START -->",
+            "assets/profile-banner.svg",
+            "assets/public-activity.svg",
         ]:
             self.assertIn(expected, readme)
-        self.assertNotIn("2341720069@student.belajar.id", readme)
-        self.assertNotIn("hero-monochrome-banner", readme)
-        self.assertNotIn("SIMAK", readme)
+        for forbidden in [
+            "2341720069@student.belajar.id",
+            "hero-monochrome-banner",
+            "SIMAK",
+            "readme-typing-svg.demolab.com",
+            "github-readme-stats.vercel.app",
+            "github-readme-activity-graph.vercel.app",
+        ]:
+            self.assertNotIn(forbidden, readme)
 
     def test_requires_three_featured_projects_and_one_public_feature(self):
         _, projects, _ = self.load_all()

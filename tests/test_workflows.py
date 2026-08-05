@@ -24,6 +24,21 @@ class WorkflowTests(unittest.TestCase):
             self.assertIn("concurrency:", text)
             self.assertIn("timeout-minutes:", text)
 
+    def test_activity_workflow_rebases_from_main_and_generates_local_assets(self):
+        text = (
+            ROOT / ".github" / "workflows" / "update-profile-activity.yml"
+        ).read_text(encoding="utf-8")
+        for expected in [
+            "git checkout -B \"$BRANCH\" origin/main",
+            "scripts/update_repository_activity.py --write",
+            "scripts/update_public_commit_activity.py --write",
+            "scripts/portfolio_ci.py update",
+            "scripts/portfolio_ci.py final-check",
+            "assets/public-activity.svg",
+            "git push --force-with-lease origin \"HEAD:$BRANCH\"",
+        ]:
+            self.assertIn(expected, text)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -16,7 +16,8 @@ def run(command: list[str]) -> None:
 
 def check(strict: bool = False) -> None:
     run([sys.executable, "scripts/validate_schemas.py"])
-    run([sys.executable, "scripts/render_profile.py", "--check"])
+    run([sys.executable, "scripts/render_profile_readme.py", "--check"])
+    run([sys.executable, "scripts/render_public_activity.py", "--check"])
     run([sys.executable, "scripts/validate_proof_assets.py", "--mode", "strict" if strict else "starter"])
     run([sys.executable, "scripts/validate_local_links.py"])
     run([sys.executable, "scripts/validate_markdown_anchors.py"])
@@ -25,7 +26,8 @@ def check(strict: bool = False) -> None:
 
 
 def update() -> None:
-    run([sys.executable, "scripts/render_profile.py", "--write"])
+    run([sys.executable, "scripts/render_public_activity.py", "--write"])
+    run([sys.executable, "scripts/render_profile_readme.py", "--write"])
     run([sys.executable, "scripts/generate_proof_report.py"])
     run([sys.executable, "scripts/write_update_summary.py"])
 
