@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Validate repository-level policies for the special GitHub profile."""
 from __future__ import annotations
+
 import json
 import re
 from pathlib import Path
@@ -16,6 +17,7 @@ REMOVED_PATHS = [
     "scripts/promote_candidate.py",
     ".github/workflows/candidate-intake.yml",
     "assets/profile/hero-monochrome-banner.png",
+    ".github/dependabot.yml",
 ]
 FORBIDDEN_README_TERMS = [
     "PORTFOLIO-PULSE",
@@ -56,6 +58,7 @@ def main() -> int:
         "## Experience & recognition",
         "## More projects",
         "## GitHub activity",
+        "### Private work activity — sanitized",
         "## How I work",
         "## Contact",
     ):
@@ -84,6 +87,7 @@ def main() -> int:
         "afadlih/OrthoBreath",
         "afadlih/AquaSense-Hardware-Simulator",
         "afadlih/skripsiops-ai",
+        "afadlih/AI-Form-Automation-System",
     }
     if any(item.get("repository") in private_names for item in sources):
         errors.append("private repositories must not be listed in public activity sources")
@@ -110,7 +114,6 @@ def main() -> int:
                 )
 
     for required_path in (
-        ".github/dependabot.yml",
         "docs/REPOSITORY_SETTINGS.md",
         "schemas/profile.schema.json",
         "schemas/projects.schema.json",
