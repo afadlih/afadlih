@@ -37,12 +37,12 @@
     <g transform="translate(48 92)">
       <rect width="262" height="88" rx="14" class="card" />
       <text x="18" y="29" class="card-label">COMMITS / 30 DAYS</text>
-      <text x="18" y="65" class="card-value">7</text>
+      <text x="18" y="65" class="card-value">8</text>
     </g>
     <g transform="translate(334 92)">
       <rect width="262" height="88" rx="14" class="card" />
       <text x="18" y="29" class="card-label">ACTIVE DAYS</text>
-      <text x="18" y="65" class="card-value">1</text>
+      <text x="18" y="65" class="card-value">2</text>
     </g>
     <g transform="translate(620 92)">
       <rect width="262" height="88" rx="14" class="card" />
@@ -52,151 +52,151 @@
     <g transform="translate(906 92)">
       <rect width="262" height="88" rx="14" class="card" />
       <text x="18" y="29" class="card-label">LATEST PUBLIC COMMIT</text>
-      <text x="18" y="65" class="card-value">2026-08-04</text>
+      <text x="18" y="65" class="card-value">2026-08-05</text>
     </g>
 
-  <text x="72" y="207" class="section">30-DAY COMMIT SAMPLE · 2026-07-06 → 2026-08-04</text>
+  <text x="72" y="207" class="section">30-DAY COMMIT SAMPLE · 2026-07-07 → 2026-08-05</text>
   <line x1="72" y1="360" x2="852" y2="360" stroke="#475569" stroke-width="1"/>
     <rect x="72.00" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-06: 0 sampled commits</title>
+      <title>2026-07-07: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.000s" repeatCount="indefinite" />
     </rect>
     <rect x="98.17" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-07: 0 sampled commits</title>
+      <title>2026-07-08: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.035s" repeatCount="indefinite" />
     </rect>
     <rect x="124.33" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-08: 0 sampled commits</title>
+      <title>2026-07-09: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.070s" repeatCount="indefinite" />
     </rect>
     <rect x="150.50" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-09: 0 sampled commits</title>
+      <title>2026-07-10: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.105s" repeatCount="indefinite" />
     </rect>
     <rect x="176.67" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-10: 0 sampled commits</title>
+      <title>2026-07-11: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.140s" repeatCount="indefinite" />
     </rect>
     <rect x="202.83" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-11: 0 sampled commits</title>
+      <title>2026-07-12: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.175s" repeatCount="indefinite" />
     </rect>
     <rect x="229.00" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-12: 0 sampled commits</title>
+      <title>2026-07-13: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.210s" repeatCount="indefinite" />
     </rect>
     <rect x="255.17" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-13: 0 sampled commits</title>
+      <title>2026-07-14: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.245s" repeatCount="indefinite" />
     </rect>
     <rect x="281.33" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-14: 0 sampled commits</title>
+      <title>2026-07-15: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.280s" repeatCount="indefinite" />
     </rect>
     <rect x="307.50" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-15: 0 sampled commits</title>
+      <title>2026-07-16: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.315s" repeatCount="indefinite" />
     </rect>
     <rect x="333.67" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-16: 0 sampled commits</title>
+      <title>2026-07-17: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.350s" repeatCount="indefinite" />
     </rect>
     <rect x="359.83" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-17: 0 sampled commits</title>
+      <title>2026-07-18: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.385s" repeatCount="indefinite" />
     </rect>
     <rect x="386.00" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-18: 0 sampled commits</title>
+      <title>2026-07-19: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.420s" repeatCount="indefinite" />
     </rect>
     <rect x="412.17" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-19: 0 sampled commits</title>
+      <title>2026-07-20: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.455s" repeatCount="indefinite" />
     </rect>
     <rect x="438.33" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-20: 0 sampled commits</title>
+      <title>2026-07-21: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.490s" repeatCount="indefinite" />
     </rect>
     <rect x="464.50" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-21: 0 sampled commits</title>
+      <title>2026-07-22: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.525s" repeatCount="indefinite" />
     </rect>
     <rect x="490.67" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-22: 0 sampled commits</title>
+      <title>2026-07-23: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.560s" repeatCount="indefinite" />
     </rect>
     <rect x="516.83" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-23: 0 sampled commits</title>
+      <title>2026-07-24: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.595s" repeatCount="indefinite" />
     </rect>
     <rect x="543.00" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-24: 0 sampled commits</title>
+      <title>2026-07-25: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.630s" repeatCount="indefinite" />
     </rect>
     <rect x="569.17" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-25: 0 sampled commits</title>
+      <title>2026-07-26: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.665s" repeatCount="indefinite" />
     </rect>
     <rect x="595.33" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-26: 0 sampled commits</title>
+      <title>2026-07-27: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.700s" repeatCount="indefinite" />
     </rect>
     <rect x="621.50" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-27: 0 sampled commits</title>
+      <title>2026-07-28: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.735s" repeatCount="indefinite" />
     </rect>
     <rect x="647.67" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-28: 0 sampled commits</title>
+      <title>2026-07-29: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.770s" repeatCount="indefinite" />
     </rect>
     <rect x="673.83" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-29: 0 sampled commits</title>
+      <title>2026-07-30: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.805s" repeatCount="indefinite" />
     </rect>
     <rect x="700.00" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-30: 0 sampled commits</title>
+      <title>2026-07-31: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.840s" repeatCount="indefinite" />
     </rect>
     <rect x="726.17" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-07-31: 0 sampled commits</title>
+      <title>2026-08-01: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.875s" repeatCount="indefinite" />
     </rect>
     <rect x="752.33" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-08-01: 0 sampled commits</title>
+      <title>2026-08-02: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.910s" repeatCount="indefinite" />
     </rect>
     <rect x="778.50" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-08-02: 0 sampled commits</title>
+      <title>2026-08-03: 0 sampled commits</title>
       <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.945s" repeatCount="indefinite" />
     </rect>
-    <rect x="804.67" y="358.00" width="21.17" height="2.00" rx="3" fill="url(#bar)" opacity="0.34">
-      <title>2026-08-03: 0 sampled commits</title>
-      <animate attributeName="opacity" values="0.34;1;0.34" dur="2.8s" begin="0.980s" repeatCount="indefinite" />
-    </rect>
-    <rect x="830.83" y="218.00" width="21.17" height="142.00" rx="3" fill="url(#bar)" opacity="0.92">
+    <rect x="804.67" y="218.00" width="21.17" height="142.00" rx="3" fill="url(#bar)" opacity="0.92">
       <title>2026-08-04: 7 sampled commits</title>
+      <animate attributeName="opacity" values="0.92;1;0.92" dur="2.8s" begin="0.980s" repeatCount="indefinite" />
+    </rect>
+    <rect x="830.83" y="339.71" width="21.17" height="20.29" rx="3" fill="url(#bar)" opacity="0.92">
+      <title>2026-08-05: 1 sampled commits</title>
       <animate attributeName="opacity" values="0.92;1;0.92" dur="2.8s" begin="1.015s" repeatCount="indefinite" />
     </rect>
-    <text x="82.58" y="384" text-anchor="middle" class="axis">07-06</text>
-    <text x="213.42" y="384" text-anchor="middle" class="axis">07-11</text>
-    <text x="344.25" y="384" text-anchor="middle" class="axis">07-16</text>
-    <text x="475.08" y="384" text-anchor="middle" class="axis">07-21</text>
-    <text x="605.92" y="384" text-anchor="middle" class="axis">07-26</text>
-    <text x="736.75" y="384" text-anchor="middle" class="axis">07-31</text>
-    <text x="841.42" y="384" text-anchor="middle" class="axis">08-04</text>
+    <text x="82.58" y="384" text-anchor="middle" class="axis">07-07</text>
+    <text x="213.42" y="384" text-anchor="middle" class="axis">07-12</text>
+    <text x="344.25" y="384" text-anchor="middle" class="axis">07-17</text>
+    <text x="475.08" y="384" text-anchor="middle" class="axis">07-22</text>
+    <text x="605.92" y="384" text-anchor="middle" class="axis">07-27</text>
+    <text x="736.75" y="384" text-anchor="middle" class="axis">08-01</text>
+    <text x="841.42" y="384" text-anchor="middle" class="axis">08-05</text>
 
   <text x="905" y="207" class="section">TOP REPOSITORIES IN SAMPLE</text>
   <line x1="905" y1="217" x2="1140" y2="217" stroke="#334155" stroke-width="1"/>
-    <text x="905" y="246" class="repo">1. afadlih</text>
-    <text x="1138" y="246" text-anchor="end" class="repo-count">7</text>
-    <text x="905" y="276" class="repo">2. smart-clothesline-iot-sy...</text>
-    <text x="1138" y="276" text-anchor="end" class="repo-count">6</text>
-    <text x="905" y="306" class="repo">3. Pemrograman_Berbasis_Fra...</text>
-    <text x="1138" y="306" text-anchor="end" class="repo-count">5</text>
-    <text x="905" y="336" class="repo">4. 2341720069_ML_2025</text>
-    <text x="1138" y="336" text-anchor="end" class="repo-count">4</text>
-    <text x="905" y="366" class="repo">5. Ahmad-Fadlih-Portfolio</text>
-    <text x="1138" y="366" text-anchor="end" class="repo-count">3</text>
+    <text x="905" y="246" class="repo">1. smart-clothesline-iot-sy...</text>
+    <text x="1138" y="246" text-anchor="end" class="repo-count">100</text>
+    <text x="905" y="276" class="repo">2. Ahmad-Fadlih-Portfolio</text>
+    <text x="1138" y="276" text-anchor="end" class="repo-count">32</text>
+    <text x="905" y="306" class="repo">3. afadlih</text>
+    <text x="1138" y="306" text-anchor="end" class="repo-count">23</text>
+    <text x="905" y="336" class="repo">4. Pemrograman_Berbasis_Fra...</text>
+    <text x="1138" y="336" text-anchor="end" class="repo-count">7</text>
+    <text x="905" y="366" class="repo">5. 2341720069_ML_2025</text>
+    <text x="1138" y="366" text-anchor="end" class="repo-count">4</text>
 
   <text x="48" y="407" class="note">Generated inside this repository from GitHub's public commit API. Private repositories are excluded. Values are a bounded sample, not lifetime totals.</text>
 </svg>
