@@ -1,6 +1,6 @@
 {
   "$schema": "../schemas/profile.schema.json",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "name": "Ahmad Fadlih Wahyu Sardana",
   "short_name": "Ahmad Fadlih",
   "username": "afadlih",
@@ -12,78 +12,29 @@
   "linkedin_url": "https://id.linkedin.com/in/ahmad-fadlih-wahyu-sardana-706933283",
   "availability": "Open to full-stack, AI product engineering, workflow automation, and system-integration opportunities.",
   "focus_areas": [
-    {
-      "title": "AI product workflows",
-      "description": "Structured model output, validation, human review, deterministic fallback, and useful diagnostics."
-    },
-    {
-      "title": "Operational full-stack systems",
-      "description": "Clear domain states, role-aware interfaces, reliable data flows, testing, and maintainable delivery."
-    },
-    {
-      "title": "On-premise and realtime integration",
-      "description": "MQTT boundaries, device state, acknowledged commands, deployment constraints, and operator visibility."
-    }
+    {"title": "AI product workflows", "description": "Structured model output, validation, human review, deterministic fallback, and useful diagnostics."},
+    {"title": "Operational full-stack systems", "description": "Clear domain states, role-aware interfaces, reliable data flows, testing, and maintainable delivery."},
+    {"title": "On-premise and realtime integration", "description": "MQTT boundaries, device state, acknowledged commands, deployment constraints, and operator visibility."}
   ],
   "current_focus": [
-    {
-      "project": "AquaSense",
-      "version": "2.3.0-rc15",
-      "updated": "2026-08-05",
-      "focus": "Raspberry Pi 3B+ edge baseline, seven-container on-premise topology, provisioning safety, release hardening, and operator documentation.",
-      "link": "case-studies/aquasense/README.md"
-    },
-    {
-      "project": "AquaSense Hardware Simulator",
-      "version": "2.3.0-rc5",
-      "updated": "2026-07-31",
-      "focus": "Standalone Wokwi and ESP32 MicroPython simulation, MQTT bridge, firmware workflow, telemetry readiness, and Core reconciliation.",
-      "link": null
-    },
-    {
-      "project": "OrthoBreath",
-      "version": "1.7.2",
-      "updated": "2026-07-31",
-      "focus": "MQTT device topics, session policies, dental and breathing examination flows, Firebase mapping, demo boundaries, and regression coverage.",
-      "link": "case-studies/orthobreath/README.md"
-    },
-    {
-      "project": "InternLog AI",
-      "version": "2.8.1",
-      "updated": "2026-07-29",
-      "focus": "Adaptive mentor language for IT and non-IT internships, logbook reliability, document auditing, multi-user foundations, and AI regression tests.",
-      "link": "case-studies/internlog-ai/README.md"
-    },
-    {
-      "project": "SkripsiOps AI",
-      "version": "Foundation",
-      "updated": "2026-07-30",
-      "focus": "Evidence-first thesis workspace bootstrap with Docker environments, initial architecture, documentation, contribution rules, and automated tests.",
-      "link": null
-    },
-    {
-      "project": "Polinema Adaptive TOEIC",
-      "version": "Release candidate",
-      "updated": "2026-07-23",
-      "focus": "Institutional authentication, password-reset approval, registration rosters, research freeze controls, media validation, RBAC, and audit logging.",
-      "link": "case-studies/polinema-adaptive-toeic/README.md"
-    }
+    {"project": "AquaSense", "version": "2.3.0-rc15", "updated": "2026-08-05", "focus": "Raspberry Pi 3B+ edge baseline, seven-container on-premise topology, provisioning safety, release hardening, and operator documentation.", "link": "case-studies/aquasense/README.md"},
+    {"project": "AquaSense Hardware Simulator", "version": "2.3.0-rc5", "updated": "2026-07-31", "focus": "Standalone Wokwi and ESP32 MicroPython simulation, MQTT bridge, firmware workflow, telemetry readiness, and Core reconciliation.", "link": null},
+    {"project": "OrthoBreath", "version": "1.7.2", "updated": "2026-07-31", "focus": "MQTT device topics, session policies, dental and breathing examination flows, Firebase mapping, demo boundaries, and regression coverage.", "link": "case-studies/orthobreath/README.md"},
+    {"project": "InternLog AI", "version": "2.8.1", "updated": "2026-07-29", "focus": "Adaptive mentor language for IT and non-IT internships, logbook reliability, document auditing, multi-user foundations, and AI regression tests.", "link": "case-studies/internlog-ai/README.md"},
+    {"project": "SkripsiOps AI", "version": "Foundation", "updated": "2026-07-30", "focus": "Evidence-first thesis workspace bootstrap with Docker environments, initial architecture, documentation, contribution rules, and automated tests.", "link": null},
+    {"project": "Polinema Adaptive TOEIC", "version": "Release candidate", "updated": "2026-07-23", "focus": "Institutional authentication, password-reset approval, registration rosters, research freeze controls, media validation, RBAC, and audit logging.", "link": "case-studies/polinema-adaptive-toeic/README.md"}
   ],
-  "experience": [
-    {
-      "organization": "PT Pindad (Persero)",
-      "title": "Intern",
-      "period": "Current",
-      "summary": "Working on software and system-integration tasks. Public descriptions remain NDA-safe and exclude internal infrastructure, credentials, and operational data."
-    }
+  "private_activity": [
+    {"project": "AquaSense", "latest_commit": "2026-08-05", "stage": "2.3.0-rc15", "public_summary": "On-premise IoT operations, edge integration, provisioning safety, release hardening, and operator documentation.", "case_study": "case-studies/aquasense/README.md"},
+    {"project": "AquaSense Hardware Simulator", "latest_commit": "2026-07-31", "stage": "2.3.0-rc5", "public_summary": "Standalone Wokwi and ESP32 simulation, MQTT bridge behavior, firmware workflow, and telemetry readiness.", "case_study": null},
+    {"project": "OrthoBreath", "latest_commit": "2026-07-31", "stage": "1.7.2", "public_summary": "Device topics, examination flows, session policies, Firebase mapping, demo boundaries, and regression coverage.", "case_study": "case-studies/orthobreath/README.md"},
+    {"project": "SkripsiOps AI", "latest_commit": "2026-07-30", "stage": "Foundation", "public_summary": "Evidence-first thesis workspace bootstrap, Docker environments, initial architecture, documentation, and tests.", "case_study": null},
+    {"project": "InternLog AI", "latest_commit": "2026-07-29", "stage": "2.8.1", "public_summary": "Logbook reliability, bounded AI review, document auditing, multi-user foundations, and regression tests.", "case_study": "case-studies/internlog-ai/README.md"},
+    {"project": "Polinema Adaptive TOEIC", "latest_commit": "2026-07-23", "stage": "Release candidate", "public_summary": "Institutional authentication, approval workflows, research controls, RBAC, media validation, and audit logging.", "case_study": "case-studies/polinema-adaptive-toeic/README.md"},
+    {"project": "FormAI", "latest_commit": "2026-05-10", "stage": "Private case study", "public_summary": "Analyze-first form automation, deterministic mapping, AI fallback, dry-run validation, and row-level diagnostics.", "case_study": "case-studies/formai/README.md"}
   ],
-  "recognition": [
-    {
-      "title": "PKM-KC 2026 Funding Recipient",
-      "project": "OrthoBreath",
-      "summary": "Full-stack contributor to a five-student health-tech prototype covering application flow, device-related work, testing support, and project communication. No clinical-readiness claim is made."
-    }
-  ],
+  "experience": [{"organization": "PT Pindad (Persero)", "title": "Intern", "period": "Current", "summary": "Working on software and system-integration tasks. Public descriptions remain NDA-safe and exclude internal infrastructure, credentials, and operational data."}],
+  "recognition": [{"title": "PKM-KC 2026 Funding Recipient", "project": "OrthoBreath", "summary": "Full-stack contributor to a five-student health-tech prototype covering application flow, device-related work, testing support, and project communication. No clinical-readiness claim is made."}],
   "engineering_principles": [
     "Keep deterministic rules separate from AI fallback.",
     "Validate external and generated data before it reaches the UI or execution path.",
@@ -92,9 +43,9 @@
     "Prefer evidence that can be inspected over decorative claims."
   ],
   "profile_notes": [
-    "Private projects are shown through sanitized case studies, not fabricated public demos.",
+    "Private projects are shown through sanitized case studies and curated activity dates, never public repository links.",
     "Public projects include source-level evidence pinned to inspectable commits.",
-    "The current-focus snapshot was reviewed against accessible repository activity on 2026-08-05.",
+    "Private activity dates were reviewed through authenticated repository access on 2026-08-05; branch names, commit messages, SHAs, and URLs remain undisclosed.",
     "A professional public email is intentionally omitted until a durable address is configured."
   ]
 }
