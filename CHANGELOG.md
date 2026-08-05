@@ -1,5 +1,27 @@
 # Changelog
 
+## 3.7.0 — Education context and student-engineer positioning
+
+- added a dedicated Education section directly after the hero;
+- identified Politeknik Negeri Malang / State Polytechnic of Malang as the current institution;
+- added D-IV Informatics Engineering and Department of Information Technology context;
+- refined the hero role to state the current student status without weakening the full-stack, AI, and IoT positioning;
+- linked the institution to the official JTI Polinema website;
+- added schema, deterministic rendering, repository-policy checks, regression tests, and content-standard guidance for education data;
+- kept NIM, GPA, temporary school email, and unverified graduation dates out of the public profile.
+
+## 3.6.0 — Scan-first profile information architecture
+
+- moved the three flagship projects directly below the hero;
+- reduced Currently Building to three editorial priorities;
+- moved experience and recognition before activity metrics;
+- merged What I Build and How I Work into one Engineering Approach section;
+- consolidated additional case studies, supporting projects, and recent public repositories into one project library;
+- moved the private project metadata index into a collapsed activity detail;
+- removed duplicate top-level sections and redundant GitHub self-links;
+- kept full technical depth in the existing case-study documents;
+- updated schemas, synchronization limits, policy validation, tests, and documentation.
+
 ## 3.5.0 — Standardized aggregate activity and case-study index
 
 - removed per-project commit counts from README, SVG, and checked-in activity data;

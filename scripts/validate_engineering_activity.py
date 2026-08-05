@@ -102,7 +102,7 @@ def main() -> int:
         reverse=True,
     )
     profile_focus_names = [item["project"] for item in profile["current_focus"]]
-    expected_focus_names = [item["project"] for item in expected_focus[:8]]
+    expected_focus_names = [item["project"] for item in expected_focus[:3]]
     if profile_focus_names != expected_focus_names:
         errors.append("profile current_focus is not ordered by latest approved private activity")
 

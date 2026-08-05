@@ -56,7 +56,7 @@ def validate_profile(profile: dict[str, Any], root: Path = ROOT) -> list[str]:
     required = {
         "name", "short_name", "username", "role", "headline", "location",
         "portfolio_url", "github_url", "linkedin_url", "availability",
-        "focus_areas", "current_focus", "experience", "recognition",
+        "focus_areas", "current_focus", "education", "experience", "recognition",
         "engineering_principles", "profile_notes",
     }
     missing = sorted(required - profile.keys())
@@ -64,7 +64,7 @@ def validate_profile(profile: dict[str, Any], root: Path = ROOT) -> list[str]:
         errors.append(f"profile.json missing fields: {', '.join(missing)}")
 
     for field in (
-        "focus_areas", "current_focus", "experience", "recognition",
+        "focus_areas", "current_focus", "education", "experience", "recognition",
         "engineering_principles", "profile_notes",
     ):
         if field in profile and not isinstance(profile[field], list):
@@ -73,8 +73,8 @@ def validate_profile(profile: dict[str, Any], root: Path = ROOT) -> list[str]:
     if isinstance(profile.get("focus_areas"), list) and len(profile["focus_areas"]) != 3:
         errors.append("profile.focus_areas must contain exactly 3 focused areas")
     if isinstance(profile.get("current_focus"), list):
-        if not 3 <= len(profile["current_focus"]) <= 8:
-            errors.append("profile.current_focus must contain between 3 and 8 projects")
+        if len(profile["current_focus"]) != 3:
+            errors.append("profile.current_focus must contain exactly 3 projects")
         seen_projects: set[str] = set()
         for index, item in enumerate(profile["current_focus"], start=1):
             if not isinstance(item, dict):
@@ -94,6 +94,23 @@ def validate_profile(profile: dict[str, Any], root: Path = ROOT) -> list[str]:
             link = item.get("link")
             if link is not None and (not isinstance(link, str) or not local_link_exists(link, root)):
                 errors.append(f"profile.current_focus[{index}].link is invalid or missing: {link}")
+    if isinstance(profile.get("education"), list):
+        if not profile["education"]:
+            errors.append("profile.education must contain at least one entry")
+        for index, item in enumerate(profile["education"], start=1):
+            if not isinstance(item, dict):
+                errors.append(f"profile.education[{index}] must be an object")
+                continue
+            for field in (
+                "institution", "english_name", "program", "department",
+                "status", "location", "summary", "official_url",
+            ):
+                if not isinstance(item.get(field), str) or not item[field].strip():
+                    errors.append(f"profile.education[{index}].{field} must be a non-empty string")
+            official_url = item.get("official_url")
+            if isinstance(official_url, str) and not official_url.startswith("https://"):
+                errors.append(f"profile.education[{index}].official_url must use HTTPS")
+
     if isinstance(profile.get("engineering_principles"), list) and len(profile["engineering_principles"]) < 4:
         errors.append("profile.engineering_principles must contain at least 4 items")
     return errors
@@ -246,61 +263,54 @@ def render_visual_header(profile: dict[str, Any]) -> str:
 </p>
 <p align="center">
   <a href="{esc(profile['portfolio_url'])}">Portfolio</a> ·
-  <a href="{esc(profile['linkedin_url'])}">LinkedIn</a> ·
-  <a href="{esc(profile['github_url'])}">GitHub</a>
+  <a href="{esc(profile['linkedin_url'])}">LinkedIn</a>
 </p>
 <p align="center">
-  <a href="#current-engineering-focus">Current focus</a> ·
-  <a href="#selected-work">Selected work</a> ·
-  <a href="#github-activity">GitHub activity</a> ·
+  <a href="#education">Education</a> ·
+  <a href="#selected-engineering-work">Selected work</a> ·
+  <a href="#currently-building">Currently building</a> ·
+  <a href="#engineering-activity">Activity</a> ·
+  <a href="#project-and-case-study-library">Project library</a> ·
   <a href="#contact">Contact</a>
 </p>'''
 
 
-def render_focus(profile: dict[str, Any]) -> str:
-    chunks = []
-    for item in profile["focus_areas"]:
-        chunks.append(f"**{esc(item['title'])}**  \n{esc(item['description'])}")
-    return "\n\n".join(chunks)
-
-
 def render_current_focus(profile: dict[str, Any]) -> str:
-    entries: list[str] = []
+    rows = [
+        "| Project | Current stage | Focus now |",
+        "| --- | --- | --- |",
+    ]
     for item in profile["current_focus"]:
         project = md_link(esc(item["project"]), item.get("link")) or f"**{esc(item['project'])}**"
-        entries.append(
-            f"- {project} — `{esc(item['version'])}` · **{esc(item['condition'])}** · "
-            f"latest authored commit `{esc(item['updated'])}`  \n  {esc(item['focus'])}"
-        )
-    return "\n".join(entries)
+        stage = f"`{esc(item['version'])}` · {esc(item['condition'])}"
+        rows.append(f"| {project} | {stage} | {esc(item['focus'])} |")
+    return "\n".join(rows)
 
 
 def render_featured(project: dict[str, Any], number: int) -> str:
-    proof = "\n".join(f"- {esc(item)}" for item in project["proof_points"])
-    limits = "\n".join(f"- {esc(item)}" for item in project["limitations"])
-    tech = " ".join(f"`{esc(item)}`" for item in project["technologies"])
-    deep = "\n".join(f"- {esc(item)}" for item in project["feature_deep_dives"])
+    proof = "\n".join(f"- {esc(item)}" for item in project["proof_points"][:3])
+    limits = "\n".join(f"- {esc(item)}" for item in project["limitations"][:3])
+    tech = " ".join(f"`{esc(item)}`" for item in project["technologies"][:8])
+    deep = "\n".join(f"- {esc(item)}" for item in project["feature_deep_dives"][:4])
     links = project_links(project)
     return f'''### {number}. {esc(project['name'])}
 
 **{esc(project['category'])} · {project_badge(project)}**
 
-{esc(project['summary'])}
+**Problem**  
+{esc(project['problem'])}
+
+**Built**  
+{esc(project['outcome'])}
 
 {tech}
 
-**Inspectable evidence**
+**Evidence**
 
 {proof}
 
 <details>
-<summary><strong>Architecture, decisions, and current boundaries</strong></summary>
-
-**Problem**  
-{esc(project['problem'])}
-
-**What I built**  
-{esc(project['outcome'])}
+<summary><strong>Engineering decisions, deep dives, and boundaries</strong></summary>
 
 **Deep-dive topics**
 
@@ -315,22 +325,6 @@ def render_featured(project: dict[str, Any], number: int) -> str:
 {links}'''
 
 
-def render_supporting(projects: list[dict[str, Any]]) -> str:
-    rows = ["| Project | What it demonstrates | Access |", "| --- | --- | --- |"]
-    for project in projects:
-        links = project_links(project) or "Private source"
-        rows.append(f"| **{esc(project['name'])}** | {esc(project['summary'])} | {links} |")
-    return "\n".join(rows)
-
-
-def render_github_activity(_profile: dict[str, Any]) -> str:
-    return '''<p align="center">
-  <img src="assets/engineering-activity.svg" width="100%" alt="Repository-owned engineering activity visualization" />
-</p>
-
-<sub>Activity is generated from checked-in, privacy-reviewed data. No external statistics-card service is required.</sub>'''
-
-
 def render_activity(payload: dict[str, Any]) -> str:
     items = payload.get("items", [])
     if not items:
@@ -342,6 +336,57 @@ def render_activity(payload: dict[str, Any]) -> str:
         language = item.get("language") or "—"
         rows.append(f"| [{esc(item['name'])}]({esc(item['url'])}) | {esc(date)} | {esc(language)} |")
     return "\n".join(rows)
+
+
+def render_project_library(
+    projects: list[dict[str, Any]], engineering_activity: dict[str, Any], public_activity: dict[str, Any]
+) -> str:
+    represented: set[str] = set()
+    rows = [
+        "| Project | Engineering scope | Availability |",
+        "| --- | --- | --- |",
+    ]
+
+    for project in projects:
+        if project["profile_section"] == "featured":
+            represented.add(project["name"])
+            continue
+        represented.add(project["name"])
+        links = project_links(project)
+        availability = links or ("Sanitized overview" if project["visibility"] == "private" else "Public overview")
+        rows.append(f"| **{esc(project['name'])}** | {esc(project['summary'])} | {availability} |")
+
+    for item in engineering_activity.get("private_projects", []):
+        if item["project"] in represented:
+            continue
+        case_study = md_link("Case study", item.get("case_study"))
+        availability = case_study or "Public-safe overview"
+        rows.append(f"| **{esc(item['project'])}** | {esc(item['public_summary'])} | {availability} |")
+
+    recent = render_activity(public_activity)
+    return "\n".join(rows) + f'''
+
+<details>
+<summary><strong>Recently updated public repositories</strong></summary>
+
+<!-- PROFILE-ACTIVITY:START -->
+{recent}
+<!-- PROFILE-ACTIVITY:END -->
+
+</details>'''
+
+
+def render_education(profile: dict[str, Any]) -> str:
+    items: list[str] = []
+    for entry in profile["education"]:
+        institution = md_link(esc(entry["institution"]), entry.get("official_url")) or esc(entry["institution"])
+        items.append(
+            f"### {institution} — {esc(entry['english_name'])}\n\n"
+            f"**{esc(entry['program'])}**  \n"
+            f"{esc(entry['department'])} · {esc(entry['location'])} · {esc(entry['status'])}\n\n"
+            f"{esc(entry['summary'])}"
+        )
+    return "\n\n".join(items)
 
 
 def render_experience(profile: dict[str, Any]) -> str:
@@ -359,18 +404,28 @@ def render_experience(profile: dict[str, Any]) -> str:
     return "\n".join(items)
 
 
+def render_engineering_approach(profile: dict[str, Any]) -> str:
+    items: list[str] = []
+    for index, item in enumerate(profile["engineering_principles"][:5], start=1):
+        items.append(f"**{index:02d}.** {esc(item)}")
+    return "\n\n".join(items)
+
+
+def render_github_activity(_profile: dict[str, Any]) -> str:
+    return '''<p align="center">
+  <img src="assets/engineering-activity.svg" width="100%" alt="Repository-owned engineering activity visualization" />
+</p>
+
+<sub>Activity is generated from checked-in, privacy-reviewed data. No external statistics-card service is required.</sub>'''
+
+
 def render_readme(profile: dict[str, Any], projects_payload: dict[str, Any], activity: dict[str, Any]) -> str:
     projects = sorted(projects_payload["projects"], key=lambda item: item["priority"])
     featured = [project for project in projects if project["profile_section"] == "featured"]
-    major = [project for project in projects if project["profile_section"] == "major"]
-    supporting = [project for project in projects if project["profile_section"] == "supporting"]
     featured_text = "\n\n---\n\n".join(
         render_featured(project, index) for index, project in enumerate(featured, start=1)
     )
-    major_text = "\n\n".join(
-        render_featured(project, index + len(featured)) for index, project in enumerate(major, start=1)
-    )
-    principles = "\n".join(f"- {esc(item)}" for item in profile["engineering_principles"])
+    engineering_activity = load_json(ROOT / "portfolio" / "engineering-activity.json")
     notes = "<br>".join(esc(item) for item in profile["profile_notes"])
 
     return f'''<!-- PROFILE-README:GENERATED -->
@@ -380,47 +435,35 @@ def render_readme(profile: dict[str, Any], projects_payload: dict[str, Any], act
 
 > {esc(profile['headline'])}
 
-## What I build
+## Education
 
-{render_focus(profile)}
+{render_education(profile)}
 
-## Current engineering focus
-
-{render_current_focus(profile)}
-
-The list above separates source-verified versions from development conditions. Dates are the latest authored commits observed during the privacy-reviewed activity snapshot, not deployment or production-readiness claims.
-
-## Selected work
+## Selected engineering work
 
 {featured_text}
 
-## Additional case study
+## Currently building
 
-{major_text}
+{render_current_focus(profile)}
+
+<sub>Versions are source-derived where configured. Development conditions describe the current engineering state and do not imply production readiness.</sub>
 
 ## Experience & recognition
 
 {render_experience(profile)}
 
-## More projects
+## Engineering approach
 
-{render_supporting(supporting)}
+{render_engineering_approach(profile)}
 
-## GitHub activity
+## Engineering activity
 
 {render_github_activity(profile)}
 
-## Public work, recently updated
+## Project and case-study library
 
-<!-- PROFILE-ACTIVITY:START -->
-{render_activity(activity)}
-<!-- PROFILE-ACTIVITY:END -->
-
-This snapshot is generated from an allowlisted set of public repositories. Private repository metadata is never published by the updater.
-
-## How I work
-
-{principles}
+{render_project_library(projects, engineering_activity, activity)}
 
 ## Contact
 

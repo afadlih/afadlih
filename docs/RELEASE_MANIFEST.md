@@ -1,13 +1,25 @@
-# Release Manifest — Special Profile v3.5
+# Release Manifest — Special Profile v3.7
 
 ## Purpose
 
-A copy-ready GitHub special-profile repository with deterministic README generation, local SVG activity visualization, daily public/private activity refresh, aggregate-only private metrics, source-derived versions, standardized case-study navigation, and controlled project discovery.
+A copy-ready GitHub special-profile repository with education-aware scan-first information architecture, deterministic README generation, local SVG activity visualization, daily activity refresh, aggregate-only private metrics, source-derived versions, deep-dive case studies, and controlled project discovery.
 
 ## Permanent workflows
 
 - `.github/workflows/validate-profile.yml`
 - `.github/workflows/update-profile-activity.yml`
+
+## README hierarchy
+
+1. Hero and student-engineer positioning
+2. Education
+3. Selected engineering work
+4. Currently building
+5. Experience and recognition
+6. Engineering approach
+7. Engineering activity
+8. Project and case-study library
+9. Contact
 
 ## Generated outputs
 

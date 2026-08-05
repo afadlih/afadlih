@@ -1,16 +1,16 @@
 {
   "$schema": "../schemas/profile.schema.json",
-  "version": "3.5.0",
+  "version": "3.7.0",
   "name": "Ahmad Fadlih Wahyu Sardana",
   "short_name": "Ahmad Fadlih",
   "username": "afadlih",
-  "role": "Full-Stack Developer building reliable AI workflows, automation systems, and on-premise IoT products",
+  "role": "Informatics Engineering student at Politeknik Negeri Malang building reliable full-stack systems, AI workflows, and on-premise IoT products",
   "headline": "I turn complex operational flows into products with explicit states, validated outputs, observable failures, and practical documentation.",
   "location": "Indonesia",
   "portfolio_url": "https://ahmad-fadlih-portfolio.vercel.app",
   "github_url": "https://github.com/afadlih",
   "linkedin_url": "https://id.linkedin.com/in/ahmad-fadlih-wahyu-sardana-706933283",
-  "availability": "Open to full-stack, AI product engineering, workflow automation, and system-integration opportunities.",
+  "availability": "Open to internship, junior engineering, applied AI, full-stack, and system-integration opportunities.",
   "focus_areas": [
     {
       "title": "AI product workflows",
@@ -43,36 +43,12 @@
       "link": "case-studies/orthobreath/README.md"
     },
     {
-      "project": "AquaSense Hardware Simulator",
-      "version": "2.3.0-rc5",
-      "condition": "Release candidate",
-      "updated": "2026-07-31",
-      "focus": "Standalone Wokwi and ESP32 MicroPython simulation, MQTT bridge behavior, firmware workflow, telemetry readiness, and Core reconciliation.",
-      "link": null
-    },
-    {
       "project": "SkripsiOps AI",
       "version": "4.0.0",
       "condition": "Active development",
       "updated": "2026-07-30",
       "focus": "Personal thesis operations workspace with evidence traceability, readiness checks, defense export, workspace isolation, optional grounded RAG, and local Docker workflows.",
       "link": null
-    },
-    {
-      "project": "InternLog AI",
-      "version": "2.8.1",
-      "condition": "Active development",
-      "updated": "2026-07-29",
-      "focus": "Adaptive mentor language for IT and non-IT internships, logbook reliability, document auditing, multi-user foundations, and AI regression tests.",
-      "link": "case-studies/internlog-ai/README.md"
-    },
-    {
-      "project": "Polinema Adaptive TOEIC",
-      "version": "2.3.1",
-      "condition": "Active development",
-      "updated": "2026-07-23",
-      "focus": "Institutional authentication, approval workflows, registration rosters, research freeze controls, media validation, RBAC, audit logging, and pilot-readiness checks.",
-      "link": "case-studies/polinema-adaptive-toeic/README.md"
     }
   ],
   "experience": [
@@ -100,8 +76,20 @@
   "profile_notes": [
     "Private projects are represented through one privacy-reviewed aggregate activity total and sanitized case studies, never repository links.",
     "The engineering activity snapshot uses a rolling 180-day GitHub Search window; it is not a lifetime contribution total.",
-    "Private activity exposes one aggregate commit total plus approved project labels, versions, conditions, dates, and sanitized case studies; per-project counts, branch names, messages, SHAs, and URLs remain undisclosed.",
+    "Commit counts provide activity context only; project quality is demonstrated through evidence, engineering decisions, and deep-dive case studies.",
     "New repositories are detected daily but remain in a review queue until their public presentation is explicitly approved.",
     "A professional public email is intentionally omitted until a durable address is configured."
+  ],
+  "education": [
+    {
+      "institution": "Politeknik Negeri Malang",
+      "english_name": "State Polytechnic of Malang",
+      "program": "D-IV Informatics Engineering",
+      "department": "Department of Information Technology",
+      "status": "Current student",
+      "location": "Malang, Indonesia",
+      "summary": "Developing practical experience in software engineering, applied AI, databases, full-stack systems, and system integration through coursework and independent engineering projects.",
+      "official_url": "https://jti.polinema.ac.id/"
+    }
   ]
 }

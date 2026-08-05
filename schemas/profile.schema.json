@@ -19,6 +19,7 @@
     "availability",
     "focus_areas",
     "current_focus",
+    "education",
     "experience",
     "recognition",
     "engineering_principles",
@@ -101,7 +102,7 @@
     "current_focus": {
       "type": "array",
       "minItems": 3,
-      "maxItems": 8,
+      "maxItems": 3,
       "items": {
         "type": "object",
         "additionalProperties": false,
@@ -211,6 +212,60 @@
       "items": {
         "type": "string",
         "minLength": 15
+      }
+    },
+    "education": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "institution",
+          "english_name",
+          "program",
+          "department",
+          "status",
+          "location",
+          "summary",
+          "official_url"
+        ],
+        "properties": {
+          "institution": {
+            "type": "string",
+            "minLength": 3
+          },
+          "english_name": {
+            "type": "string",
+            "minLength": 3
+          },
+          "program": {
+            "type": "string",
+            "minLength": 3
+          },
+          "department": {
+            "type": "string",
+            "minLength": 3
+          },
+          "status": {
+            "type": "string",
+            "minLength": 3
+          },
+          "location": {
+            "type": "string",
+            "minLength": 3
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 30
+          },
+          "official_url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://"
+          }
+        }
       }
     }
   }

@@ -15,87 +15,51 @@ assert spec.loader is not None
 spec.loader.exec_module(core)
 
 
-def render_visual_header(profile: dict[str, Any]) -> str:
-    return f'''<p align="center">
-  <img src="assets/profile-banner.svg" width="100%" alt="Animated engineering profile banner for {core.esc(profile['name'])}" />
-</p>
-
-<p align="center"><strong>{core.esc(profile['role'])}</strong></p>
-<p align="center">
-  <code>AI WORKFLOWS</code> ·
-  <code>FULL-STACK SYSTEMS</code> ·
-  <code>ON-PREMISE IOT</code> ·
-  <code>SYSTEM INTEGRATION</code>
-</p>
-<p align="center">
-  <a href="{core.esc(profile['portfolio_url'])}">Portfolio</a> ·
-  <a href="{core.esc(profile['linkedin_url'])}">LinkedIn</a> ·
-  <a href="{core.esc(profile['github_url'])}">GitHub</a>
-</p>
-<p align="center">
-  <a href="#current-engineering-focus">Current focus</a> ·
-  <a href="#selected-work">Selected work</a> ·
-  <a href="#github-activity">GitHub activity</a> ·
-  <a href="#contact">Contact</a>
-</p>'''
-
-
 def render_private_activity(activity: dict[str, Any]) -> str:
-    """Render a compact private-work index without per-project commit counts."""
-    rows = [
-        "| Private project | Version | Condition | Latest activity | Deep dive |",
-        "| --- | :---: | --- | :---: | --- |",
-    ]
+    """Render private work as one aggregate plus a collapsed metadata index."""
     ordered = sorted(
         activity["private_projects"],
         key=lambda entry: (entry["latest_commit"], entry["project"].lower()),
         reverse=True,
     )
+    rows = [
+        "| Project | Version | Condition | Latest activity |",
+        "| --- | :---: | --- | :---: |",
+    ]
     for item in ordered:
-        case_study = item.get("case_study")
-        deep_dive = core.md_link("Case study", case_study) if case_study else "Overview only"
         rows.append(
             f"| **{core.esc(item['project'])}** | `{core.esc(item['version'])}` | "
-            f"{core.esc(item['condition'])} | `{core.esc(item['latest_commit'])}` | {deep_dive} |"
+            f"{core.esc(item['condition'])} | `{core.esc(item['latest_commit'])}` |"
         )
 
-    scopes = "\n".join(
-        f"- **{core.esc(item['project'])}** — {core.esc(item['public_summary'])}"
-        for item in ordered
-    )
     summary = activity["summary"]
     aggregate = (
-        f"**Aggregate private activity:** `{int(summary['selected_private_commits'])}` authored commits "
-        f"across `{int(summary['selected_private_projects'])}` approved projects during the rolling "
-        "180-day window. Per-project commit counts are intentionally not published."
+        f"**Private work aggregate:** `{int(summary['selected_private_commits'])}` authored commits "
+        f"across `{int(summary['selected_private_projects'])}` approved projects in the rolling "
+        "180-day snapshot. This is context, not a project-quality score."
     )
-    return aggregate + "\n\n" + "\n".join(rows) + f"""
+    return f'''{aggregate}
 
 <details>
-<summary><strong>Public-safe scope and deep-dive coverage</strong></summary>
+<summary><strong>Private project version and activity index</strong></summary>
 
-{scopes}
+{"\n".join(rows)}
 
-</details>"""
+</details>'''
 
 
 def render_github_activity(_profile: dict[str, Any]) -> str:
     activity = core.load_json(ENGINEERING_PATH)
     window = activity["window"]
     return f'''<p align="center">
-  <img src="assets/engineering-activity.svg" width="100%" alt="180-day authored commit history with sanitized private project aggregates" />
+  <img src="assets/engineering-activity.svg" width="100%" alt="180-day engineering activity overview with privacy-reviewed private aggregate" />
 </p>
-
-<sub>The chart covers authored commits indexed by GitHub Search from {core.esc(window['start'])} through {core.esc(window['end'])}. It is a bounded snapshot, not a lifetime total, and may differ from contribution-calendar counts because GitHub applies different attribution and indexing rules.</sub>
-
-### Private work activity — sanitized
 
 {render_private_activity(activity)}
 
-<sub>Private aggregation is privacy-reviewed. It publishes only the aggregate private commit total plus approved project labels, source-verified versions, development conditions, dates, and sanitized case-study links—never per-project commit counts, private repository URLs, branch names, commit messages, or SHAs.</sub>'''
+<sub>The visualization covers authored commits indexed from {core.esc(window['start'])} through {core.esc(window['end'])}. It is a bounded snapshot rather than a lifetime total, and private repository URLs, branches, SHAs, and commit messages are never published.</sub>'''
 
 
-core.render_visual_header = render_visual_header
 core.render_github_activity = render_github_activity
 
 load_json = core.load_json
