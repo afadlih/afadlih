@@ -11,6 +11,7 @@ on:
       - "scripts/render_profile_readme.py"
       - "scripts/render_public_activity.py"
       - "scripts/validate_local_links.py"
+      - "scripts/validate_repository.py"
       - "tests/test_render_profile.py"
       - "tests/test_public_commit_activity.py"
       - "tests/test_local_links.py"
