@@ -10,8 +10,10 @@ on:
       - "schemas/profile.schema.json"
       - "scripts/render_profile_readme.py"
       - "scripts/render_public_activity.py"
+      - "scripts/validate_local_links.py"
       - "tests/test_render_profile.py"
       - "tests/test_public_commit_activity.py"
+      - "tests/test_local_links.py"
 
 permissions:
   contents: write
