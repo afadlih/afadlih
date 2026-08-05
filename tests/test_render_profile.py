@@ -27,6 +27,7 @@ class ProfileRenderTests(unittest.TestCase):
             + render_profile.validate_activity(activity)
         )
         self.assertEqual([], errors)
+        self.assertEqual(7, len(profile["private_activity"]))
 
     def test_render_contains_focused_sections_and_truthful_labels(self):
         profile, projects, activity = self.load_all()
@@ -38,9 +39,12 @@ class ProfileRenderTests(unittest.TestCase):
             "## Experience & recognition",
             "## More projects",
             "## GitHub activity",
+            "### Private work activity — sanitized",
+            "Latest private commit",
             "## How I work",
             "AquaSense",
             "InternLog AI",
+            "SkripsiOps AI",
             "AI Content Strategy",
             "PT Pindad (Persero)",
             "PKM-KC 2026 Funding Recipient",
@@ -58,8 +62,19 @@ class ProfileRenderTests(unittest.TestCase):
             "readme-typing-svg.demolab.com",
             "github-readme-stats.vercel.app",
             "github-readme-activity-graph.vercel.app",
+            "github.com/afadlih/AquaSense",
+            "github.com/afadlih/Internlog-ai",
+            "github.com/afadlih/OrthoBreath",
         ]:
             self.assertNotIn(forbidden, readme)
+
+    def test_banner_uses_full_name_and_straight_flow(self):
+        banner = (ROOT / "assets" / "profile-banner.svg").read_text(encoding="utf-8")
+        self.assertIn("Ahmad Fadlih Wahyu Sardana", banner)
+        self.assertIn('d="M128 31H150"', banner)
+        self.assertIn('d="M278 31H300"', banner)
+        self.assertIn('marker-end="url(#arrow)"', banner)
+        self.assertNotIn(" C", banner)
 
     def test_requires_three_featured_projects_and_one_public_feature(self):
         _, projects, _ = self.load_all()
