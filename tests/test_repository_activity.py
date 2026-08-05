@@ -20,7 +20,9 @@ class RepositoryActivityTests(unittest.TestCase):
         self.assertEqual(5,len(snapshot['items']))
         dates=[item['pushed_at'] for item in snapshot['items']]
         self.assertEqual(sorted(dates,reverse=True),dates)
-        self.assertEqual('2026-08-04T10:00:00Z',snapshot['as_of'])
+        self.assertEqual('2026-08-04T23:42:15Z',snapshot['as_of'])
+        self.assertEqual('afadlih/afadlih',snapshot['items'][0]['repository'])
+        self.assertEqual(dates[0],snapshot['as_of'])
 
     def test_snapshot_excludes_private_or_archived_repository(self):
         fixture=json.loads(json.dumps(self.fixture))
