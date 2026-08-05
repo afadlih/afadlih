@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
-"""Render the final GitHub README with repository-owned visual assets.
-
-The core renderer keeps profile content and validation in one place. This
-adapter replaces fragile third-party image endpoints with local SVG assets.
-"""
+"""Render the final GitHub README with repository-owned visual assets."""
 from __future__ import annotations
 
 import importlib.util
@@ -43,12 +39,31 @@ def render_visual_header(profile: dict[str, Any]) -> str:
 </p>'''
 
 
-def render_github_activity(_profile: dict[str, Any]) -> str:
-    return '''<p align="center">
-  <img src="assets/public-activity.svg" width="100%" alt="Generated public commit activity from allowlisted repositories" />
+def render_private_activity(profile: dict[str, Any]) -> str:
+    rows = [
+        "| Private project | Latest private commit | Stage | Public-safe scope |",
+        "| --- | --- | --- | --- |",
+    ]
+    for item in sorted(profile["private_activity"], key=lambda entry: entry["latest_commit"], reverse=True):
+        project = core.md_link(core.esc(item["project"]), item.get("case_study")) or f"**{core.esc(item['project'])}**"
+        rows.append(
+            f"| {project} | {core.esc(item['latest_commit'])} | `{core.esc(item['stage'])}` | {core.esc(item['public_summary'])} |"
+        )
+    return "\n".join(rows)
+
+
+def render_github_activity(profile: dict[str, Any]) -> str:
+    return f'''<p align="center">
+  <img src="assets/public-activity.svg" width="100%" alt="Generated public commit activity with a sanitized private work snapshot" />
 </p>
 
-<sub>The chart is generated inside this repository from a bounded GitHub public commit API sample. Private repositories are excluded, and the values are not presented as lifetime totals.</sub>'''
+<sub>The bars are generated from a bounded sample of authored commits in allowlisted public repositories. Private work is shown only as a curated project/date snapshot—never as repository URLs, branches, commit messages, or SHAs.</sub>
+
+### Private work activity — sanitized
+
+{render_private_activity(profile)}
+
+<sub>Private dates were reviewed through authenticated repository access on 2026-08-05. They are intentionally static until the next privacy-reviewed profile update; the public workflow does not receive a cross-repository private token.</sub>'''
 
 
 core.render_visual_header = render_visual_header
