@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="590" viewBox="0 0 1200 590" role="img" aria-labelledby="title desc">
   <title id="title">Six-month engineering activity for afadlih</title>
-  <desc id="desc">Authored commit history grouped by period with privacy-reviewed aggregate counts for selected private projects.</desc>
+  <desc id="desc">Authored commit history grouped by period with one privacy-reviewed aggregate total for selected private projects.</desc>
   <defs>
     <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#07111f"/>
@@ -24,7 +24,7 @@
       .axis { fill:#94a3b8; font:500 9.5px JetBrains Mono,Consolas,monospace; }
       .bar-value { fill:#e2e8f0; font:700 12px JetBrains Mono,Consolas,monospace; }
       .repo { fill:#cbd5e1; font:600 12px Inter,Segoe UI,Arial,sans-serif; }
-      .repo-count { fill:#38bdf8; font:700 12px JetBrains Mono,Consolas,monospace; }
+      .repo-date { fill:#38bdf8; font:700 11px JetBrains Mono,Consolas,monospace; }
       .repo-meta { fill:#64748b; font:500 10px JetBrains Mono,Consolas,monospace; }
       .note { fill:#64748b; font:400 10.5px Inter,Segoe UI,Arial,sans-serif; }
     </style>
@@ -43,7 +43,7 @@
     </g>
     <g transform="translate(334 96)">
       <rect width="262" height="90" rx="14" class="card" />
-      <text x="18" y="30" class="card-label">SELECTED PRIVATE COMMITS</text>
+      <text x="18" y="30" class="card-label">PRIVATE COMMITS · AGGREGATE</text>
       <text x="18" y="68" class="card-value">196</text>
     </g>
     <g transform="translate(620 96)">
@@ -101,29 +101,30 @@
     <text x="756.14" y="495" text-anchor="middle" class="axis">AUG 01–05</text>
     <text x="756.14" y="242.00" text-anchor="middle" class="bar-value">118</text>
 
-  <text x="850" y="222" class="section">LATEST APPROVED PRIVATE WORK · 180 DAYS</text>
-  <line x1="850" y1="232" x2="1140" y2="232" stroke="#334155" stroke-width="1"/>
-    <text x="850" y="270" class="repo">1. AquaSense</text>
-    <text x="1138" y="270" text-anchor="end" class="repo-count">118 commits</text>
-    <text x="868" y="286" class="repo-meta">2.3.0-rc15 · 2026-08-05</text>
-    <text x="850" y="307" class="repo">2. OrthoBreath</text>
-    <text x="1138" y="307" text-anchor="end" class="repo-count">18 commits</text>
-    <text x="868" y="323" class="repo-meta">1.8.0 · 2026-07-31</text>
-    <text x="850" y="344" class="repo">3. AquaSense Hardware Simulator</text>
-    <text x="1138" y="344" text-anchor="end" class="repo-count">3 commits</text>
-    <text x="868" y="360" class="repo-meta">2.3.0-rc5 · 2026-07-31</text>
-    <text x="850" y="381" class="repo">4. SkripsiOps AI</text>
-    <text x="1138" y="381" text-anchor="end" class="repo-count">1 commits</text>
-    <text x="868" y="397" class="repo-meta">4.0.0 · 2026-07-30</text>
-    <text x="850" y="418" class="repo">5. InternLog AI</text>
-    <text x="1138" y="418" text-anchor="end" class="repo-count">39 commits</text>
-    <text x="868" y="434" class="repo-meta">2.8.1 · 2026-07-29</text>
-    <text x="850" y="455" class="repo">6. Polinema Adaptive TOEIC</text>
-    <text x="1138" y="455" text-anchor="end" class="repo-count">4 commits</text>
-    <text x="868" y="471" class="repo-meta">2.3.1 · 2026-07-23</text>
-    <text x="850" y="492" class="repo">7. FormAI</text>
-    <text x="1138" y="492" text-anchor="end" class="repo-count">13 commits</text>
-    <text x="868" y="508" class="repo-meta">0.1.0 · 2026-05-10</text>
+  <text x="830" y="222" class="section">PRIVATE PROJECTS · LATEST ACTIVITY</text>
+  <line x1="830" y1="232" x2="1140" y2="232" stroke="#334155" stroke-width="1"/>
+    <text x="830" y="270" class="repo">1. AquaSense</text>
+    <text x="1138" y="270" text-anchor="end" class="repo-date">2026-08-05</text>
+    <text x="848" y="286" class="repo-meta">2.3.0-rc15 · Release candidate</text>
+    <text x="830" y="307" class="repo">2. OrthoBreath</text>
+    <text x="1138" y="307" text-anchor="end" class="repo-date">2026-07-31</text>
+    <text x="848" y="323" class="repo-meta">1.8.0 · Active prototype</text>
+    <text x="830" y="344" class="repo">3. AquaSense Hardware Simulator</text>
+    <text x="1138" y="344" text-anchor="end" class="repo-date">2026-07-31</text>
+    <text x="848" y="360" class="repo-meta">2.3.0-rc5 · Release candidate</text>
+    <text x="830" y="381" class="repo">4. SkripsiOps AI</text>
+    <text x="1138" y="381" text-anchor="end" class="repo-date">2026-07-30</text>
+    <text x="848" y="397" class="repo-meta">4.0.0 · Active development</text>
+    <text x="830" y="418" class="repo">5. InternLog AI</text>
+    <text x="1138" y="418" text-anchor="end" class="repo-date">2026-07-29</text>
+    <text x="848" y="434" class="repo-meta">2.8.1 · Active development</text>
+    <text x="830" y="455" class="repo">6. Polinema Adaptive TOEIC</text>
+    <text x="1138" y="455" text-anchor="end" class="repo-date">2026-07-23</text>
+    <text x="848" y="471" class="repo-meta">2.3.1 · Active development</text>
+    <text x="830" y="492" class="repo">7. FormAI</text>
+    <text x="1138" y="492" text-anchor="end" class="repo-date">2026-05-10</text>
+    <text x="848" y="508" class="repo-meta">0.1.0 · Prototype maintenance</text>
 
-  <text x="48" y="557" class="note">GitHub Search snapshot, not a lifetime total. Private rows expose only approved labels, versions, counts, and dates—no repository URLs, branches, SHAs, or commit messages.</text>
+  <text x="48" y="550" class="note">GitHub Search snapshot, not a lifetime total. Private commit activity is shown only as one aggregate total.</text>
+  <text x="48" y="567" class="note">Project rows expose approved labels, versions, conditions, and dates—never per-project counts, URLs, branches, SHAs, or commit messages.</text>
 </svg>

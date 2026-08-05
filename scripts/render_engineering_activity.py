@@ -31,7 +31,7 @@ def render_svg(payload: dict[str, Any]) -> str:
     summary = payload["summary"]
     private_projects = sorted(
         payload["private_projects"],
-        key=lambda item: (item["latest_commit"], int(item["commits"]), item["project"].lower()),
+        key=lambda item: (item["latest_commit"], item["project"].lower()),
         reverse=True,
     )
     window = payload["window"]
@@ -74,13 +74,13 @@ def render_svg(payload: dict[str, Any]) -> str:
     for index, item in enumerate(visible_private):
         y = 270 + index * 37
         private_lines.append(
-            f'    <text x="850" y="{y}" class="repo">{index + 1}. {esc(short_label(item["project"]))}</text>'
+            f'    <text x="830" y="{y}" class="repo">{index + 1}. {esc(short_label(item["project"]))}</text>'
         )
         private_lines.append(
-            f'    <text x="1138" y="{y}" text-anchor="end" class="repo-count">{int(item["commits"])} commits</text>'
+            f'    <text x="1138" y="{y}" text-anchor="end" class="repo-date">{esc(item["latest_commit"])}</text>'
         )
         private_lines.append(
-            f'    <text x="868" y="{y + 16}" class="repo-meta">{esc(item["version"])} · {esc(item["latest_commit"])}</text>'
+            f'    <text x="848" y="{y + 16}" class="repo-meta">{esc(item["version"])} · {esc(item["condition"])}</text>'
         )
 
     if len(private_projects) > len(visible_private):
@@ -90,7 +90,7 @@ def render_svg(payload: dict[str, Any]) -> str:
 
     cards = [
         ("AUTHORED COMMITS / 180 DAYS", summary["authored_commits"]),
-        ("SELECTED PRIVATE COMMITS", summary["selected_private_commits"]),
+        ("PRIVATE COMMITS · AGGREGATE", summary["selected_private_commits"]),
         ("PRIVATE PROJECTS TRACKED", summary["selected_private_projects"]),
         ("LATEST PRIVATE UPDATE", summary["latest_private_update"]),
     ]
@@ -107,7 +107,7 @@ def render_svg(payload: dict[str, Any]) -> str:
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">
   <title id="title">Six-month engineering activity for {esc(payload["username"])}</title>
-  <desc id="desc">Authored commit history grouped by period with privacy-reviewed aggregate counts for selected private projects.</desc>
+  <desc id="desc">Authored commit history grouped by period with one privacy-reviewed aggregate total for selected private projects.</desc>
   <defs>
     <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#07111f"/>
@@ -131,7 +131,7 @@ def render_svg(payload: dict[str, Any]) -> str:
       .axis {{ fill:#94a3b8; font:500 9.5px JetBrains Mono,Consolas,monospace; }}
       .bar-value {{ fill:#e2e8f0; font:700 12px JetBrains Mono,Consolas,monospace; }}
       .repo {{ fill:#cbd5e1; font:600 12px Inter,Segoe UI,Arial,sans-serif; }}
-      .repo-count {{ fill:#38bdf8; font:700 12px JetBrains Mono,Consolas,monospace; }}
+      .repo-date {{ fill:#38bdf8; font:700 11px JetBrains Mono,Consolas,monospace; }}
       .repo-meta {{ fill:#64748b; font:500 10px JetBrains Mono,Consolas,monospace; }}
       .note {{ fill:#64748b; font:400 10.5px Inter,Segoe UI,Arial,sans-serif; }}
     </style>
@@ -150,11 +150,12 @@ def render_svg(payload: dict[str, Any]) -> str:
 {chr(10).join(bars)}
 {chr(10).join(labels)}
 
-  <text x="850" y="222" class="section">LATEST APPROVED PRIVATE WORK · 180 DAYS</text>
-  <line x1="850" y1="232" x2="1140" y2="232" stroke="#334155" stroke-width="1"/>
+  <text x="830" y="222" class="section">PRIVATE PROJECTS · LATEST ACTIVITY</text>
+  <line x1="830" y1="232" x2="1140" y2="232" stroke="#334155" stroke-width="1"/>
 {chr(10).join(private_lines)}
 
-  <text x="48" y="557" class="note">GitHub Search snapshot, not a lifetime total. Private rows expose only approved labels, versions, counts, and dates—no repository URLs, branches, SHAs, or commit messages.</text>
+  <text x="48" y="550" class="note">GitHub Search snapshot, not a lifetime total. Private commit activity is shown only as one aggregate total.</text>
+  <text x="48" y="567" class="note">Project rows expose approved labels, versions, conditions, and dates—never per-project counts, URLs, branches, SHAs, or commit messages.</text>
 </svg>
 '''
 

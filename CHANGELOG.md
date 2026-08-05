@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.5.0 — Standardized aggregate activity and case-study index
+
+- removed per-project commit counts from README, SVG, and checked-in activity data;
+- retained one clearly labeled 180-day aggregate for approved private work;
+- standardized the private project index into project, version, condition, latest activity, and deep-dive columns;
+- preserved sanitized case-study links and public-safe project scope;
+- updated validation and regression tests to reject published per-project commit counts;
+- added `docs/PROFILE_CONTENT_STANDARD.md` to keep summary, tables, activity, and case studies consistent.
+
 ## 3.4.0 — Daily refresh and controlled project discovery
 
 - changed activity refresh from weekly to daily at 06:17 WIB;

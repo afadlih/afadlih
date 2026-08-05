@@ -2,7 +2,7 @@
 
 ## Scope
 
-`portfolio/engineering-activity.json` is a rolling 180-day snapshot of commits authored by the profile owner and indexed by GitHub Commit Search. It includes aggregate counts for selected private projects only when authenticated private access is configured.
+`portfolio/engineering-activity.json` is a rolling 180-day snapshot of commits authored by the profile owner and indexed by GitHub Commit Search. It includes one aggregate count across selected private projects only when authenticated private access is configured. Per-project commit counts are queried transiently and are not persisted or rendered.
 
 It is not a lifetime contribution total and may differ from GitHub's contribution calendar because search indexing, attribution, merge commits, email association, repository visibility, and calendar rules are not identical.
 

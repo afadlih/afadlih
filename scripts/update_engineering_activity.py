@@ -213,6 +213,7 @@ def build_snapshot(
         if isinstance(item, dict) and isinstance(item.get("project"), str)
     }
     private_projects: list[dict[str, Any]] = []
+    selected_private_commits = 0
     for approved in enabled_registry_projects(registry):
         project = approved["project"]
         repository = repository_mapping.get(project)
@@ -230,24 +231,23 @@ def build_snapshot(
             if version_resolver is not None
             else current_version
         )
+        selected_private_commits += count
         private_projects.append(
             {
                 "project": project,
                 "version": version,
                 "condition": condition_for(approved, version),
-                "commits": count,
                 "latest_commit": latest_text,
                 "public_summary": approved["public_summary"],
                 "case_study": approved["case_study"],
             }
         )
 
-    private_projects.sort(key=lambda item: (item["latest_commit"], item["commits"], item["project"].lower()), reverse=True)
-    selected_private_commits = sum(int(item["commits"]) for item in private_projects)
+    private_projects.sort(key=lambda item: (item["latest_commit"], item["project"].lower()), reverse=True)
     latest_private_update = max(item["latest_commit"] for item in private_projects)
     return {
         "$schema": "../schemas/engineering-activity.schema.json",
-        "version": "2.1.0",
+        "version": "2.2.0",
         "username": username,
         "source": "Authenticated GitHub commit search snapshot",
         "snapshot_as_of": end.isoformat(),
@@ -280,22 +280,19 @@ def synchronize_profile(
                 "updated": private["latest_commit"],
                 "focus": registry_item["focus"],
                 "link": registry_item["profile_link"],
-                "_commits": int(private["commits"]),
             }
         )
     focus_items.sort(
-        key=lambda item: (item["updated"], item["_commits"], item["project"].lower()),
+        key=lambda item: (item["updated"], item["project"].lower()),
         reverse=True,
     )
-    for item in focus_items:
-        item.pop("_commits", None)
     updated = json.loads(json.dumps(profile))
-    updated["version"] = "3.4.0"
+    updated["version"] = "3.5.0"
     updated["current_focus"] = focus_items[:8]
     updated["profile_notes"] = [
-        "Private projects are represented through privacy-reviewed aggregate counts and sanitized case studies, never repository links.",
+        "Private projects are represented through one privacy-reviewed aggregate activity total and sanitized case studies, never repository links.",
         "The engineering activity snapshot uses a rolling 180-day GitHub Search window; it is not a lifetime contribution total.",
-        "Private activity exposes only approved project labels, versions, conditions, aggregate commit counts, and dates; branch names, messages, SHAs, and URLs remain undisclosed.",
+        "Private activity exposes one aggregate commit total plus approved project labels, versions, conditions, dates, and sanitized case studies; per-project counts, branch names, messages, SHAs, and URLs remain undisclosed.",
         "New repositories are detected daily but remain in a review queue until their public presentation is explicitly approved.",
         "A professional public email is intentionally omitted until a durable address is configured.",
     ]

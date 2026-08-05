@@ -34,7 +34,7 @@ class ProfileRenderTests(unittest.TestCase):
         self.assertEqual("2.3.1", focus["Polinema Adaptive TOEIC"]["version"])
         self.assertEqual("Release candidate", focus["AquaSense"]["condition"])
 
-    def test_render_contains_current_versions_conditions_and_commit_counts(self):
+    def test_render_contains_current_versions_conditions_and_aggregate_activity(self):
         profile, projects, activity = self.load_all()
         readme = render_profile.render_readme(profile, projects, activity)
         for expected in [
@@ -45,14 +45,14 @@ class ProfileRenderTests(unittest.TestCase):
             "## More projects",
             "## GitHub activity",
             "### Private work activity — sanitized",
-            "Authored commits / 180 days",
+            "Aggregate private activity",
+            "Deep dive",
             "Release candidate",
             "Active development",
             "`1.8.0`",
             "`4.0.0`",
             "`2.3.1`",
-            "**118**",
-            "**39**",
+            "`196` authored commits across `7` approved projects",
             "## How I work",
             "AquaSense",
             "InternLog AI",
@@ -76,6 +76,9 @@ class ProfileRenderTests(unittest.TestCase):
             "PUBLIC COMMITS / 30 DAYS",
             "assets/public-activity.svg",
             "api.github.com/repos/",
+            "118 commits",
+            "39 commits",
+            "Authored commits / 180 days",
             "refs/heads/",
         ]:
             self.assertNotIn(forbidden, readme)

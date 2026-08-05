@@ -41,32 +41,42 @@ def render_visual_header(profile: dict[str, Any]) -> str:
 
 
 def render_private_activity(activity: dict[str, Any]) -> str:
+    """Render a compact private-work index without per-project commit counts."""
     rows = [
-        "| Private project | Version and condition | Authored commits / 180 days | Latest authored commit |",
-        "| --- | --- | ---: | --- |",
+        "| Private project | Version | Condition | Latest activity | Deep dive |",
+        "| --- | :---: | --- | :---: | --- |",
     ]
     ordered = sorted(
         activity["private_projects"],
-        key=lambda entry: (entry["latest_commit"], int(entry["commits"]), entry["project"].lower()),
+        key=lambda entry: (entry["latest_commit"], entry["project"].lower()),
         reverse=True,
     )
     for item in ordered:
-        project = core.md_link(core.esc(item["project"]), item.get("case_study")) or f"**{core.esc(item['project'])}**"
+        case_study = item.get("case_study")
+        deep_dive = core.md_link("Case study", case_study) if case_study else "Overview only"
         rows.append(
-            f"| {project} | `{core.esc(item['version'])}`<br>{core.esc(item['condition'])} | "
-            f"**{int(item['commits'])}** | {core.esc(item['latest_commit'])} |"
+            f"| **{core.esc(item['project'])}** | `{core.esc(item['version'])}` | "
+            f"{core.esc(item['condition'])} | `{core.esc(item['latest_commit'])}` | {deep_dive} |"
         )
 
     scopes = "\n".join(
         f"- **{core.esc(item['project'])}** — {core.esc(item['public_summary'])}"
         for item in ordered
     )
-    return "\n".join(rows) + f'''\n\n<details>
-<summary><strong>Public-safe scope represented by each private project</strong></summary>
+    summary = activity["summary"]
+    aggregate = (
+        f"**Aggregate private activity:** `{int(summary['selected_private_commits'])}` authored commits "
+        f"across `{int(summary['selected_private_projects'])}` approved projects during the rolling "
+        "180-day window. Per-project commit counts are intentionally not published."
+    )
+    return aggregate + "\n\n" + "\n".join(rows) + f"""
+
+<details>
+<summary><strong>Public-safe scope and deep-dive coverage</strong></summary>
 
 {scopes}
 
-</details>'''
+</details>"""
 
 
 def render_github_activity(_profile: dict[str, Any]) -> str:
@@ -82,7 +92,7 @@ def render_github_activity(_profile: dict[str, Any]) -> str:
 
 {render_private_activity(activity)}
 
-<sub>Private aggregation is privacy-reviewed. It publishes only approved project labels, source-verified versions, development conditions, aggregate commit counts, and dates—never private repository URLs, branch names, commit messages, or SHAs.</sub>'''
+<sub>Private aggregation is privacy-reviewed. It publishes only the aggregate private commit total plus approved project labels, source-verified versions, development conditions, dates, and sanitized case-study links—never per-project commit counts, private repository URLs, branch names, commit messages, or SHAs.</sub>'''
 
 
 core.render_visual_header = render_visual_header

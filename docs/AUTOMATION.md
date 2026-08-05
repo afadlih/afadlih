@@ -79,7 +79,7 @@ Never commit either secret, raw API responses, private URLs, branch names, SHAs,
 
 ## New project behavior
 
-- Existing approved private projects update version, aggregate commits, latest date, condition policy, and profile order automatically.
+- Existing approved private projects update their version, latest date, condition policy, and profile order automatically. Commit counts are combined into one aggregate private total; per-project counts are not published.
 - Existing approved public repositories update their metadata automatically.
 - New public repositories enter `portfolio/discovered-projects.json` as `pending_review`.
 - New private labels supplied through the encrypted mapping enter the same queue without repository identifiers.

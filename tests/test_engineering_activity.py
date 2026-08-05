@@ -38,9 +38,18 @@ class EngineeringActivityTests(unittest.TestCase):
             if item["enabled"]
         }
         previous_by_name = {item["project"]: item for item in self.previous["private_projects"]}
+        counts_by_project = {
+            "AquaSense": 118,
+            "InternLog AI": 39,
+            "OrthoBreath": 18,
+            "FormAI": 13,
+            "Polinema Adaptive TOEIC": 4,
+            "AquaSense Hardware Simulator": 3,
+            "SkripsiOps AI": 1,
+        }
         self.private_counts = {
             repository: (
-                previous_by_name[project]["commits"],
+                counts_by_project[project],
                 date.fromisoformat(previous_by_name[project]["latest_commit"]),
             )
             for project, repository in self.mapping.items()
@@ -72,7 +81,7 @@ class EngineeringActivityTests(unittest.TestCase):
             today=date(2026, 8, 5),
             searcher=self.fake_searcher,
         )
-        self.assertEqual("2.1.0", snapshot["version"])
+        self.assertEqual("2.2.0", snapshot["version"])
         self.assertEqual(180, snapshot["window"]["days"])
         self.assertEqual("2026-02-07", snapshot["window"]["start"])
         self.assertEqual("2026-08-05", snapshot["window"]["end"])
@@ -84,6 +93,7 @@ class EngineeringActivityTests(unittest.TestCase):
             {item["project"] for item in self.registry["projects"] if item["enabled"]},
             {item["project"] for item in snapshot["private_projects"]},
         )
+        self.assertTrue(all("commits" not in item for item in snapshot["private_projects"]))
 
     def test_semver_condition_changes_release_candidate_to_stable(self):
         aqua = next(item for item in self.registry["projects"] if item["project"] == "AquaSense")
@@ -97,7 +107,8 @@ class EngineeringActivityTests(unittest.TestCase):
         self.assertIn("383", svg)
         self.assertIn("196", svg)
         self.assertIn("AquaSense", svg)
-        self.assertIn("118 commits", svg)
+        self.assertNotIn("118 commits", svg)
+        self.assertIn("PRIVATE COMMITS · AGGREGATE", svg)
         self.assertNotIn("private-owner", svg)
         self.assertNotIn("api.github.com/repos/", svg)
         with tempfile.TemporaryDirectory() as temp:
@@ -111,9 +122,8 @@ class EngineeringActivityTests(unittest.TestCase):
         target = next(item for item in modified["private_projects"] if item["project"] == "InternLog AI")
         target["version"] = "9.9.9"
         target["latest_commit"] = "2026-08-06"
-        target["commits"] = 50
         synchronized = update.synchronize_profile(profile, modified, self.registry)
-        self.assertEqual("3.4.0", synchronized["version"])
+        self.assertEqual("3.5.0", synchronized["version"])
         self.assertEqual("InternLog AI", synchronized["current_focus"][0]["project"])
         self.assertEqual("9.9.9", synchronized["current_focus"][0]["version"])
         self.assertNotIn("FormAI", [item["project"] for item in synchronized["current_focus"]])

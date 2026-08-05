@@ -241,18 +241,20 @@ Designed an operator-facing workflow where users can analyze a form, prepare str
 
 ### Private work activity — sanitized
 
-| Private project | Version and condition | Authored commits / 180 days | Latest authored commit |
-| --- | --- | ---: | --- |
-| [AquaSense](case-studies/aquasense/README.md) | `2.3.0-rc15`<br>Release candidate | **118** | 2026-08-05 |
-| [OrthoBreath](case-studies/orthobreath/README.md) | `1.8.0`<br>Active prototype | **18** | 2026-07-31 |
-| **AquaSense Hardware Simulator** | `2.3.0-rc5`<br>Release candidate | **3** | 2026-07-31 |
-| **SkripsiOps AI** | `4.0.0`<br>Active development | **1** | 2026-07-30 |
-| [InternLog AI](case-studies/internlog-ai/README.md) | `2.8.1`<br>Active development | **39** | 2026-07-29 |
-| [Polinema Adaptive TOEIC](case-studies/polinema-adaptive-toeic/README.md) | `2.3.1`<br>Active development | **4** | 2026-07-23 |
-| [FormAI](case-studies/formai/README.md) | `0.1.0`<br>Prototype maintenance | **13** | 2026-05-10 |
+**Aggregate private activity:** `196` authored commits across `7` approved projects during the rolling 180-day window. Per-project commit counts are intentionally not published.
+
+| Private project | Version | Condition | Latest activity | Deep dive |
+| --- | :---: | --- | :---: | --- |
+| **AquaSense** | `2.3.0-rc15` | Release candidate | `2026-08-05` | [Case study](case-studies/aquasense/README.md) |
+| **OrthoBreath** | `1.8.0` | Active prototype | `2026-07-31` | [Case study](case-studies/orthobreath/README.md) |
+| **AquaSense Hardware Simulator** | `2.3.0-rc5` | Release candidate | `2026-07-31` | Overview only |
+| **SkripsiOps AI** | `4.0.0` | Active development | `2026-07-30` | Overview only |
+| **InternLog AI** | `2.8.1` | Active development | `2026-07-29` | [Case study](case-studies/internlog-ai/README.md) |
+| **Polinema Adaptive TOEIC** | `2.3.1` | Active development | `2026-07-23` | [Case study](case-studies/polinema-adaptive-toeic/README.md) |
+| **FormAI** | `0.1.0` | Prototype maintenance | `2026-05-10` | [Case study](case-studies/formai/README.md) |
 
 <details>
-<summary><strong>Public-safe scope represented by each private project</strong></summary>
+<summary><strong>Public-safe scope and deep-dive coverage</strong></summary>
 
 - **AquaSense** — On-premise IoT operations, edge integration, provisioning safety, release hardening, and operator documentation.
 - **OrthoBreath** — Device topics, examination flows, session policies, Firebase mapping, prototype boundaries, and regression coverage.
@@ -264,7 +266,7 @@ Designed an operator-facing workflow where users can analyze a form, prepare str
 
 </details>
 
-<sub>Private aggregation is privacy-reviewed. It publishes only approved project labels, source-verified versions, development conditions, aggregate commit counts, and dates—never private repository URLs, branch names, commit messages, or SHAs.</sub>
+<sub>Private aggregation is privacy-reviewed. It publishes only the aggregate private commit total plus approved project labels, source-verified versions, development conditions, dates, and sanitized case-study links—never per-project commit counts, private repository URLs, branch names, commit messages, or SHAs.</sub>
 
 ## Public work, recently updated
 
@@ -294,4 +296,4 @@ Open to full-stack, AI product engineering, workflow automation, and system-inte
 
 [Portfolio](https://ahmad-fadlih-portfolio.vercel.app) · [LinkedIn](https://id.linkedin.com/in/ahmad-fadlih-wahyu-sardana-706933283)
 
-<sub>Private projects are represented through privacy-reviewed aggregate counts and sanitized case studies, never repository links.<br>The engineering activity snapshot uses a rolling 180-day GitHub Search window; it is not a lifetime contribution total.<br>Private activity exposes only approved project labels, versions, conditions, aggregate commit counts, and dates; branch names, messages, SHAs, and URLs remain undisclosed.<br>New repositories are detected daily but remain in a review queue until their public presentation is explicitly approved.<br>A professional public email is intentionally omitted until a durable address is configured.</sub>
+<sub>Private projects are represented through one privacy-reviewed aggregate activity total and sanitized case studies, never repository links.<br>The engineering activity snapshot uses a rolling 180-day GitHub Search window; it is not a lifetime contribution total.<br>Private activity exposes one aggregate commit total plus approved project labels, versions, conditions, dates, and sanitized case studies; per-project counts, branch names, messages, SHAs, and URLs remain undisclosed.<br>New repositories are detected daily but remain in a review queue until their public presentation is explicitly approved.<br>A professional public email is intentionally omitted until a durable address is configured.</sub>
