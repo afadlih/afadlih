@@ -50,6 +50,28 @@ class WorkflowTests(unittest.TestCase):
         ]:
             self.assertNotIn(forbidden, text)
 
+    def test_repository_enforces_two_persistent_branches(self):
+        text = (
+            ROOT / ".github" / "workflows" / "update-profile-activity.yml"
+        ).read_text(encoding="utf-8")
+        for expected in [
+            "create:",
+            "enforce-branch-policy:",
+            "main|develop",
+            "Keep only main and develop",
+            "Remove stale branches",
+            "git/refs/heads/$CREATED_BRANCH",
+            "git/refs/heads/$branch",
+            "git merge-base --is-ancestor origin/develop HEAD",
+            "git push origin HEAD:develop",
+        ]:
+            self.assertIn(expected, text)
+
+        self.assertFalse(
+            (ROOT / ".github" / "dependabot.yml").exists(),
+            "Scheduled Dependabot version updates would recreate extra branches.",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -2,19 +2,12 @@ name: Refresh public profile activity
 
 on:
   workflow_dispatch:
+  create:
   schedule:
     # Daily at 06:17 WIB / 23:17 UTC.
     - cron: "17 23 * * *"
   push:
     branches: [main]
-    paths:
-      - "portfolio/activity-sources.json"
-      - "portfolio/profile.json"
-      - "scripts/update_repository_activity.py"
-      - "scripts/update_public_commit_activity.py"
-      - "scripts/render_public_activity.py"
-      - "scripts/render_profile_readme.py"
-      - ".github/workflows/update-profile-activity.yml"
 
 permissions:
   contents: write
@@ -24,7 +17,31 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  enforce-branch-policy:
+    if: github.event_name == 'create' && github.event.ref_type == 'branch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Keep only main and develop
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CREATED_BRANCH: ${{ github.event.ref }}
+        run: |
+          set -euo pipefail
+          case "$CREATED_BRANCH" in
+            main|develop)
+              echo "Persistent branch allowed: $CREATED_BRANCH"
+              ;;
+            *)
+              echo "Deleting non-persistent branch: $CREATED_BRANCH"
+              gh api --method DELETE \
+                "repos/$GITHUB_REPOSITORY/git/refs/heads/$CREATED_BRANCH"
+              ;;
+          esac
+
   update:
+    if: github.event_name != 'create'
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -49,9 +66,30 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git fetch origin main
+          git fetch --prune origin main develop
           git checkout -B main origin/main
           echo "BASE_SHA=$(git rev-parse origin/main)" >> "$GITHUB_ENV"
+
+      - name: Remove stale branches
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          while IFS= read -r branch; do
+            case "$branch" in
+              main|develop)
+                ;;
+              *)
+                echo "Deleting stale branch: $branch"
+                gh api --method DELETE \
+                  "repos/$GITHUB_REPOSITORY/git/refs/heads/$branch"
+                ;;
+            esac
+          done < <(
+            gh api --paginate \
+              "repos/$GITHUB_REPOSITORY/branches?per_page=100" \
+              --jq '.[].name'
+          )
 
       - name: Refresh allowlisted public repository metadata
         env:
@@ -109,3 +147,15 @@ jobs:
 
           # A normal fast-forward push only. Never force-push the profile branch.
           git push origin HEAD:main
+
+      - name: Fast-forward develop when safe
+        run: |
+          set -euo pipefail
+          git fetch origin main develop
+          git reset --hard origin/main
+          if git merge-base --is-ancestor origin/develop HEAD; then
+            git push origin HEAD:develop
+            echo "develop synchronized with main."
+          else
+            echo "::warning::develop contains work not present in main; leaving it unchanged."
+          fi
