@@ -4,23 +4,19 @@
   "username": "afadlih",
   "source": "GitHub public commit API sample",
   "sample_limit_per_repository": 100,
-  "latest_public_commit_at": "2026-08-04T23:42:15Z",
+  "latest_public_commit_at": "2026-08-05T03:10:05Z",
   "window": {
-    "start": "2026-07-06",
-    "end": "2026-08-04",
+    "start": "2026-07-07",
+    "end": "2026-08-05",
     "days": 30
   },
   "summary": {
-    "sampled_commits": 26,
-    "commits_in_window": 7,
-    "active_days": 1,
+    "sampled_commits": 167,
+    "commits_in_window": 8,
+    "active_days": 2,
     "repositories_with_commits": 6
   },
   "daily": [
-    {
-      "date": "2026-07-06",
-      "commits": 0
-    },
     {
       "date": "2026-07-07",
       "commits": 0
@@ -136,28 +132,32 @@
     {
       "date": "2026-08-04",
       "commits": 7
+    },
+    {
+      "date": "2026-08-05",
+      "commits": 1
     }
   ],
   "repositories": [
     {
-      "repository": "afadlih/afadlih",
-      "sampled_commits": 7
+      "repository": "afadlih/smart-clothesline-iot-system",
+      "sampled_commits": 100
     },
     {
-      "repository": "afadlih/smart-clothesline-iot-system",
-      "sampled_commits": 6
+      "repository": "afadlih/Ahmad-Fadlih-Portfolio",
+      "sampled_commits": 32
+    },
+    {
+      "repository": "afadlih/afadlih",
+      "sampled_commits": 23
     },
     {
       "repository": "afadlih/Pemrograman_Berbasis_Framework_Semester_6",
-      "sampled_commits": 5
+      "sampled_commits": 7
     },
     {
       "repository": "afadlih/2341720069_ML_2025",
       "sampled_commits": 4
-    },
-    {
-      "repository": "afadlih/Ahmad-Fadlih-Portfolio",
-      "sampled_commits": 3
     }
   ]
 }
