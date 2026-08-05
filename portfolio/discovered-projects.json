@@ -10,6 +10,51 @@
     "exclude_archived": true,
     "exclude_empty": true
   },
-  "public_candidates": [],
+  "public_candidates": [
+    {
+      "candidate_id": "public-e6081f2b9987",
+      "name": "studying",
+      "repository": "afadlih/studying",
+      "url": "https://github.com/afadlih/studying",
+      "description": null,
+      "pushed_at": "2026-04-01",
+      "language": "HTML",
+      "status": "pending_review",
+      "reason": "Recent public repository is not yet in the approved activity allowlist."
+    },
+    {
+      "candidate_id": "public-ade0d3a2ffeb",
+      "name": "Pemrograman-Mobile",
+      "repository": "afadlih/Pemrograman-Mobile",
+      "url": "https://github.com/afadlih/Pemrograman-Mobile",
+      "description": null,
+      "pushed_at": "2026-04-01",
+      "language": "HTML",
+      "status": "pending_review",
+      "reason": "Recent public repository is not yet in the approved activity allowlist."
+    },
+    {
+      "candidate_id": "public-cda5e8f6a5b8",
+      "name": "E2E-MagangIn",
+      "repository": "afadlih/E2E-MagangIn",
+      "url": "https://github.com/afadlih/E2E-MagangIn",
+      "description": null,
+      "pushed_at": "2026-04-01",
+      "language": "HTML",
+      "status": "pending_review",
+      "reason": "Recent public repository is not yet in the approved activity allowlist."
+    },
+    {
+      "candidate_id": "public-6b9c2f4ac18f",
+      "name": "budget-planner",
+      "repository": "afadlih/budget-planner",
+      "url": "https://github.com/afadlih/budget-planner",
+      "description": null,
+      "pushed_at": "2026-04-01",
+      "language": "CSS",
+      "status": "pending_review",
+      "reason": "Recent public repository is not yet in the approved activity allowlist."
+    }
+  ],
   "private_candidates": []
 }
