@@ -39,6 +39,12 @@ FORBIDDEN_README_TERMS = [
     "github-readme-activity-graph.vercel.app",
     "PUBLIC COMMITS / 30 DAYS",
     "Version / stage",
+    "## What I build",
+    "## Current engineering focus",
+    "## Additional case study",
+    "## More projects",
+    "## Public work, recently updated",
+    "## How I work",
 ]
 ACTION_REF = re.compile(r"^\s*uses:\s*([^\s]+)@([^\s#]+)", re.MULTILINE)
 SHA40 = re.compile(r"^[0-9a-f]{40}$")
@@ -61,14 +67,16 @@ def main() -> int:
             errors.append(f"README must contain exactly one marker: {marker}")
 
     for section in (
-        "## What I build",
-        "## Current engineering focus",
-        "## Selected work",
+        "## Education",
+        "Politeknik Negeri Malang",
+        "D-IV Informatics Engineering",
+        "## Selected engineering work",
+        "## Currently building",
         "## Experience & recognition",
-        "## More projects",
-        "## GitHub activity",
-        "### Private work activity — sanitized",
-        "## How I work",
+        "## Engineering approach",
+        "## Engineering activity",
+        "Private work aggregate",
+        "## Project and case-study library",
         "## Contact",
     ):
         if section not in readme:

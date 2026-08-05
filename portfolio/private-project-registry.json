@@ -1,6 +1,6 @@
 {
   "$schema": "../schemas/private-project-registry.schema.json",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "projects": [
     {
       "project": "AquaSense",
@@ -26,7 +26,7 @@
       "focus": "Standalone Wokwi and ESP32 MicroPython simulation, MQTT bridge behavior, firmware workflow, telemetry readiness, and Core reconciliation.",
       "case_study": null,
       "profile_link": null,
-      "show_in_current_focus": true,
+      "show_in_current_focus": false,
       "version_source": {
         "path": "README.md",
         "strategy": "regex",
@@ -74,7 +74,7 @@
       "focus": "Adaptive mentor language for IT and non-IT internships, logbook reliability, document auditing, multi-user foundations, and AI regression tests.",
       "case_study": "case-studies/internlog-ai/README.md",
       "profile_link": "case-studies/internlog-ai/README.md",
-      "show_in_current_focus": true,
+      "show_in_current_focus": false,
       "version_source": {
         "path": "package.json",
         "strategy": "json",
@@ -90,7 +90,7 @@
       "focus": "Institutional authentication, approval workflows, registration rosters, research freeze controls, media validation, RBAC, audit logging, and pilot-readiness checks.",
       "case_study": "case-studies/polinema-adaptive-toeic/README.md",
       "profile_link": "case-studies/polinema-adaptive-toeic/README.md",
-      "show_in_current_focus": true,
+      "show_in_current_focus": false,
       "version_source": {
         "path": "package.json",
         "strategy": "json",

@@ -287,12 +287,12 @@ def synchronize_profile(
         reverse=True,
     )
     updated = json.loads(json.dumps(profile))
-    updated["version"] = "3.5.0"
-    updated["current_focus"] = focus_items[:8]
+    updated["version"] = "3.7.0"
+    updated["current_focus"] = focus_items[:3]
     updated["profile_notes"] = [
         "Private projects are represented through one privacy-reviewed aggregate activity total and sanitized case studies, never repository links.",
         "The engineering activity snapshot uses a rolling 180-day GitHub Search window; it is not a lifetime contribution total.",
-        "Private activity exposes one aggregate commit total plus approved project labels, versions, conditions, dates, and sanitized case studies; per-project counts, branch names, messages, SHAs, and URLs remain undisclosed.",
+        "Commit counts provide activity context only; project quality is demonstrated through evidence, engineering decisions, and deep-dive case studies.",
         "New repositories are detected daily but remain in a review queue until their public presentation is explicitly approved.",
         "A professional public email is intentionally omitted until a durable address is configured.",
     ]

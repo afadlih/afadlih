@@ -119,14 +119,16 @@ class EngineeringActivityTests(unittest.TestCase):
     def test_profile_is_rebuilt_and_sorted_from_registry(self):
         profile = json.loads((ROOT / "portfolio" / "profile.json").read_text(encoding="utf-8"))
         modified = json.loads(json.dumps(self.previous))
-        target = next(item for item in modified["private_projects"] if item["project"] == "InternLog AI")
+        target = next(item for item in modified["private_projects"] if item["project"] == "SkripsiOps AI")
         target["version"] = "9.9.9"
         target["latest_commit"] = "2026-08-06"
         synchronized = update.synchronize_profile(profile, modified, self.registry)
-        self.assertEqual("3.5.0", synchronized["version"])
-        self.assertEqual("InternLog AI", synchronized["current_focus"][0]["project"])
+        self.assertEqual("3.7.0", synchronized["version"])
+        self.assertEqual("SkripsiOps AI", synchronized["current_focus"][0]["project"])
         self.assertEqual("9.9.9", synchronized["current_focus"][0]["version"])
+        self.assertEqual(3, len(synchronized["current_focus"]))
         self.assertNotIn("FormAI", [item["project"] for item in synchronized["current_focus"]])
+        self.assertNotIn("InternLog AI", [item["project"] for item in synchronized["current_focus"]])
 
     def test_snapshot_contains_no_repository_identifiers(self):
         snapshot = update.build_snapshot(

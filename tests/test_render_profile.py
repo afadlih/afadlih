@@ -31,29 +31,32 @@ class ProfileRenderTests(unittest.TestCase):
         focus = {item["project"]: item for item in profile["current_focus"]}
         self.assertEqual("1.8.0", focus["OrthoBreath"]["version"])
         self.assertEqual("4.0.0", focus["SkripsiOps AI"]["version"])
-        self.assertEqual("2.3.1", focus["Polinema Adaptive TOEIC"]["version"])
         self.assertEqual("Release candidate", focus["AquaSense"]["condition"])
+        self.assertEqual({"AquaSense", "OrthoBreath", "SkripsiOps AI"}, set(focus))
 
-    def test_render_contains_current_versions_conditions_and_aggregate_activity(self):
+    def test_render_contains_scan_first_structure_and_aggregate_activity(self):
         profile, projects, activity = self.load_all()
         readme = render_profile.render_readme(profile, projects, activity)
         for expected in [
-            "## What I build",
-            "## Current engineering focus",
-            "## Selected work",
+            "## Education",
+            "Politeknik Negeri Malang",
+            "State Polytechnic of Malang",
+            "D-IV Informatics Engineering",
+            "Department of Information Technology",
+            "Current student",
+            "## Selected engineering work",
+            "## Currently building",
             "## Experience & recognition",
-            "## More projects",
-            "## GitHub activity",
-            "### Private work activity — sanitized",
-            "Aggregate private activity",
-            "Deep dive",
+            "## Engineering approach",
+            "## Engineering activity",
+            "## Project and case-study library",
+            "Private work aggregate",
+            "Private project version and activity index",
             "Release candidate",
             "Active development",
             "`1.8.0`",
             "`4.0.0`",
-            "`2.3.1`",
-            "`196` authored commits across `7` approved projects",
-            "## How I work",
+            "`196` authored commits",
             "AquaSense",
             "InternLog AI",
             "SkripsiOps AI",
@@ -69,6 +72,12 @@ class ProfileRenderTests(unittest.TestCase):
         ]:
             self.assertIn(expected, readme)
         for forbidden in [
+            "## What I build",
+            "## Current engineering focus",
+            "## Additional case study",
+            "## More projects",
+            "## Public work, recently updated",
+            "## How I work",
             "2341720069@student.belajar.id",
             "hero-monochrome-banner",
             "SIMAK",
@@ -82,6 +91,8 @@ class ProfileRenderTests(unittest.TestCase):
             "refs/heads/",
         ]:
             self.assertNotIn(forbidden, readme)
+        self.assertEqual(3, len(profile["current_focus"]))
+        self.assertEqual(1, len(profile["education"]))
 
     def test_banner_uses_full_name_and_straight_flow(self):
         banner = (ROOT / "assets" / "profile-banner.svg").read_text(encoding="utf-8")
