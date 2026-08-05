@@ -4,7 +4,7 @@
   "title": "Special GitHub profile data",
   "type": "object",
   "additionalProperties": false,
-  "required": ["$schema", "version", "name", "short_name", "username", "role", "headline", "location", "portfolio_url", "github_url", "linkedin_url", "availability", "focus_areas", "current_focus", "experience", "recognition", "engineering_principles", "profile_notes"],
+  "required": ["$schema", "version", "name", "short_name", "username", "role", "headline", "location", "portfolio_url", "github_url", "linkedin_url", "availability", "focus_areas", "current_focus", "private_activity", "experience", "recognition", "engineering_principles", "profile_notes"],
   "properties": {
     "$schema": {"type": "string"},
     "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
@@ -46,6 +46,23 @@
           "updated": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
           "focus": {"type": "string", "minLength": 30},
           "link": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "private_activity": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["project", "latest_commit", "stage", "public_summary", "case_study"],
+        "properties": {
+          "project": {"type": "string", "minLength": 2},
+          "latest_commit": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+          "stage": {"type": "string", "minLength": 2},
+          "public_summary": {"type": "string", "minLength": 30},
+          "case_study": {"type": ["string", "null"], "pattern": "^case-studies/[a-z0-9-]+/README\\.md$"}
         }
       }
     },
