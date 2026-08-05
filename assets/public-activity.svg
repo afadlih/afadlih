@@ -37,7 +37,7 @@
     <g transform="translate(48 92)">
       <rect width="262" height="88" rx="14" class="card" />
       <text x="18" y="29" class="card-label">COMMITS / 30 DAYS</text>
-      <text x="18" y="65" class="card-value">8</text>
+      <text x="18" y="65" class="card-value">10</text>
     </g>
     <g transform="translate(334 92)">
       <rect width="262" height="88" rx="14" class="card" />
@@ -173,8 +173,8 @@
       <title>2026-08-04: 7 sampled commits</title>
       <animate attributeName="opacity" values="0.92;1;0.92" dur="2.8s" begin="0.980s" repeatCount="indefinite" />
     </rect>
-    <rect x="830.83" y="339.71" width="21.17" height="20.29" rx="3" fill="url(#bar)" opacity="0.92">
-      <title>2026-08-05: 1 sampled commits</title>
+    <rect x="830.83" y="299.14" width="21.17" height="60.86" rx="3" fill="url(#bar)" opacity="0.92">
+      <title>2026-08-05: 3 sampled commits</title>
       <animate attributeName="opacity" values="0.92;1;0.92" dur="2.8s" begin="1.015s" repeatCount="indefinite" />
     </rect>
     <text x="82.58" y="384" text-anchor="middle" class="axis">07-07</text>
@@ -192,7 +192,7 @@
     <text x="905" y="276" class="repo">2. Ahmad-Fadlih-Portfolio</text>
     <text x="1138" y="276" text-anchor="end" class="repo-count">32</text>
     <text x="905" y="306" class="repo">3. afadlih</text>
-    <text x="1138" y="306" text-anchor="end" class="repo-count">23</text>
+    <text x="1138" y="306" text-anchor="end" class="repo-count">25</text>
     <text x="905" y="336" class="repo">4. Pemrograman_Berbasis_Fra...</text>
     <text x="1138" y="336" text-anchor="end" class="repo-count">7</text>
     <text x="905" y="366" class="repo">5. 2341720069_ML_2025</text>
