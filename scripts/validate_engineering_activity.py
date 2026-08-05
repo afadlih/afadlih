@@ -61,9 +61,8 @@ def main() -> int:
         errors.append("summary.authored_commits does not equal the sum of period commits")
 
     private_projects = activity["private_projects"]
-    private_total = sum(int(item["commits"]) for item in private_projects)
-    if private_total != int(activity["summary"]["selected_private_commits"]):
-        errors.append("summary.selected_private_commits does not equal private project totals")
+    if int(activity["summary"]["selected_private_commits"]) > int(activity["summary"]["authored_commits"]):
+        errors.append("summary.selected_private_commits cannot exceed authored_commits")
     if len(private_projects) != int(activity["summary"]["selected_private_projects"]):
         errors.append("summary.selected_private_projects does not match the project list")
     if max(item["latest_commit"] for item in private_projects) != activity["summary"]["latest_private_update"]:
@@ -76,6 +75,8 @@ def main() -> int:
         if project in seen:
             errors.append(f"duplicate private activity project: {project}")
         seen.add(project)
+        if "commits" in item:
+            errors.append(f"{project} must not publish a per-project commit count")
         private_by_project[project] = item
 
     enabled_registry = {
@@ -97,7 +98,7 @@ def main() -> int:
         if enabled_registry[item["project"]].get("show_in_current_focus") is True
     ]
     expected_focus.sort(
-        key=lambda item: (item["latest_commit"], int(item["commits"]), item["project"].lower()),
+        key=lambda item: (item["latest_commit"], item["project"].lower()),
         reverse=True,
     )
     profile_focus_names = [item["project"] for item in profile["current_focus"]]

@@ -129,7 +129,6 @@
           "project",
           "version",
           "condition",
-          "commits",
           "latest_commit",
           "public_summary",
           "case_study"
@@ -146,10 +145,6 @@
           "condition": {
             "type": "string",
             "minLength": 3
-          },
-          "commits": {
-            "type": "integer",
-            "minimum": 0
           },
           "latest_commit": {
             "type": "string",

@@ -1,6 +1,6 @@
 {
   "$schema": "../schemas/profile.schema.json",
-  "version": "3.4.0",
+  "version": "3.5.0",
   "name": "Ahmad Fadlih Wahyu Sardana",
   "short_name": "Ahmad Fadlih",
   "username": "afadlih",
@@ -98,9 +98,9 @@
     "Prefer evidence that can be inspected over decorative claims."
   ],
   "profile_notes": [
-    "Private projects are represented through privacy-reviewed aggregate counts and sanitized case studies, never repository links.",
+    "Private projects are represented through one privacy-reviewed aggregate activity total and sanitized case studies, never repository links.",
     "The engineering activity snapshot uses a rolling 180-day GitHub Search window; it is not a lifetime contribution total.",
-    "Private activity exposes only approved project labels, versions, conditions, aggregate commit counts, and dates; branch names, messages, SHAs, and URLs remain undisclosed.",
+    "Private activity exposes one aggregate commit total plus approved project labels, versions, conditions, dates, and sanitized case studies; per-project counts, branch names, messages, SHAs, and URLs remain undisclosed.",
     "New repositories are detected daily but remain in a review queue until their public presentation is explicitly approved.",
     "A professional public email is intentionally omitted until a durable address is configured."
   ]
