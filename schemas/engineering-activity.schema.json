@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/afadlih/afadlih/blob/main/schemas/engineering-activity.schema.json",
+  "title": "Privacy-reviewed engineering activity snapshot",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "version",
+    "username",
+    "source",
+    "snapshot_as_of",
+    "window",
+    "summary",
+    "periods",
+    "private_projects"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "username": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9-]+$"
+    },
+    "source": {
+      "const": "Authenticated GitHub commit search snapshot"
+    },
+    "snapshot_as_of": {
+      "type": "string",
+      "format": "date"
+    },
+    "window": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "end",
+        "days"
+      ],
+      "properties": {
+        "start": {
+          "type": "string",
+          "format": "date"
+        },
+        "end": {
+          "type": "string",
+          "format": "date"
+        },
+        "days": {
+          "const": 180
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authored_commits",
+        "selected_private_commits",
+        "selected_private_projects",
+        "latest_private_update"
+      ],
+      "properties": {
+        "authored_commits": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "selected_private_commits": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "selected_private_projects": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 12
+        },
+        "latest_private_update": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "periods": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "label",
+          "start",
+          "end",
+          "commits"
+        ],
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 3
+          },
+          "start": {
+            "type": "string",
+            "format": "date"
+          },
+          "end": {
+            "type": "string",
+            "format": "date"
+          },
+          "commits": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "private_projects": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "version",
+          "condition",
+          "commits",
+          "latest_commit",
+          "public_summary",
+          "case_study"
+        ],
+        "properties": {
+          "project": {
+            "type": "string",
+            "minLength": 2
+          },
+          "version": {
+            "type": "string",
+            "minLength": 2
+          },
+          "condition": {
+            "type": "string",
+            "minLength": 3
+          },
+          "commits": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "latest_commit": {
+            "type": "string",
+            "format": "date"
+          },
+          "public_summary": {
+            "type": "string",
+            "minLength": 30
+          },
+          "case_study": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^case-studies/[a-z0-9-]+/README\\.md$"
+          }
+        }
+      }
+    }
+  }
+}

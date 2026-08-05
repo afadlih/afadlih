@@ -9,7 +9,6 @@ import json
 import re
 from pathlib import Path
 from typing import Any
-from urllib.parse import quote_plus
 
 ROOT = Path(__file__).resolve().parents[1]
 README_PATH = ROOT / "README.md"
@@ -81,7 +80,7 @@ def validate_profile(profile: dict[str, Any], root: Path = ROOT) -> list[str]:
             if not isinstance(item, dict):
                 errors.append(f"profile.current_focus[{index}] must be an object")
                 continue
-            for field in ("project", "version", "updated", "focus", "link"):
+            for field in ("project", "version", "condition", "updated", "focus", "link"):
                 if field not in item:
                     errors.append(f"profile.current_focus[{index}] missing field: {field}")
             project = item.get("project")
@@ -234,32 +233,16 @@ def project_links(project: dict[str, Any]) -> str:
 
 
 def render_visual_header(profile: dict[str, Any]) -> str:
-    username = profile["username"]
-    typing_lines = [
-        "Building reliable AI product workflows",
-        "Engineering on-premise IoT systems",
-        "Turning complex operations into usable products",
-    ]
-    typing_url = (
-        "https://readme-typing-svg.demolab.com"
-        "?font=JetBrains+Mono&weight=600&size=18&duration=2600&pause=900"
-        "&color=38BDF8&center=true&vCenter=true&width=900&height=42&lines="
-        + ";".join(quote_plus(line) for line in typing_lines)
-    )
     return f'''<p align="center">
   <img src="assets/profile-banner.svg" width="100%" alt="Animated engineering profile banner for {esc(profile['name'])}" />
 </p>
 
-<h1 align="center">{esc(profile['name'])}</h1>
 <p align="center"><strong>{esc(profile['role'])}</strong></p>
 <p align="center">
-  <img src="{esc(typing_url)}" alt="Animated description of current engineering focus" />
-</p>
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username={esc(username)}&label=Profile%20views&color=0ea5e9&style=for-the-badge" alt="Profile views" />
-  <img src="https://img.shields.io/github/followers/{esc(username)}?label=Followers&style=for-the-badge&logo=github&color=0f766e" alt="GitHub followers" />
-  <img src="https://img.shields.io/badge/Focus-Full--Stack%20%2B%20AI-4f46e5?style=for-the-badge" alt="Full-Stack and AI focus" />
-  <img src="https://img.shields.io/badge/Systems-IoT%20%2B%20Automation-0369a1?style=for-the-badge" alt="IoT and automation systems" />
+  <code>AI WORKFLOWS</code> ·
+  <code>FULL-STACK SYSTEMS</code> ·
+  <code>ON-PREMISE IOT</code> ·
+  <code>SYSTEM INTEGRATION</code>
 </p>
 <p align="center">
   <a href="{esc(profile['portfolio_url'])}">Portfolio</a> ·
@@ -282,16 +265,14 @@ def render_focus(profile: dict[str, Any]) -> str:
 
 
 def render_current_focus(profile: dict[str, Any]) -> str:
-    rows = [
-        "| Active project | Version / stage | Latest update | Current engineering focus |",
-        "| --- | --- | --- | --- |",
-    ]
+    entries: list[str] = []
     for item in profile["current_focus"]:
         project = md_link(esc(item["project"]), item.get("link")) or f"**{esc(item['project'])}**"
-        rows.append(
-            f"| {project} | `{esc(item['version'])}` | {esc(item['updated'])} | {esc(item['focus'])} |"
+        entries.append(
+            f"- {project} — `{esc(item['version'])}` · **{esc(item['condition'])}** · "
+            f"latest authored commit `{esc(item['updated'])}`  \n  {esc(item['focus'])}"
         )
-    return "\n".join(rows)
+    return "\n".join(entries)
 
 
 def render_featured(project: dict[str, Any], number: int) -> str:
@@ -342,33 +323,12 @@ def render_supporting(projects: list[dict[str, Any]]) -> str:
     return "\n".join(rows)
 
 
-def render_github_activity(profile: dict[str, Any]) -> str:
-    username = esc(profile["username"])
-    stats_url = (
-        "https://github-readme-stats.vercel.app/api"
-        f"?username={username}&show_icons=true&include_all_commits=true"
-        "&hide_border=true&theme=transparent&rank_icon=github"
-    )
-    language_url = (
-        "https://github-readme-stats.vercel.app/api/top-langs/"
-        f"?username={username}&layout=compact&langs_count=8"
-        "&hide_border=true&theme=transparent"
-        "&exclude_repo=Lectures,studying"
-    )
-    graph_url = (
-        "https://github-readme-activity-graph.vercel.app/graph"
-        f"?username={username}&theme=github-compact&hide_border=true"
-        "&area=true&custom_title=Public%20Contribution%20Activity"
-    )
-    return f'''<p align="center">
-  <img height="175" src="{esc(stats_url)}" alt="GitHub public activity statistics" />
-  <img height="175" src="{esc(language_url)}" alt="Most used languages in public repositories" />
-</p>
-<p align="center">
-  <img width="100%" src="{esc(graph_url)}" alt="Public GitHub contribution activity graph" />
+def render_github_activity(_profile: dict[str, Any]) -> str:
+    return '''<p align="center">
+  <img src="assets/engineering-activity.svg" width="100%" alt="Repository-owned engineering activity visualization" />
 </p>
 
-<sub>Dynamic cards summarize GitHub-visible public activity. Private repository work is represented only through the curated, NDA-safe current-focus snapshot above.</sub>'''
+<sub>Activity is generated from checked-in, privacy-reviewed data. No external statistics-card service is required.</sub>'''
 
 
 def render_activity(payload: dict[str, Any]) -> str:
@@ -428,7 +388,7 @@ def render_readme(profile: dict[str, Any], projects_payload: dict[str, Any], act
 
 {render_current_focus(profile)}
 
-The table above is a curated snapshot of repositories currently under active development. Dates reflect the latest accessible commits reviewed for this profile, not fabricated deployment claims.
+The list above separates source-verified versions from development conditions. Dates are the latest authored commits observed during the privacy-reviewed activity snapshot, not deployment or production-readiness claims.
 
 ## Selected work
 

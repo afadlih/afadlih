@@ -1,0 +1,127 @@
+{
+  "$schema": "../schemas/engineering-activity.schema.json",
+  "version": "2.1.0",
+  "username": "afadlih",
+  "source": "Authenticated GitHub commit search snapshot",
+  "snapshot_as_of": "2026-08-05",
+  "window": {
+    "start": "2026-02-07",
+    "end": "2026-08-05",
+    "days": 180
+  },
+  "summary": {
+    "authored_commits": 383,
+    "selected_private_commits": 196,
+    "selected_private_projects": 7,
+    "latest_private_update": "2026-08-05"
+  },
+  "periods": [
+    {
+      "label": "FEB 07–28",
+      "start": "2026-02-07",
+      "end": "2026-02-28",
+      "commits": 2
+    },
+    {
+      "label": "MAR",
+      "start": "2026-03-01",
+      "end": "2026-03-31",
+      "commits": 0
+    },
+    {
+      "label": "APR",
+      "start": "2026-04-01",
+      "end": "2026-04-30",
+      "commits": 18
+    },
+    {
+      "label": "MAY",
+      "start": "2026-05-01",
+      "end": "2026-05-31",
+      "commits": 116
+    },
+    {
+      "label": "JUN",
+      "start": "2026-06-01",
+      "end": "2026-06-30",
+      "commits": 37
+    },
+    {
+      "label": "JUL",
+      "start": "2026-07-01",
+      "end": "2026-07-31",
+      "commits": 92
+    },
+    {
+      "label": "AUG 01–05",
+      "start": "2026-08-01",
+      "end": "2026-08-05",
+      "commits": 118
+    }
+  ],
+  "private_projects": [
+    {
+      "project": "AquaSense",
+      "version": "2.3.0-rc15",
+      "condition": "Release candidate",
+      "commits": 118,
+      "latest_commit": "2026-08-05",
+      "public_summary": "On-premise IoT operations, edge integration, provisioning safety, release hardening, and operator documentation.",
+      "case_study": "case-studies/aquasense/README.md"
+    },
+    {
+      "project": "OrthoBreath",
+      "version": "1.8.0",
+      "condition": "Active prototype",
+      "commits": 18,
+      "latest_commit": "2026-07-31",
+      "public_summary": "Device topics, examination flows, session policies, Firebase mapping, prototype boundaries, and regression coverage.",
+      "case_study": "case-studies/orthobreath/README.md"
+    },
+    {
+      "project": "AquaSense Hardware Simulator",
+      "version": "2.3.0-rc5",
+      "condition": "Release candidate",
+      "commits": 3,
+      "latest_commit": "2026-07-31",
+      "public_summary": "Standalone Wokwi and ESP32 simulation, MQTT bridge behavior, firmware workflow, and telemetry readiness.",
+      "case_study": null
+    },
+    {
+      "project": "SkripsiOps AI",
+      "version": "4.0.0",
+      "condition": "Active development",
+      "commits": 1,
+      "latest_commit": "2026-07-30",
+      "public_summary": "Evidence-first thesis operations, workspace isolation, readiness checks, defense export, optional grounded RAG, and tests.",
+      "case_study": null
+    },
+    {
+      "project": "InternLog AI",
+      "version": "2.8.1",
+      "condition": "Active development",
+      "commits": 39,
+      "latest_commit": "2026-07-29",
+      "public_summary": "Logbook reliability, bounded AI review, document auditing, multi-user foundations, and regression tests.",
+      "case_study": "case-studies/internlog-ai/README.md"
+    },
+    {
+      "project": "Polinema Adaptive TOEIC",
+      "version": "2.3.1",
+      "condition": "Active development",
+      "commits": 4,
+      "latest_commit": "2026-07-23",
+      "public_summary": "Institutional authentication, approval workflows, research controls, RBAC, media validation, and audit logging.",
+      "case_study": "case-studies/polinema-adaptive-toeic/README.md"
+    },
+    {
+      "project": "FormAI",
+      "version": "0.1.0",
+      "condition": "Prototype maintenance",
+      "commits": 13,
+      "latest_commit": "2026-05-10",
+      "public_summary": "Analyze-first form automation, deterministic mapping, AI fallback, dry-run validation, and row-level diagnostics.",
+      "case_study": "case-studies/formai/README.md"
+    }
+  ]
+}

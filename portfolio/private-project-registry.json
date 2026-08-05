@@ -1,0 +1,118 @@
+{
+  "$schema": "../schemas/private-project-registry.schema.json",
+  "version": "1.0.0",
+  "projects": [
+    {
+      "project": "AquaSense",
+      "enabled": true,
+      "condition": "Release candidate",
+      "public_summary": "On-premise IoT operations, edge integration, provisioning safety, release hardening, and operator documentation.",
+      "focus": "Raspberry Pi 3B+ edge baseline, seven-container on-premise topology, provisioning safety, release hardening, and operator documentation.",
+      "case_study": "case-studies/aquasense/README.md",
+      "profile_link": "case-studies/aquasense/README.md",
+      "show_in_current_focus": true,
+      "version_source": {
+        "path": "package.json",
+        "strategy": "json",
+        "field": "version"
+      },
+      "condition_strategy": "semver"
+    },
+    {
+      "project": "AquaSense Hardware Simulator",
+      "enabled": true,
+      "condition": "Release candidate",
+      "public_summary": "Standalone Wokwi and ESP32 simulation, MQTT bridge behavior, firmware workflow, and telemetry readiness.",
+      "focus": "Standalone Wokwi and ESP32 MicroPython simulation, MQTT bridge behavior, firmware workflow, telemetry readiness, and Core reconciliation.",
+      "case_study": null,
+      "profile_link": null,
+      "show_in_current_focus": true,
+      "version_source": {
+        "path": "README.md",
+        "strategy": "regex",
+        "pattern": "AquaSense Standalone Hardware Simulator\\s+([0-9]+\\.[0-9]+\\.[0-9]+(?:-rc[0-9]+)?)"
+      },
+      "condition_strategy": "semver"
+    },
+    {
+      "project": "OrthoBreath",
+      "enabled": true,
+      "condition": "Active prototype",
+      "public_summary": "Device topics, examination flows, session policies, Firebase mapping, prototype boundaries, and regression coverage.",
+      "focus": "MQTT device topics, examination and breathing-session flows, Firebase mapping, PWA behavior, prototype safeguards, and regression coverage.",
+      "case_study": "case-studies/orthobreath/README.md",
+      "profile_link": "case-studies/orthobreath/README.md",
+      "show_in_current_focus": true,
+      "version_source": {
+        "path": "package.json",
+        "strategy": "json",
+        "field": "version"
+      },
+      "condition_strategy": "fixed"
+    },
+    {
+      "project": "SkripsiOps AI",
+      "enabled": true,
+      "condition": "Active development",
+      "public_summary": "Evidence-first thesis operations, workspace isolation, readiness checks, defense export, optional grounded RAG, and tests.",
+      "focus": "Personal thesis operations workspace with evidence traceability, readiness checks, defense export, workspace isolation, optional grounded RAG, and local Docker workflows.",
+      "case_study": null,
+      "profile_link": null,
+      "show_in_current_focus": true,
+      "version_source": {
+        "path": "package.json",
+        "strategy": "json",
+        "field": "version"
+      },
+      "condition_strategy": "fixed"
+    },
+    {
+      "project": "InternLog AI",
+      "enabled": true,
+      "condition": "Active development",
+      "public_summary": "Logbook reliability, bounded AI review, document auditing, multi-user foundations, and regression tests.",
+      "focus": "Adaptive mentor language for IT and non-IT internships, logbook reliability, document auditing, multi-user foundations, and AI regression tests.",
+      "case_study": "case-studies/internlog-ai/README.md",
+      "profile_link": "case-studies/internlog-ai/README.md",
+      "show_in_current_focus": true,
+      "version_source": {
+        "path": "package.json",
+        "strategy": "json",
+        "field": "version"
+      },
+      "condition_strategy": "fixed"
+    },
+    {
+      "project": "Polinema Adaptive TOEIC",
+      "enabled": true,
+      "condition": "Active development",
+      "public_summary": "Institutional authentication, approval workflows, research controls, RBAC, media validation, and audit logging.",
+      "focus": "Institutional authentication, approval workflows, registration rosters, research freeze controls, media validation, RBAC, audit logging, and pilot-readiness checks.",
+      "case_study": "case-studies/polinema-adaptive-toeic/README.md",
+      "profile_link": "case-studies/polinema-adaptive-toeic/README.md",
+      "show_in_current_focus": true,
+      "version_source": {
+        "path": "package.json",
+        "strategy": "json",
+        "field": "version"
+      },
+      "condition_strategy": "fixed"
+    },
+    {
+      "project": "FormAI",
+      "enabled": true,
+      "condition": "Prototype maintenance",
+      "public_summary": "Analyze-first form automation, deterministic mapping, AI fallback, dry-run validation, and row-level diagnostics.",
+      "focus": "Analyze-first form automation with deterministic field mapping, bounded AI fallback, dry-run validation, and row-level diagnostics.",
+      "case_study": "case-studies/formai/README.md",
+      "profile_link": "case-studies/formai/README.md",
+      "show_in_current_focus": false,
+      "version_source": {
+        "path": "frontend/package.json",
+        "strategy": "json",
+        "field": "version"
+      },
+      "condition_strategy": "fixed"
+    }
+  ]
+}

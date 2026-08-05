@@ -1,0 +1,15 @@
+{
+  "$schema": "../schemas/discovered-projects.schema.json",
+  "version": "1.0.0",
+  "username": "afadlih",
+  "changed_at": "2026-08-05",
+  "policy": {
+    "auto_publish": false,
+    "public_recency_days": 180,
+    "exclude_forks": true,
+    "exclude_archived": true,
+    "exclude_empty": true
+  },
+  "public_candidates": [],
+  "private_candidates": []
+}

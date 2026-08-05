@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Run deterministic maintenance and quality gates for the special profile repo."""
 from __future__ import annotations
+
 import argparse
 import subprocess
 import sys
@@ -16,8 +17,10 @@ def run(command: list[str]) -> None:
 
 def check(strict: bool = False) -> None:
     run([sys.executable, "scripts/validate_schemas.py"])
+    run([sys.executable, "scripts/validate_engineering_activity.py"])
+    run([sys.executable, "scripts/validate_project_discovery.py"])
     run([sys.executable, "scripts/render_profile_readme.py", "--check"])
-    run([sys.executable, "scripts/render_public_activity.py", "--check"])
+    run([sys.executable, "scripts/render_engineering_activity.py", "--check"])
     run([sys.executable, "scripts/validate_proof_assets.py", "--mode", "strict" if strict else "starter"])
     run([sys.executable, "scripts/validate_local_links.py"])
     run([sys.executable, "scripts/validate_markdown_anchors.py"])
@@ -26,7 +29,7 @@ def check(strict: bool = False) -> None:
 
 
 def update() -> None:
-    run([sys.executable, "scripts/render_public_activity.py", "--write"])
+    run([sys.executable, "scripts/render_engineering_activity.py", "--write"])
     run([sys.executable, "scripts/render_profile_readme.py", "--write"])
     run([sys.executable, "scripts/generate_proof_report.py"])
     run([sys.executable, "scripts/write_update_summary.py"])

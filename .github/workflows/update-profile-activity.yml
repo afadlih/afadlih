@@ -1,13 +1,22 @@
-name: Refresh public profile activity
+name: Refresh profile activity
 
 on:
   workflow_dispatch:
   create:
   schedule:
-    # Daily at 06:17 WIB / 23:17 UTC.
+    # Daily at 06:17 WIB / 23:17 UTC on the previous calendar day.
     - cron: "17 23 * * *"
   push:
     branches: [main]
+    paths:
+      - ".github/workflows/update-profile-activity.yml"
+      - "portfolio/activity-sources.json"
+      - "portfolio/private-project-registry.json"
+      - "portfolio/projects.json"
+      - "portfolio/proof-assets.json"
+      - "scripts/**"
+      - "schemas/**"
+      - "requirements-dev.txt"
 
 permissions:
   contents: write
@@ -43,7 +52,7 @@ jobs:
   update:
     if: github.event_name != 'create'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
 
     steps:
       - name: Checkout latest main
@@ -96,10 +105,23 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/update_repository_activity.py --write
 
-      - name: Refresh bounded public commit sample
+      - name: Detect new public and private project candidates
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python scripts/update_public_commit_activity.py --write
+          PROFILE_PRIVATE_REPOSITORIES_JSON: ${{ secrets.PROFILE_PRIVATE_REPOSITORIES_JSON }}
+        run: python scripts/discover_projects.py --write
+
+      - name: Refresh authenticated engineering activity when configured
+        env:
+          PROFILE_ACTIVITY_TOKEN: ${{ secrets.PROFILE_ACTIVITY_TOKEN }}
+          PROFILE_PRIVATE_REPOSITORIES_JSON: ${{ secrets.PROFILE_PRIVATE_REPOSITORIES_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -n "$PROFILE_ACTIVITY_TOKEN" ] && [ -n "$PROFILE_PRIVATE_REPOSITORIES_JSON" ]; then
+            python scripts/update_engineering_activity.py --write
+          else
+            echo "Private activity secrets are not configured; preserving the checked-in privacy-reviewed snapshot."
+          fi
 
       - name: Regenerate repository-owned visuals and README
         run: python scripts/portfolio_ci.py update
@@ -113,14 +135,16 @@ jobs:
           TRACKED_PATHS=(
             README.md
             portfolio/repository-activity.json
-            portfolio/public-commit-activity.json
-            assets/public-activity.svg
+            portfolio/profile.json
+            portfolio/engineering-activity.json
+            portfolio/discovered-projects.json
+            assets/engineering-activity.svg
             docs/PROOF_ASSET_REPORT.md
             docs/GENERATED_UPDATE_SUMMARY.md
           )
           if [ -z "$(git status --porcelain -- "${TRACKED_PATHS[@]}")" ]; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "No public activity changes."
+            echo "No meaningful profile activity changes."
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
             git status --short -- "${TRACKED_PATHS[@]}"
@@ -132,11 +156,13 @@ jobs:
           git add \
             README.md \
             portfolio/repository-activity.json \
-            portfolio/public-commit-activity.json \
-            assets/public-activity.svg \
+            portfolio/profile.json \
+            portfolio/engineering-activity.json \
+            portfolio/discovered-projects.json \
+            assets/engineering-activity.svg \
             docs/PROOF_ASSET_REPORT.md \
             docs/GENERATED_UPDATE_SUMMARY.md
-          git commit -m "chore(profile): refresh public activity assets"
+          git commit -m "chore(profile): refresh daily activity and discovery"
 
           git fetch origin main
           CURRENT_REMOTE_SHA="$(git rev-parse origin/main)"
@@ -145,7 +171,6 @@ jobs:
             exit 1
           fi
 
-          # A normal fast-forward push only. Never force-push the profile branch.
           git push origin HEAD:main
 
       - name: Fast-forward develop when safe

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Validate profile JSON files against the checked-in JSON Schemas."""
 from __future__ import annotations
+
 import json
 from pathlib import Path
 from jsonschema import Draft202012Validator, FormatChecker
@@ -12,7 +13,9 @@ PAIRS = [
     (ROOT / "portfolio/proof-assets.json", ROOT / "schemas/proof-assets.schema.json"),
     (ROOT / "portfolio/activity-sources.json", ROOT / "schemas/activity-sources.schema.json"),
     (ROOT / "portfolio/repository-activity.json", ROOT / "schemas/repository-activity.schema.json"),
-    (ROOT / "portfolio/public-commit-activity.json", ROOT / "schemas/public-commit-activity.schema.json"),
+    (ROOT / "portfolio/engineering-activity.json", ROOT / "schemas/engineering-activity.schema.json"),
+    (ROOT / "portfolio/private-project-registry.json", ROOT / "schemas/private-project-registry.schema.json"),
+    (ROOT / "portfolio/discovered-projects.json", ROOT / "schemas/discovered-projects.schema.json"),
 ]
 
 

@@ -8,6 +8,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 CORE_PATH = ROOT / "scripts" / "render_profile.py"
+ENGINEERING_PATH = ROOT / "portfolio" / "engineering-activity.json"
 spec = importlib.util.spec_from_file_location("render_profile_core", CORE_PATH)
 core = importlib.util.module_from_spec(spec)
 assert spec.loader is not None
@@ -39,31 +40,49 @@ def render_visual_header(profile: dict[str, Any]) -> str:
 </p>'''
 
 
-def render_private_activity(profile: dict[str, Any]) -> str:
+def render_private_activity(activity: dict[str, Any]) -> str:
     rows = [
-        "| Private project | Latest private commit | Stage | Public-safe scope |",
-        "| --- | --- | --- | --- |",
+        "| Private project | Version and condition | Authored commits / 180 days | Latest authored commit |",
+        "| --- | --- | ---: | --- |",
     ]
-    for item in sorted(profile["private_activity"], key=lambda entry: entry["latest_commit"], reverse=True):
+    ordered = sorted(
+        activity["private_projects"],
+        key=lambda entry: (entry["latest_commit"], int(entry["commits"]), entry["project"].lower()),
+        reverse=True,
+    )
+    for item in ordered:
         project = core.md_link(core.esc(item["project"]), item.get("case_study")) or f"**{core.esc(item['project'])}**"
         rows.append(
-            f"| {project} | {core.esc(item['latest_commit'])} | `{core.esc(item['stage'])}` | {core.esc(item['public_summary'])} |"
+            f"| {project} | `{core.esc(item['version'])}`<br>{core.esc(item['condition'])} | "
+            f"**{int(item['commits'])}** | {core.esc(item['latest_commit'])} |"
         )
-    return "\n".join(rows)
+
+    scopes = "\n".join(
+        f"- **{core.esc(item['project'])}** — {core.esc(item['public_summary'])}"
+        for item in ordered
+    )
+    return "\n".join(rows) + f'''\n\n<details>
+<summary><strong>Public-safe scope represented by each private project</strong></summary>
+
+{scopes}
+
+</details>'''
 
 
-def render_github_activity(profile: dict[str, Any]) -> str:
+def render_github_activity(_profile: dict[str, Any]) -> str:
+    activity = core.load_json(ENGINEERING_PATH)
+    window = activity["window"]
     return f'''<p align="center">
-  <img src="assets/public-activity.svg" width="100%" alt="Generated public commit activity with a sanitized private work snapshot" />
+  <img src="assets/engineering-activity.svg" width="100%" alt="180-day authored commit history with sanitized private project aggregates" />
 </p>
 
-<sub>The bars are generated from a bounded sample of authored commits in allowlisted public repositories. Private work is shown only as a curated project/date snapshot—never as repository URLs, branches, commit messages, or SHAs.</sub>
+<sub>The chart covers authored commits indexed by GitHub Search from {core.esc(window['start'])} through {core.esc(window['end'])}. It is a bounded snapshot, not a lifetime total, and may differ from contribution-calendar counts because GitHub applies different attribution and indexing rules.</sub>
 
 ### Private work activity — sanitized
 
-{render_private_activity(profile)}
+{render_private_activity(activity)}
 
-<sub>Private dates were reviewed through authenticated repository access on 2026-08-05. They are intentionally static until the next privacy-reviewed profile update; the public workflow does not receive a cross-repository private token.</sub>'''
+<sub>Private aggregation is privacy-reviewed. It publishes only approved project labels, source-verified versions, development conditions, aggregate commit counts, and dates—never private repository URLs, branch names, commit messages, or SHAs.</sub>'''
 
 
 core.render_visual_header = render_visual_header

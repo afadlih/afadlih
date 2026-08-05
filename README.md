@@ -39,16 +39,20 @@ MQTT boundaries, device state, acknowledged commands, deployment constraints, an
 
 ## Current engineering focus
 
-| Active project | Version / stage | Latest update | Current engineering focus |
-| --- | --- | --- | --- |
-| [AquaSense](case-studies/aquasense/README.md) | `2.3.0-rc15` | 2026-08-05 | Raspberry Pi 3B+ edge baseline, seven-container on-premise topology, provisioning safety, release hardening, and operator documentation. |
-| **AquaSense Hardware Simulator** | `2.3.0-rc5` | 2026-07-31 | Standalone Wokwi and ESP32 MicroPython simulation, MQTT bridge, firmware workflow, telemetry readiness, and Core reconciliation. |
-| [OrthoBreath](case-studies/orthobreath/README.md) | `1.7.2` | 2026-07-31 | MQTT device topics, session policies, dental and breathing examination flows, Firebase mapping, demo boundaries, and regression coverage. |
-| [InternLog AI](case-studies/internlog-ai/README.md) | `2.8.1` | 2026-07-29 | Adaptive mentor language for IT and non-IT internships, logbook reliability, document auditing, multi-user foundations, and AI regression tests. |
-| **SkripsiOps AI** | `Foundation` | 2026-07-30 | Evidence-first thesis workspace bootstrap with Docker environments, initial architecture, documentation, contribution rules, and automated tests. |
-| [Polinema Adaptive TOEIC](case-studies/polinema-adaptive-toeic/README.md) | `Release candidate` | 2026-07-23 | Institutional authentication, password-reset approval, registration rosters, research freeze controls, media validation, RBAC, and audit logging. |
+- [AquaSense](case-studies/aquasense/README.md) — `2.3.0-rc15` · **Release candidate** · latest authored commit `2026-08-05`  
+  Raspberry Pi 3B+ edge baseline, seven-container on-premise topology, provisioning safety, release hardening, and operator documentation.
+- [OrthoBreath](case-studies/orthobreath/README.md) — `1.8.0` · **Active prototype** · latest authored commit `2026-07-31`  
+  MQTT device topics, examination and breathing-session flows, Firebase mapping, PWA behavior, prototype safeguards, and regression coverage.
+- **AquaSense Hardware Simulator** — `2.3.0-rc5` · **Release candidate** · latest authored commit `2026-07-31`  
+  Standalone Wokwi and ESP32 MicroPython simulation, MQTT bridge behavior, firmware workflow, telemetry readiness, and Core reconciliation.
+- **SkripsiOps AI** — `4.0.0` · **Active development** · latest authored commit `2026-07-30`  
+  Personal thesis operations workspace with evidence traceability, readiness checks, defense export, workspace isolation, optional grounded RAG, and local Docker workflows.
+- [InternLog AI](case-studies/internlog-ai/README.md) — `2.8.1` · **Active development** · latest authored commit `2026-07-29`  
+  Adaptive mentor language for IT and non-IT internships, logbook reliability, document auditing, multi-user foundations, and AI regression tests.
+- [Polinema Adaptive TOEIC](case-studies/polinema-adaptive-toeic/README.md) — `2.3.1` · **Active development** · latest authored commit `2026-07-23`  
+  Institutional authentication, approval workflows, registration rosters, research freeze controls, media validation, RBAC, audit logging, and pilot-readiness checks.
 
-The table above is a curated snapshot of repositories currently under active development. Dates reflect the latest accessible commits reviewed for this profile, not fabricated deployment claims.
+The list above separates source-verified versions from development conditions. Dates are the latest authored commits observed during the privacy-reviewed activity snapshot, not deployment or production-readiness claims.
 
 ## Selected work
 
@@ -230,24 +234,37 @@ Designed an operator-facing workflow where users can analyze a form, prepare str
 ## GitHub activity
 
 <p align="center">
-  <img src="assets/public-activity.svg" width="100%" alt="Generated public commit activity with a sanitized private work snapshot" />
+  <img src="assets/engineering-activity.svg" width="100%" alt="180-day authored commit history with sanitized private project aggregates" />
 </p>
 
-<sub>The bars are generated from a bounded sample of authored commits in allowlisted public repositories. Private work is shown only as a curated project/date snapshot—never as repository URLs, branches, commit messages, or SHAs.</sub>
+<sub>The chart covers authored commits indexed by GitHub Search from 2026-02-07 through 2026-08-05. It is a bounded snapshot, not a lifetime total, and may differ from contribution-calendar counts because GitHub applies different attribution and indexing rules.</sub>
 
 ### Private work activity — sanitized
 
-| Private project | Latest private commit | Stage | Public-safe scope |
-| --- | --- | --- | --- |
-| [AquaSense](case-studies/aquasense/README.md) | 2026-08-05 | `2.3.0-rc15` | On-premise IoT operations, edge integration, provisioning safety, release hardening, and operator documentation. |
-| **AquaSense Hardware Simulator** | 2026-07-31 | `2.3.0-rc5` | Standalone Wokwi and ESP32 simulation, MQTT bridge behavior, firmware workflow, and telemetry readiness. |
-| [OrthoBreath](case-studies/orthobreath/README.md) | 2026-07-31 | `1.7.2` | Device topics, examination flows, session policies, Firebase mapping, demo boundaries, and regression coverage. |
-| **SkripsiOps AI** | 2026-07-30 | `Foundation` | Evidence-first thesis workspace bootstrap, Docker environments, initial architecture, documentation, and tests. |
-| [InternLog AI](case-studies/internlog-ai/README.md) | 2026-07-29 | `2.8.1` | Logbook reliability, bounded AI review, document auditing, multi-user foundations, and regression tests. |
-| [Polinema Adaptive TOEIC](case-studies/polinema-adaptive-toeic/README.md) | 2026-07-23 | `Release candidate` | Institutional authentication, approval workflows, research controls, RBAC, media validation, and audit logging. |
-| [FormAI](case-studies/formai/README.md) | 2026-05-10 | `Private case study` | Analyze-first form automation, deterministic mapping, AI fallback, dry-run validation, and row-level diagnostics. |
+| Private project | Version and condition | Authored commits / 180 days | Latest authored commit |
+| --- | --- | ---: | --- |
+| [AquaSense](case-studies/aquasense/README.md) | `2.3.0-rc15`<br>Release candidate | **118** | 2026-08-05 |
+| [OrthoBreath](case-studies/orthobreath/README.md) | `1.8.0`<br>Active prototype | **18** | 2026-07-31 |
+| **AquaSense Hardware Simulator** | `2.3.0-rc5`<br>Release candidate | **3** | 2026-07-31 |
+| **SkripsiOps AI** | `4.0.0`<br>Active development | **1** | 2026-07-30 |
+| [InternLog AI](case-studies/internlog-ai/README.md) | `2.8.1`<br>Active development | **39** | 2026-07-29 |
+| [Polinema Adaptive TOEIC](case-studies/polinema-adaptive-toeic/README.md) | `2.3.1`<br>Active development | **4** | 2026-07-23 |
+| [FormAI](case-studies/formai/README.md) | `0.1.0`<br>Prototype maintenance | **13** | 2026-05-10 |
 
-<sub>Private dates were reviewed through authenticated repository access on 2026-08-05. They are intentionally static until the next privacy-reviewed profile update; the public workflow does not receive a cross-repository private token.</sub>
+<details>
+<summary><strong>Public-safe scope represented by each private project</strong></summary>
+
+- **AquaSense** — On-premise IoT operations, edge integration, provisioning safety, release hardening, and operator documentation.
+- **OrthoBreath** — Device topics, examination flows, session policies, Firebase mapping, prototype boundaries, and regression coverage.
+- **AquaSense Hardware Simulator** — Standalone Wokwi and ESP32 simulation, MQTT bridge behavior, firmware workflow, and telemetry readiness.
+- **SkripsiOps AI** — Evidence-first thesis operations, workspace isolation, readiness checks, defense export, optional grounded RAG, and tests.
+- **InternLog AI** — Logbook reliability, bounded AI review, document auditing, multi-user foundations, and regression tests.
+- **Polinema Adaptive TOEIC** — Institutional authentication, approval workflows, research controls, RBAC, media validation, and audit logging.
+- **FormAI** — Analyze-first form automation, deterministic mapping, AI fallback, dry-run validation, and row-level diagnostics.
+
+</details>
+
+<sub>Private aggregation is privacy-reviewed. It publishes only approved project labels, source-verified versions, development conditions, aggregate commit counts, and dates—never private repository URLs, branch names, commit messages, or SHAs.</sub>
 
 ## Public work, recently updated
 
@@ -277,4 +294,4 @@ Open to full-stack, AI product engineering, workflow automation, and system-inte
 
 [Portfolio](https://ahmad-fadlih-portfolio.vercel.app) · [LinkedIn](https://id.linkedin.com/in/ahmad-fadlih-wahyu-sardana-706933283)
 
-<sub>Private projects are shown through sanitized case studies and curated activity dates, never public repository links.<br>Public projects include source-level evidence pinned to inspectable commits.<br>Private activity dates were reviewed through authenticated repository access on 2026-08-05; branch names, commit messages, SHAs, and URLs remain undisclosed.<br>A professional public email is intentionally omitted until a durable address is configured.</sub>
+<sub>Private projects are represented through privacy-reviewed aggregate counts and sanitized case studies, never repository links.<br>The engineering activity snapshot uses a rolling 180-day GitHub Search window; it is not a lifetime contribution total.<br>Private activity exposes only approved project labels, versions, conditions, aggregate commit counts, and dates; branch names, messages, SHAs, and URLs remain undisclosed.<br>New repositories are detected daily but remain in a review queue until their public presentation is explicitly approved.<br>A professional public email is intentionally omitted until a durable address is configured.</sub>
