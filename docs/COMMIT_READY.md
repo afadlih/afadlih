@@ -1,52 +1,49 @@
-# Commit-Ready Guide
+# Commit-Ready Procedure
 
-## 1. Preview safely
+## 1. Apply the package
 
-From the extracted package:
+Use `APPLY-TO-CURRENT-REPO.ps1` with `-DryRun` first, inspect create/update/delete operations, then apply to the existing clone.
 
-```powershell
-Set-ExecutionPolicy -Scope Process Bypass -Force
+## 2. Work on develop
 
-.\APPLY-TO-CURRENT-REPO.ps1 `
-  -TargetRepository 'D:\path	ofadlih' `
-  -DryRun
+```bash
+git fetch origin --prune
+git switch develop
+git pull --ff-only origin develop
 ```
 
-Review the listed create, update, and delete operations.
+## 3. Validate generated state
 
-## 2. Apply with automatic backup
-
-```powershell
-.\APPLY-TO-CURRENT-REPO.ps1 `
-  -TargetRepository 'D:\path	ofadlih'
+```bash
+python -m pip install -r requirements-dev.txt
+python scripts/portfolio_ci.py update
+python scripts/portfolio_ci.py final-check
+python scripts/review_discovered_project.py list
 ```
 
-The helper validates the package, creates a rollback snapshot and ZIP backup, applies the files, runs `final-check`, and restores the previous worktree if validation fails. The existing `.git` directory is preserved.
+Review `portfolio/discovered-projects.json`. Detection is not publication. Approve or ignore candidates explicitly before merging.
 
-## 3. Review through a branch
+## 4. Commit
 
-```powershell
-Set-Location 'D:\path	ofadlih'
-git switch -c feat/special-profile-v3
+```bash
 git status --short
 git diff --stat
 git diff -- README.md
-python .\scripts\portfolio_ci.py final-check
-```
 
-## 4. Commit and push
-
-```powershell
 git add -A
-git commit -m "feat(profile): focus special profile on inspectable engineering work"
-git push -u origin feat/special-profile-v3
+git commit -m "feat(profile): add daily activity and controlled project discovery"
+git push origin develop
 ```
 
-Open a pull request to `main`, confirm the **Validate special profile** check passes, inspect all links in the rendered README, and then merge.
+## 5. Merge develop to main
 
-## 5. Complete manual settings
+Open a pull request from `develop` to `main`, require the profile validation check, and use a merge commit so the two persistent branches can remain aligned.
 
-Follow:
+## 6. Configure runtime secrets
 
-- `docs/REPOSITORY_SETTINGS.md` for rulesets, Actions permissions, and security;
-- `docs/PROFILE_SETUP.md` for bio, location, website, and pinned repositories.
+Daily public discovery works with the repository token. Private activity and private-label discovery require:
+
+- `PROFILE_ACTIVITY_TOKEN`;
+- `PROFILE_PRIVATE_REPOSITORIES_JSON`.
+
+Without both secrets, checked-in private aggregates are preserved rather than replaced with incomplete data.

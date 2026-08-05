@@ -1,6 +1,7 @@
 from pathlib import Path
 import copy
 import importlib.util
+import json
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,9 +28,13 @@ class ProfileRenderTests(unittest.TestCase):
             + render_profile.validate_activity(activity)
         )
         self.assertEqual([], errors)
-        self.assertEqual(7, len(profile["private_activity"]))
+        focus = {item["project"]: item for item in profile["current_focus"]}
+        self.assertEqual("1.8.0", focus["OrthoBreath"]["version"])
+        self.assertEqual("4.0.0", focus["SkripsiOps AI"]["version"])
+        self.assertEqual("2.3.1", focus["Polinema Adaptive TOEIC"]["version"])
+        self.assertEqual("Release candidate", focus["AquaSense"]["condition"])
 
-    def test_render_contains_focused_sections_and_truthful_labels(self):
+    def test_render_contains_current_versions_conditions_and_commit_counts(self):
         profile, projects, activity = self.load_all()
         readme = render_profile.render_readme(profile, projects, activity)
         for expected in [
@@ -40,7 +45,14 @@ class ProfileRenderTests(unittest.TestCase):
             "## More projects",
             "## GitHub activity",
             "### Private work activity — sanitized",
-            "Latest private commit",
+            "Authored commits / 180 days",
+            "Release candidate",
+            "Active development",
+            "`1.8.0`",
+            "`4.0.0`",
+            "`2.3.1`",
+            "**118**",
+            "**39**",
             "## How I work",
             "AquaSense",
             "InternLog AI",
@@ -52,19 +64,19 @@ class ProfileRenderTests(unittest.TestCase):
             "Private source · Sanitized case study",
             "<!-- PROFILE-ACTIVITY:START -->",
             "assets/profile-banner.svg",
-            "assets/public-activity.svg",
+            "assets/engineering-activity.svg",
+            "New repositories are detected daily",
         ]:
             self.assertIn(expected, readme)
         for forbidden in [
             "2341720069@student.belajar.id",
             "hero-monochrome-banner",
             "SIMAK",
-            "readme-typing-svg.demolab.com",
-            "github-readme-stats.vercel.app",
-            "github-readme-activity-graph.vercel.app",
-            "github.com/afadlih/AquaSense",
-            "github.com/afadlih/Internlog-ai",
-            "github.com/afadlih/OrthoBreath",
+            "Version / stage",
+            "PUBLIC COMMITS / 30 DAYS",
+            "assets/public-activity.svg",
+            "api.github.com/repos/",
+            "refs/heads/",
         ]:
             self.assertNotIn(forbidden, readme)
 

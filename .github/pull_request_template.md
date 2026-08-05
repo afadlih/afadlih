@@ -1,20 +1,27 @@
 ## Summary
 
-Describe the profile claim or repository behavior that changed and why.
+Describe the profile, activity, project, evidence, or automation change.
 
-## Quality checklist
+## Required checks
 
-- [ ] `python scripts/portfolio_ci.py update` was run when structured data changed
-- [ ] `python scripts/portfolio_ci.py final-check` passes
-- [ ] README wording matches the available evidence level
-- [ ] No secret, private URL, credential, internal host, personal record, or company-only value is exposed
-- [ ] Public source claims are tied to inspectable repositories or commits
-- [ ] Private project descriptions remain sanitized and limitation-aware
-- [ ] Local links and Markdown anchors work
+- [ ] `python scripts/portfolio_ci.py final-check` passes.
+- [ ] Generated README and SVG were refreshed with `python scripts/portfolio_ci.py update`.
+- [ ] Public claims match their evidence level.
+- [ ] Private project content remains sanitized and NDA-safe.
+- [ ] No private repository URL, branch, SHA, commit message, credential, or operational data was added.
+- [ ] New project candidates remain unpublished unless explicitly approved.
+- [ ] Current Engineering Focus reflects the intended approved registry entries.
+- [ ] Workflow changes preserve daily, loop-safe, non-force-push behavior.
 
-## Rendered-profile review
+## Project discovery review
 
-- [ ] Exactly three selected projects remain visible
-- [ ] Experience and recognition wording is accurate
-- [ ] Project links open the intended repository or case study
-- [ ] The profile remains readable without relying on decorative images
+- Candidate IDs reviewed:
+- Approved public repositories:
+- Approved private public-safe labels:
+- Ignored candidates:
+
+## Validation output
+
+```text
+Paste the final-check summary here.
+```

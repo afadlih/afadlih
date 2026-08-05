@@ -184,9 +184,9 @@ Write-Host 'Profile package applied and validated.'
 Write-Host "Backup: $backupZip"
 Write-Host 'Review before committing:'
 Write-Host "  Set-Location '$target'"
-Write-Host '  git switch -c feat/special-profile-v3'
+Write-Host '  git switch develop'
 Write-Host '  git status --short'
 Write-Host '  git diff --stat'
 Write-Host '  git diff -- README.md'
 Write-Host '  git add -A'
-Write-Host '  git commit -m "feat(profile): focus special profile on inspectable engineering work"'
+Write-Host '  git commit -m "feat(profile): track 180-day public and private engineering activity"'

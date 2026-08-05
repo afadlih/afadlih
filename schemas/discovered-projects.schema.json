@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/afadlih/afadlih/blob/main/schemas/discovered-projects.schema.json",
+  "title": "Review queue for newly detected projects",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "version",
+    "username",
+    "changed_at",
+    "policy",
+    "public_candidates",
+    "private_candidates"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "username": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9-]+$"
+    },
+    "changed_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "auto_publish",
+        "public_recency_days",
+        "exclude_forks",
+        "exclude_archived",
+        "exclude_empty"
+      ],
+      "properties": {
+        "auto_publish": {
+          "const": false
+        },
+        "public_recency_days": {
+          "type": "integer",
+          "minimum": 30,
+          "maximum": 365
+        },
+        "exclude_forks": {
+          "type": "boolean"
+        },
+        "exclude_archived": {
+          "type": "boolean"
+        },
+        "exclude_empty": {
+          "type": "boolean"
+        }
+      }
+    },
+    "public_candidates": {
+      "type": "array",
+      "maxItems": 30,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "candidate_id",
+          "name",
+          "repository",
+          "url",
+          "description",
+          "pushed_at",
+          "language",
+          "status",
+          "reason"
+        ],
+        "properties": {
+          "candidate_id": {
+            "type": "string",
+            "pattern": "^public-[0-9a-f]{12}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "repository": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://github\\.com/"
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 300
+          },
+          "pushed_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "language": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80
+          },
+          "status": {
+            "enum": [
+              "pending_review",
+              "ignored"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 200
+          }
+        }
+      }
+    },
+    "private_candidates": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "candidate_id",
+          "label",
+          "status",
+          "reason"
+        ],
+        "properties": {
+          "candidate_id": {
+            "type": "string",
+            "pattern": "^private-[0-9a-f]{12}$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 80
+          },
+          "status": {
+            "enum": [
+              "pending_review",
+              "ignored"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 200
+          }
+        }
+      }
+    }
+  }
+}

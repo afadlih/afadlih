@@ -1,17 +1,23 @@
 # Changelog
 
-## 3.0.0 — Focused special profile
+## 3.4.0 — Daily refresh and controlled project discovery
 
-- removed website export, candidate intake, automatic project discovery, and the dense hero banner;
-- rebuilt the README around three selected projects, inspectable evidence, experience, recognition, and engineering principles;
-- changed the selected mix to AquaSense, InternLog AI, and public AI Content Strategy;
-- added truthful labels for private sanitized case studies and public source-verifiable work;
-- added NDA-safe PT Pindad internship context and PKM-KC 2026 OrthoBreath recognition;
-- omitted the temporary student email until a durable professional address is available;
-- replaced incomplete evidence claims with explicit verification boundaries;
-- pinned public source verification to immutable project commits;
-- added JSON Schemas for all maintained profile and activity data;
-- split local-link, Markdown-anchor, and optional external-link validation;
-- hardened GitHub Actions with focused permissions, timeouts, concurrency, full SHA pins, and Dependabot;
-- rebuilt the apply helper with dry-run, backup, staging validation, and rollback;
-- synchronized all release, automation, roadmap, and setup documentation with the simplified architecture.
+- changed activity refresh from weekly to daily at 06:17 WIB;
+- prevented generated bot commits from retriggering the refresh workflow;
+- added an approved private project registry with generic version-source rules;
+- rebuilt Current Engineering Focus automatically from the latest approved private activity;
+- added semver-aware condition updates for release-candidate projects;
+- added public repository discovery and private public-label discovery;
+- enforced `auto_publish: false` for every discovered candidate;
+- added review commands for approving or ignoring candidates;
+- added schemas, privacy validation, workflow regression tests, and documentation;
+- kept private repository identifiers only in encrypted runtime configuration.
+
+## 3.3.0 — 180-day engineering activity and current versions
+
+- replaced the sparse 30-day public sample with a privacy-reviewed 180-day authored-commit history;
+- added aggregate commit counts for seven selected private projects;
+- synchronized current project versions from their source repositories;
+- separated version from development condition;
+- replaced the wide Current Engineering Focus table with a more readable project list;
+- preserved private repository URLs, branches, SHAs, and commit messages outside tracked outputs.

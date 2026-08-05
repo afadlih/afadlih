@@ -1,29 +1,49 @@
-# Public GitHub Profile Setup
+# Profile Setup
 
-The README controls the special profile content, but the compact profile card must be updated manually in GitHub settings.
+## GitHub profile repository
 
-## Recommended bio
+The public profile is rendered from the `README.md` in the special repository `afadlih/afadlih`.
 
-```text
-Full-Stack Developer building reliable AI workflows, automation systems, and on-premise IoT products.
+## Local setup
+
+```bash
+python -m pip install -r requirements-dev.txt
+python scripts/portfolio_ci.py final-check
 ```
 
-## Recommended profile fields
+## Persistent branch model
 
-- **Location:** Indonesia
-- **Website:** `https://ahmad-fadlih-portfolio.vercel.app`
-- **Company:** leave blank unless the current internship may be publicly listed
-- **Public email:** leave blank until a durable professional address is available
+- `main` — public profile and generated daily activity;
+- `develop` — manual edits and candidate approval.
 
-Avoid using a temporary student email. Keep the LinkedIn URL in the README where it is easier to maintain and explain.
+## Daily automation secrets
 
-## Pinned repositories
+In repository Settings → Secrets and variables → Actions, configure:
 
-Prioritize repositories that provide complementary evidence:
+### `PROFILE_ACTIVITY_TOKEN`
 
-1. the special profile repository;
-2. AI Content Strategy — public AI workflow and source validation;
-3. Smart Clothesline IoT — realtime and IoT implementation;
-4. one polished repository that best demonstrates testing, documentation, and deployability.
+Fine-grained read-only token limited to the private projects approved for aggregate activity and version reading.
 
-Do not pin private-project shells or repositories whose README no longer represents the current implementation.
+### `PROFILE_PRIVATE_REPOSITORIES_JSON`
+
+Encrypted JSON mapping public-safe labels to private repository identifiers. Labels must match `portfolio/private-project-registry.json`.
+
+Example shape:
+
+```json
+{
+  "Approved public label": "owner/private-repository"
+}
+```
+
+Do not place real private repository identifiers in tracked documentation, tests, or JSON.
+
+## New projects
+
+The workflow scans public repositories daily and compares encrypted private labels against the approved registry. Review candidates with:
+
+```bash
+python scripts/review_discovered_project.py list
+```
+
+See [Controlled Project Discovery](PROJECT_DISCOVERY.md).

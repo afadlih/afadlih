@@ -68,6 +68,7 @@ def main() -> int:
         "- Confirm every public claim matches its evidence level.",
         "- Confirm private project material remains sanitized and NDA-safe.",
         "- Inspect the rendered README links and activity dates.",
+        "- Review portfolio/discovered-projects.json; candidates must remain pending or explicitly ignored until approved.",
         "- Do not add screenshots, logs, or metrics without revision and privacy review.",
         "",
     ])

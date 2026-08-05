@@ -4,20 +4,77 @@
   "title": "Special GitHub profile data",
   "type": "object",
   "additionalProperties": false,
-  "required": ["$schema", "version", "name", "short_name", "username", "role", "headline", "location", "portfolio_url", "github_url", "linkedin_url", "availability", "focus_areas", "current_focus", "private_activity", "experience", "recognition", "engineering_principles", "profile_notes"],
+  "required": [
+    "$schema",
+    "version",
+    "name",
+    "short_name",
+    "username",
+    "role",
+    "headline",
+    "location",
+    "portfolio_url",
+    "github_url",
+    "linkedin_url",
+    "availability",
+    "focus_areas",
+    "current_focus",
+    "experience",
+    "recognition",
+    "engineering_principles",
+    "profile_notes"
+  ],
   "properties": {
-    "$schema": {"type": "string"},
-    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
-    "name": {"type": "string", "minLength": 2},
-    "short_name": {"type": "string", "minLength": 2},
-    "username": {"type": "string", "pattern": "^[A-Za-z0-9-]+$"},
-    "role": {"type": "string", "minLength": 20},
-    "headline": {"type": "string", "minLength": 30},
-    "location": {"type": "string", "minLength": 2},
-    "portfolio_url": {"type": "string", "format": "uri", "pattern": "^https://"},
-    "github_url": {"type": "string", "format": "uri", "pattern": "^https://github\\.com/"},
-    "linkedin_url": {"type": "string", "format": "uri", "pattern": "^https://"},
-    "availability": {"type": "string", "minLength": 20},
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 2
+    },
+    "short_name": {
+      "type": "string",
+      "minLength": 2
+    },
+    "username": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9-]+$"
+    },
+    "role": {
+      "type": "string",
+      "minLength": 20
+    },
+    "headline": {
+      "type": "string",
+      "minLength": 30
+    },
+    "location": {
+      "type": "string",
+      "minLength": 2
+    },
+    "portfolio_url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "github_url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://github\\.com/"
+    },
+    "linkedin_url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "availability": {
+      "type": "string",
+      "minLength": 20
+    },
     "focus_areas": {
       "type": "array",
       "minItems": 3,
@@ -25,10 +82,19 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["title", "description"],
+        "required": [
+          "title",
+          "description"
+        ],
         "properties": {
-          "title": {"type": "string", "minLength": 3},
-          "description": {"type": "string", "minLength": 20}
+          "title": {
+            "type": "string",
+            "minLength": 3
+          },
+          "description": {
+            "type": "string",
+            "minLength": 20
+          }
         }
       }
     },
@@ -39,30 +105,41 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["project", "version", "updated", "focus", "link"],
+        "required": [
+          "project",
+          "version",
+          "condition",
+          "updated",
+          "focus",
+          "link"
+        ],
         "properties": {
-          "project": {"type": "string", "minLength": 2},
-          "version": {"type": "string", "minLength": 2},
-          "updated": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
-          "focus": {"type": "string", "minLength": 30},
-          "link": {"type": ["string", "null"]}
-        }
-      }
-    },
-    "private_activity": {
-      "type": "array",
-      "minItems": 1,
-      "maxItems": 8,
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": ["project", "latest_commit", "stage", "public_summary", "case_study"],
-        "properties": {
-          "project": {"type": "string", "minLength": 2},
-          "latest_commit": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
-          "stage": {"type": "string", "minLength": 2},
-          "public_summary": {"type": "string", "minLength": 30},
-          "case_study": {"type": ["string", "null"], "pattern": "^case-studies/[a-z0-9-]+/README\\.md$"}
+          "project": {
+            "type": "string",
+            "minLength": 2
+          },
+          "version": {
+            "type": "string",
+            "minLength": 2
+          },
+          "condition": {
+            "type": "string",
+            "minLength": 3
+          },
+          "updated": {
+            "type": "string",
+            "format": "date"
+          },
+          "focus": {
+            "type": "string",
+            "minLength": 30
+          },
+          "link": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
         }
       }
     },
@@ -72,12 +149,26 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["organization", "title", "period", "summary"],
+        "required": [
+          "organization",
+          "title",
+          "period",
+          "summary"
+        ],
         "properties": {
-          "organization": {"type": "string"},
-          "title": {"type": "string"},
-          "period": {"type": "string"},
-          "summary": {"type": "string", "minLength": 30}
+          "organization": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "period": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 30
+          }
         }
       }
     },
@@ -87,15 +178,40 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["title", "project", "summary"],
+        "required": [
+          "title",
+          "project",
+          "summary"
+        ],
         "properties": {
-          "title": {"type": "string"},
-          "project": {"type": "string"},
-          "summary": {"type": "string", "minLength": 30}
+          "title": {
+            "type": "string"
+          },
+          "project": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 30
+          }
         }
       }
     },
-    "engineering_principles": {"type": "array", "minItems": 4, "items": {"type": "string", "minLength": 15}},
-    "profile_notes": {"type": "array", "minItems": 2, "items": {"type": "string", "minLength": 15}}
+    "engineering_principles": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "string",
+        "minLength": 15
+      }
+    },
+    "profile_notes": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "string",
+        "minLength": 15
+      }
+    }
   }
 }
