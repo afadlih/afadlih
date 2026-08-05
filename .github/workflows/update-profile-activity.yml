@@ -18,7 +18,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 concurrency:
   group: update-profile-activity
@@ -46,14 +45,13 @@ jobs:
       - name: Install validation dependencies
         run: python -m pip install --disable-pip-version-check -r requirements-dev.txt
 
-      - name: Start automation branch from current main
+      - name: Prepare current main
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git fetch origin main
-          BRANCH="automation/profile-activity"
-          git checkout -B "$BRANCH" origin/main
-          echo "BRANCH=$BRANCH" >> "$GITHUB_ENV"
+          git checkout -B main origin/main
+          echo "BASE_SHA=$(git rev-parse origin/main)" >> "$GITHUB_ENV"
 
       - name: Refresh allowlisted public repository metadata
         env:
@@ -71,7 +69,7 @@ jobs:
       - name: Run final profile quality gate
         run: python scripts/portfolio_ci.py final-check
 
-      - name: Detect meaningful changes
+      - name: Detect meaningful generated changes
         id: diff
         run: |
           TRACKED_PATHS=(
@@ -90,7 +88,7 @@ jobs:
             git status --short -- "${TRACKED_PATHS[@]}"
           fi
 
-      - name: Commit and push automation branch
+      - name: Commit and fast-forward main
         if: steps.diff.outputs.changed == 'true'
         run: |
           git add \
@@ -101,32 +99,13 @@ jobs:
             docs/PROOF_ASSET_REPORT.md \
             docs/GENERATED_UPDATE_SUMMARY.md
           git commit -m "chore(profile): refresh public activity assets"
-          git push --force-with-lease origin "HEAD:$BRANCH"
 
-      - name: Create or update pull request
-        if: steps.diff.outputs.changed == 'true'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          PR_NUMBER="$(
-            gh pr list \
-              --repo "$GITHUB_REPOSITORY" \
-              --base main \
-              --head "$BRANCH" \
-              --state open \
-              --json number \
-              --jq '.[0].number // empty'
-          )"
-          if [ -n "$PR_NUMBER" ]; then
-            gh pr edit "$PR_NUMBER" \
-              --repo "$GITHUB_REPOSITORY" \
-              --title "chore(profile): refresh public activity assets" \
-              --body-file docs/GENERATED_UPDATE_SUMMARY.md
-          else
-            gh pr create \
-              --repo "$GITHUB_REPOSITORY" \
-              --base main \
-              --head "$BRANCH" \
-              --title "chore(profile): refresh public activity assets" \
-              --body-file docs/GENERATED_UPDATE_SUMMARY.md
+          git fetch origin main
+          CURRENT_REMOTE_SHA="$(git rev-parse origin/main)"
+          if [ "$CURRENT_REMOTE_SHA" != "$BASE_SHA" ]; then
+            echo "::error::main moved during generation; refusing a stale update. Re-run the workflow."
+            exit 1
           fi
+
+          # A normal fast-forward push only. Never force-push the profile branch.
+          git push origin HEAD:main

@@ -4,22 +4,50 @@ These settings are intentionally documented rather than changed by source code. 
 
 ## Branch protection for `main`
 
-Create a ruleset targeting `main` and enable:
+The profile has two write paths:
 
-- require a pull request before merging;
-- require the `Validate special profile / validate` status check;
-- require branches to be up to date before merging;
+1. Human changes should use pull requests and pass `Validate special profile / validate`.
+2. The scheduled activity workflow performs a normal fast-forward update only after the same complete `final-check` succeeds.
+
+Recommended ruleset:
+
+- require the `Validate special profile / validate` status check for pull requests;
 - block force pushes and branch deletion;
-- require conversation resolution before merging;
-- allow repository administrators to bypass only for recovery.
+- require conversation resolution before merging human pull requests;
+- allow repository administrators to bypass only for recovery;
+- do not configure a rule that blocks the repository `GITHUB_TOKEN` from making the validated fast-forward activity update.
 
-The scheduled activity workflow opens a pull request, so it does not require a branch-protection bypass.
+The activity workflow never force-pushes. It records the starting `main` SHA, regenerates the data and local SVG, runs the complete quality gate, fetches `main` again, and refuses the update if `main` moved during generation.
+
+If the repository is changed to require a pull request for every actor, enable **Allow GitHub Actions to create and approve pull requests** first and deliberately switch the workflow back to PR mode. Without that repository setting, `GITHUB_TOKEN` cannot create the automation PR.
 
 ## Actions permissions
 
-Use **Read repository contents permission** as the default. Write permissions are scoped only to `update-profile-activity.yml`, which needs `contents: write` and `pull-requests: write` to maintain its automation branch and pull request.
+Use **Read repository contents permission** as the default. Write permission is scoped only inside `update-profile-activity.yml`:
 
-Do not add a personal access token. The workflows are designed to use the repository `GITHUB_TOKEN` only.
+```yaml
+permissions:
+  contents: write
+```
+
+The workflow does not need `pull-requests: write`, a personal access token, or a force push.
+
+## Activity workflow safety boundary
+
+The scheduled workflow:
+
+1. checks out the latest `origin/main`;
+2. records the starting commit SHA;
+3. queries only allowlisted public repositories;
+4. excludes private, archived, and disabled repositories;
+5. writes repository metadata and a bounded authored-commit sample;
+6. regenerates the repository-owned SVG and README;
+7. runs schema, proof, link, anchor, repository-policy, and unit-test gates;
+8. commits only meaningful generated changes;
+9. verifies that remote `main` still matches the starting SHA;
+10. performs a normal fast-forward push to `main`.
+
+Generated files are not included in the workflow's `push.paths` trigger, so the bot commit does not create a refresh loop.
 
 ## Security
 
