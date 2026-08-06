@@ -1,16 +1,24 @@
 {
   "$schema": "../schemas/repository-activity.schema.json",
   "version": "2.0.0",
-  "as_of": "2026-08-05T13:23:33Z",
+  "as_of": "2026-08-05T15:03:58Z",
   "source": "GitHub repository metadata",
   "items": [
+    {
+      "name": "Ahmad Fadlih Portfolio",
+      "repository": "afadlih/Ahmad-Fadlih-Portfolio",
+      "url": "https://github.com/afadlih/Ahmad-Fadlih-Portfolio",
+      "description": null,
+      "language": "TypeScript",
+      "pushed_at": "2026-08-05T15:03:58Z"
+    },
     {
       "name": "GitHub Profile System",
       "repository": "afadlih/afadlih",
       "url": "https://github.com/afadlih/afadlih",
       "description": "Config files for my GitHub profile.",
       "language": "Python",
-      "pushed_at": "2026-08-05T13:23:33Z"
+      "pushed_at": "2026-08-05T13:23:50Z"
     },
     {
       "name": "Smart Clothesline IoT",
@@ -19,14 +27,6 @@
       "description": null,
       "language": "TypeScript",
       "pushed_at": "2026-06-10T01:44:07Z"
-    },
-    {
-      "name": "Ahmad Fadlih Portfolio",
-      "repository": "afadlih/Ahmad-Fadlih-Portfolio",
-      "url": "https://github.com/afadlih/Ahmad-Fadlih-Portfolio",
-      "description": null,
-      "language": "TypeScript",
-      "pushed_at": "2026-05-22T00:02:05Z"
     },
     {
       "name": "AI Content Strategy",
