@@ -1,9 +1,17 @@
 {
   "$schema": "../schemas/repository-activity.schema.json",
   "version": "2.0.0",
-  "as_of": "2026-08-12T03:44:57Z",
+  "as_of": "2026-08-13T00:00:55Z",
   "source": "GitHub repository metadata",
   "items": [
+    {
+      "name": "GitHub Profile System",
+      "repository": "afadlih/afadlih",
+      "url": "https://github.com/afadlih/afadlih",
+      "description": "Config files for my GitHub profile.",
+      "language": "Python",
+      "pushed_at": "2026-08-13T00:00:55Z"
+    },
     {
       "name": "Ahmad Fadlih Portfolio",
       "repository": "afadlih/Ahmad-Fadlih-Portfolio",
@@ -11,14 +19,6 @@
       "description": null,
       "language": "TypeScript",
       "pushed_at": "2026-08-12T03:44:57Z"
-    },
-    {
-      "name": "GitHub Profile System",
-      "repository": "afadlih/afadlih",
-      "url": "https://github.com/afadlih/afadlih",
-      "description": "Config files for my GitHub profile.",
-      "language": "Python",
-      "pushed_at": "2026-08-12T00:02:15Z"
     },
     {
       "name": "Smart Clothesline IoT",
