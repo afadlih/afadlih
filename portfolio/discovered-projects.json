@@ -2,7 +2,7 @@
   "$schema": "../schemas/discovered-projects.schema.json",
   "version": "1.0.0",
   "username": "afadlih",
-  "changed_at": "2026-08-05",
+  "changed_at": "2026-09-21",
   "policy": {
     "auto_publish": false,
     "public_recency_days": 180,
@@ -11,6 +11,17 @@
     "exclude_empty": true
   },
   "public_candidates": [
+    {
+      "candidate_id": "public-5cd63181bd36",
+      "name": "research-operating-system",
+      "repository": "afadlih/research-operating-system",
+      "url": "https://github.com/afadlih/research-operating-system",
+      "description": "A modular framework for using AI as a disciplined research collaborator — not an answer generator.",
+      "pushed_at": "2026-09-20",
+      "language": null,
+      "status": "pending_review",
+      "reason": "Recent public repository is not yet in the approved activity allowlist."
+    },
     {
       "candidate_id": "public-e6081f2b9987",
       "name": "studying",
